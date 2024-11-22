@@ -41,7 +41,7 @@ La classe `Point` comportera au moins les méthodes suivantes :
 - `__init__(self, x, y)` : constructeur d’un point à partir de ses coordonnées cartésiennes.
 - `x(self), y(self)` : retourne les coordonnées cartésiennes du point.
 - `r(self), t(self)` : retourne les coordonnées polaires du point (voir ci-dessous).
-- `__str__(self)` : renvoie les coordonnées du point sous format texte. Si on crée un poit d'abscisse 2 et d'ordonnée 3, la fonction retournera $$(2.0, 3.0)$$.
+- `__str__(self)` : renvoie les coordonnées du point sous format texte. Si on crée un point d'abscisse 2 et d'ordonnée 3, la fonction retournera $$(2.0, 3.0)$$.
 - `__eq__(self, autre_point)` : comparaison répondant à la question « les deux points représentent-ils deux points identiques ? ».
 - `homothety(self, k)` : appliquer au point une homothétie de centre $$(0, 0)$$ et de rapport $$k$$ (k est un flottant). Pour cela, on multiplie les coordonnées $$(x, y)$$ par $$k$$ pour obtenir $$(kx, ky)$$.
 - `translation(self, dx, dy)` : appliquer au point une translation de vecteur $$(dx, dy)$$. Cela consiste à remplacer $$(x, y)$$ par $$(x + dx, y + dy)$$.

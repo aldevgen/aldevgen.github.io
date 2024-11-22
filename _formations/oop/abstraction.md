@@ -56,8 +56,8 @@ classDiagram
 
    - Le rectangle est défini par une longueur (`length`) et une largeur (`width`).
    - Implémenter les méthodes `area()` et `perimeter()` pour cette classe :
-     * L'aire d'un rectangle est `length * width`.
-     * Le périmètre d'un rectangle est `2 * (length + width)`.
+     - L'aire d'un rectangle est `length * width`.
+     - Le périmètre d'un rectangle est `2 * (length + width)`.
        <br/><br/>
 
 3. **Créer une classe `Square` (hérite de `Rectangle`)** :
@@ -71,8 +71,8 @@ classDiagram
 
    - Le cercle est défini par un rayon (`radius`).
    - Implémenter les méthodes `area()` et `perimeter()` pour cette classe :
-     * L'aire d'un cercle est calculée avec la formule $$\pi r^2$$ où $$r$$ est le rayon.
-     * Le périmètre (ou la circonférence) d'un cercle est $$2\pi r$$ où $$r$$ est le rayon.
+     - L'aire d'un cercle est calculée avec la formule $$\pi r^2$$ où $$r$$ est le rayon.
+     - Le périmètre (ou la circonférence) d'un cercle est $$2\pi r$$ où $$r$$ est le rayon.
    - Importer le module [`math`](https://docs.python.org/3/library/math.html) pour obtenir la valeur de π (`math.pi`).
      <br/><br/>
 

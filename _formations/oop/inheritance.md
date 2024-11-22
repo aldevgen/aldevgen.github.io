@@ -31,7 +31,7 @@ L'héritage est un mécanisme qui permet de créer une classe enfant qui hérite
 >
 > - nom du fichier : `poisson_rouge.py`
 > - nom de la classe : `class PoissonRouge`
-> {: .block-warning }
+>   {: .block-warning }
 
 ## Exercice : gestion des employés d'un restaurant
 
