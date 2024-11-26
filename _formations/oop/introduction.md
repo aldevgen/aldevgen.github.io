@@ -3,7 +3,7 @@ layout: page
 title: Introduction
 #img: assets/svg/python-logo.svg
 importance: 1
-category: Programmation Orientée Objet
+category: BUT 2 - Programmation Orientée Objet
 related_publications: false
 description: >
   Découverte des fondations de la Programmation Orientée Objet
@@ -11,6 +11,7 @@ mermaid:
   enabled: true
   zoomable: true
 permalink: /oop/introduction/
+visible: true
 ---
 
 <!--
@@ -68,6 +69,7 @@ Implémenter une classe `Book` présentant les caractéristiques suivantes :
 - `genre` : le genre littéraire du livre
 
 ```mermaid
+%%{init: {"class": {"useMaxWidth": "false"}}%%
 classDiagram
     class Book {
         - title: string

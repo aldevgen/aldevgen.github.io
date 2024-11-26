@@ -2,13 +2,14 @@
 layout: page
 title: Méthodes spéciales
 importance: 4
-category: Programmation Orientée Objet
+category: BUT 2 - Programmation Orientée Objet
 description: >
-  Personnalisation des comportements d'objets avec la surcharge d'opérateurs
+  Personnalisation des comportements d'objets
 mermaid:
   enabled: true
   zoomable: true
 permalink: /oop/dunder/
+visible: true
 ---
 
 Les `méthodes spéciales`, aussi appelées méthodes magiques ou méthodes du double underscore (dunder), sont des méthodes prédéfinies en Python qui permettent de surcharger le comportement des opérateurs et des fonctions intégrées. Ces méthodes sont appelées automatiquement par l'interpréteur Python en fonction de l'opération effectuée.

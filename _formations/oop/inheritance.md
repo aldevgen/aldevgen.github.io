@@ -4,11 +4,12 @@ title: Héritage
 description: >
   Maîtriser le polymorphisme pour des designs flexibles et évolutifs
 importance: 2
-category: Programmation Orientée Objet
+category: BUT 2 - Programmation Orientée Objet
 mermaid:
   enabled: true
   zoomable: true
 permalink: /oop/inheritance/
+visible: true
 ---
 
 L'héritage est un mécanisme qui permet de créer une classe enfant qui hérite des attributs et des méthodes de la classe parent.

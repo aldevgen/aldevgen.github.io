@@ -29,11 +29,32 @@ body.sticky-bottom-footer {
 
 .container {
   max-width: $max-content-width;
+  overflow: visible;
 }
 
 pre.mermaid svg {
   max-width: unset !important;
+  width: fit-content ;
+  display: block;
 }
+
+//.mermaid svg {
+//    display: block;
+//    width: 100%;
+//    margin: 0;
+//    padding: 0;
+//}
+
+.mermaid {
+  overflow: auto;
+  max-width: 100%; /* Ensure it doesn't overflow the page width */
+  display: block;  /* Ensures the block occupies its full container */
+}
+
+//.mermaid svg {
+//  width: 100%; /* Scale SVG to the container's width */
+//  height: auto; /* Maintain aspect ratio */
+//}
 
 // Profile
 .profile {

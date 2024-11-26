@@ -1,4 +1,5 @@
 <div class="col mb-4">
+{% if project.visible %}
   <a href="{% if project.redirect %}{{ project.redirect }}{% else %}{{ project.url | relative_url }}{% endif %}">
     <div class="card h-100 hoverable">
       <div class="row no-gutters">
@@ -31,4 +32,5 @@
       </div>
     </div>
   </a>
+{% endif %}
 </div>

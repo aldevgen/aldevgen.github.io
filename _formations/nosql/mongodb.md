@@ -1,14 +1,13 @@
 ---
 layout: page
-title: MongoDB
-description: TP
+title: Installation
+description: Installation de MongoDB
 importance: 3
-category: NoSQL
+category: BUT 3 - NoSQL
 related_publications: false
 permalink: /nosql/mongodb/
+visible: true
 ---
-
-# Installation de MongoDB
 
 ## Configuration de la base de données
 
@@ -101,4 +100,3 @@ Ensuite, il suffit d'importer le fichier JSON qui se situe [ici](https://github.
 
 Et voilà, vous êtes prêts à requêter les données ! :tada:
 
-Avant de commencer le [TP](https://github.com/alannadevgen/formation-nosql/blob/main/TP/TP1/tp1.md), lisez les notes sur [le modèle MongoDB](https://github.com/alannadevgen/formation-nosql/blob/main/TP/model-mongodb.md) et [comment requêter les données MongoDB](https://github.com/alannadevgen/formation-nosql/blob/main/TP/query-mongo.md).

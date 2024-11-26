@@ -1,11 +1,12 @@
 ---
 layout: page
-title: Introduction au NoSQL
+title: Introduction
 description: Cours
 importance: 1
-category: NoSQL
+category: BUT 3 - NoSQL
 related_publications: false
 permalink: /nosql/introduction/
+visible: true
 ---
 
 # Cours NoSQL
