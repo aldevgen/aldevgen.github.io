@@ -99,4 +99,3 @@ Ensuite, il suffit d'importer le fichier JSON qui se situe [ici](https://github.
 ![Import data](https://github.com/alannadevgen/resources-nosql/blob/main/TP/TP1/img/import-data.png)
 
 Et voilà, vous êtes prêts à requêter les données ! :tada:
-

@@ -34,7 +34,7 @@ body.sticky-bottom-footer {
 
 pre.mermaid svg {
   max-width: unset !important;
-  width: fit-content ;
+  width: fit-content;
   display: block;
 }
 
@@ -48,7 +48,7 @@ pre.mermaid svg {
 .mermaid {
   overflow: auto;
   max-width: 100%; /* Ensure it doesn't overflow the page width */
-  display: block;  /* Ensures the block occupies its full container */
+  display: block; /* Ensures the block occupies its full container */
 }
 
 //.mermaid svg {
@@ -62,4 +62,3 @@ pre.mermaid svg {
     width: 100%;
   }
 }
-
