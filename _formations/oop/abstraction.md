@@ -46,37 +46,40 @@ classDiagram
     Shape <|-- Circle
 ```
 
-1. **Créer une classe `Shape` (forme de base)** :
+1. **Créer une classe `Shape`** (fichier `shape.py`) :
 
-   - Cette classe sera une classe abstraite pour les formes géométriques.
-   - Elle doit contenir une méthode abstraite `area()` qui retourne l'aire de la forme.
-   - Elle doit aussi contenir une méthode abstraite `perimeter()` qui retourne le périmètre de la forme.
+   - Cette classe sera une classe abstraite pour les formes géométriques (forme de base).
+   - Elle doit contenir une méthode abstraite `area()` qui sert à calculer l'aire de la forme.
+   - Elle doit contenir une méthode abstraite `perimeter()` qui sert à calculer le périmètre de la forme.
      <br/><br/>
 
-2. **Créer une classe `Rectangle` (hérite de `Shape`)** :
+2. **Créer une classe `Rectangle`** (fichier `rectangle.py`) :
 
-   - Le rectangle est défini par une longueur (`length`) et une largeur (`width`).
+   - Le rectangle hérite de `Shape`.
+   - Le rectangle est défini par une longueur ($$length$$) et une largeur ($$width$$).
    - Implémenter les méthodes `area()` et `perimeter()` pour cette classe :
-     - L'aire d'un rectangle est `length * width`.
-     - Le périmètre d'un rectangle est `2 * (length + width)`.
+     - L'aire d'un rectangle est $$length \times width$$.
+     - Le périmètre d'un rectangle est $$2 \times (length + width)$$.
        <br/><br/>
 
-3. **Créer une classe `Square` (hérite de `Rectangle`)** :
+3. **Créer une classe `Square`** (fichier `square.py`) :
 
-   - Le carré est une forme spéciale de rectangle où `length` et `width` sont égaux.
+   - Le carré hérite de `Rectangle`.
+   - Le carré est une forme spéciale de rectangle où $$length$$ et $$width$$ sont égaux.
    - Le constructeur de la classe `Square` doit prendre un seul paramètre `side` pour définir la longueur du côté.
    - Implémenter les méthodes `area()` et `perimeter()` en utilisant l'héritage de la classe `Rectangle`.
      <br/><br/>
 
-4. **Créer une classe `Circle` (hérite de `Shape`)** :
+4. **Créer une classe `Circle`** (fichier `circle.py`) :
 
-   - Le cercle est défini par un rayon (`radius`).
+   - Le cercle hérite de `Shape`.
+   - Le cercle est défini par un rayon ($$radius$$).
    - Implémenter les méthodes `area()` et `perimeter()` pour cette classe :
      - L'aire d'un cercle est calculée avec la formule $$\pi r^2$$ où $$r$$ est le rayon.
      - Le périmètre (ou la circonférence) d'un cercle est $$2\pi r$$ où $$r$$ est le rayon.
-   - Importer le module [`math`](https://docs.python.org/3/library/math.html) pour obtenir la valeur de π (`math.pi`).
+   - Importer le module [`math`](https://docs.python.org/3/library/math.html) pour obtenir la valeur de $$\pi$$ (`math.pi`).
      <br/><br/>
 
 5. **Écrire un script pour tester vos classes** (fichier `main.py`) :
    - Créer une liste de formes qui contiendra des instances de `Rectangle`, `Square`, et `Circle`.
-   - Parcourir cette liste et, pour chaque forme, affichez son type, son aire, et son périmètre.
+   - Parcourir cette liste et, pour chaque forme, affichez son aire, et son périmètre.

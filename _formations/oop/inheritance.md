@@ -2,7 +2,7 @@
 layout: page
 title: Héritage
 description: >
-  Maîtriser le polymorphisme pour des designs flexibles et évolutifs
+  Polymorphisme et héritage
 importance: 2
 category: BUT 2 - Programmation Orientée Objet
 mermaid:
@@ -13,26 +13,6 @@ visible: true
 ---
 
 L'héritage est un mécanisme qui permet de créer une classe enfant qui hérite des attributs et des méthodes de la classe parent.
-
-> #### ATTENTION
->
-> Bien respecter les conventions de nommage des classes et des fichiers en Python.
-> Les noms de classes doivent commencer par une majuscule et utiliser la notation CamelCase.
-> Les noms de fichiers doivent être en minuscules et séparés par des underscores.
->
-> <br/>
-> **Exemples**
->
-> Animal
->
-> - nom du fichier : `animal.py`
-> - nom de la classe : `class Animal`
->
-> Poisson rouge
->
-> - nom du fichier : `poisson_rouge.py`
-> - nom de la classe : `class PoissonRouge`
->   {: .block-warning }
 
 ## Exercice : gestion des employés d'un restaurant
 

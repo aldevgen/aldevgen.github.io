@@ -6,7 +6,7 @@ importance: 1
 category: BUT 2 - Programmation Orientée Objet
 related_publications: false
 description: >
-  Découverte des fondations de la Programmation Orientée Objet
+  Fondamentaux de la Programmation Orientée Objet
 mermaid:
   enabled: true
   zoomable: true

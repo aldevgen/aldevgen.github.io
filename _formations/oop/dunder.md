@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Méthodes spéciales
+title: Dunder
 importance: 4
 category: BUT 2 - Programmation Orientée Objet
 description: >
-  Personnalisation des comportements d'objets
+  Utilisation des méthodes spéciales
 mermaid:
   enabled: true
   zoomable: true
