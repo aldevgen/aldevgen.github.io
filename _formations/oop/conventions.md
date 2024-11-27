@@ -3,11 +3,14 @@ layout: page
 title: Conventions
 description: >
   Conventions de nommage en Python
-importance: 1
+importance: 2
 category: BUT 2 - Programmation Orientée Objet
 permalink: /oop/conventions/
 visible: true
+type: formation
 ---
+
+# Conventions de nommage en Python
 
 Les conventions de nommage en Python sont importantes pour rendre le code plus lisible et compréhensible.
 

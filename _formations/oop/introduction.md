@@ -1,8 +1,7 @@
 ---
 layout: page
 title: Introduction
-#img: assets/svg/python-logo.svg
-importance: 1
+importance: 3
 category: BUT 2 - Programmation Orientée Objet
 related_publications: false
 description: >
@@ -12,7 +11,10 @@ mermaid:
   zoomable: true
 permalink: /oop/introduction/
 visible: true
+type: formation
 ---
+
+# Introduction à la Programmation Orientée Objet
 
 <!--
 La programmation orientée objet (POO) est un paradigme de programmation qui repose sur le concept d'objets et de classes. Grâce à ce principe fondamental, la conception de code et la construction de logiciels deviennent beaucoup plus faciles. La programmation orientée objet facilite la création de logiciels modulaires, réutilisables et faciles à entretenir.

@@ -2,7 +2,7 @@
 layout: page
 title: Abstraction
 permalink: /oop/abstraction/
-importance: 3
+importance: 5
 category: BUT 2 - Programmation Orientée Objet
 description: >
   Différences entre classes abstraites et concrètes
@@ -10,7 +10,10 @@ mermaid:
   enabled: true
   zoomable: true
 visible: true
+type: formation
 ---
+
+# Abstraction
 
 L'abstraction est un concept clé en programmation orientée objet qui permet de définir des classes abstraites pour définir des méthodes sans les implémenter. Les classes abstraites ne peuvent pas être instanciées directement, mais servent de modèle pour d'autres classes qui en héritent.
 
