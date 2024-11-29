@@ -80,7 +80,106 @@ classDiagram
    - Afficher les informations du livre "Pride and Prejudice".
    - Afficher le titre du live "Normal People".
 
-## Exercice 2 : simulation d'une flotte de véhicules
+
+---
+
+## Exercice 2 : Gestion d'une université
+
+Cet exercice modélise une université et sa structure interne à travers des relations de composition et d'agrégation. Vous allez gérer la création d'une université, l'ajout de facultés, de départements, et de professeurs, tout en observant les impacts des relations sur la destruction des objets.
+
+```mermaid
+classDiagram
+    class University {
+        - name: string
+        - faculties: list~Faculty~
+        + __init__(name: string)
+        + create_faculty(name: string) Faculty
+        + __str__() string
+    }
+
+    class Faculty {
+        - name: string
+        - departments: list~Department~
+        + __init__(name: string)
+        + add_department(department: Department) void
+        + __str__() string
+    }
+
+    class Department {
+        - name: string
+        - professors: list~Professor~
+        + __init__(name: string)
+        + add_professor(professor: Professor) void
+        + remove_professor(professor: Professor) void
+        + __str__() string
+    }
+
+    class Professor {
+        - name: string
+        + __init__(name: string)
+        + __str__() string
+    }
+
+    University "1" *-- "0..*" Faculty
+    Faculty "1" *-- "0..*" Department
+    Department "1" o-- "0..*" Professor
+```
+
+:warning: **Attention** : Chaque classe doit être bien documentée avec des commentaires pour expliquer les attributs et les méthodes.
+
+
+1. Classe `University` : représente une université composée de facultés
+   - **Méthodes** :
+     - `create_faculty(name: str)` : Crée et ajoute une faculté à l'université.
+     - `__str__()` : Retourne une description complète de l'université et ses facultés.
+
+2. Classe `Faculty` : représente une faculté composée de départements
+   - **Méthodes** :
+     - `add_department(department: Department)` : Ajoute un département à la faculté.
+     - `__str__()` : Retourne une description complète de la faculté et ses départements.
+
+3. Classe `Department` : représente un département regroupant des professeurs
+   - **Méthodes** :
+     - `add_professor(professor: Professor)` : Ajouter un professeur au département (maximum 5 par département).
+     - `remove_professor(professor: Professor)` : Retire un professeur du département.
+     - `__str__()` : Retourne une description complète du département et ses professeurs.
+
+4. Classe `Professor` : représente un professeur
+   - **Méthode** :
+     - `__str__()` : Retourne une chaîne décrivant le professeur.
+
+5. Programme principal (fichier `main.py`) :
+   - Créez une université nommée **Université Paris Cité**.
+   - Ajoutez deux facultés : **Faculté des Lettres** et **Faculté des Sciences**.
+   - Associez les départements suivants à chaque faculté :
+      - **Faculté des Lettres** :
+        - Littérature
+        - Philosophie
+      - **Faculté des Sciences** :
+        - Physique
+        - Biologie
+        - Informatique
+        - Mathématiques
+   - Créez des professeurs : Ada Lovelace, Hannah Arendt, Louis Pasteur, Marie Curie, Rosalind Franklin, Simone de Beauvoir, Sophie Germain, Virginia Woolf
+   - Répartissez les professeurs dans les départements :
+      - Département **Littérature** : Virginia Woolf
+      - Département **Philosophie** : Hannah Arendt, Simone de Beauvoir
+      - Département **Physique** : Marie Curie, Louis Pasteur
+      - Département **Biologie** : Rosalind Franklin
+      - Département **Informatique** : Ada Lovelace
+      - Département **Mathématiques** : Sophie Germain
+   - Affichez les informations détaillées de l'université :
+      - Nom de l'université.
+      - Facultés avec leurs départements.
+      - Départements avec la liste des professeurs affiliés.
+   - Supprimez l'université et vérifiez :
+      - Les facultés et départements associés sont également supprimés.
+      - Les professeurs restent intacts après la suppression.
+   - Affichez à nouveau la liste des professeurs pour confirmer leur existence.
+
+---
+
+## Exercice 3 : simulation d'une flotte de véhicules
 
 Cet exercice vise à modéliser une flotte de véhicules en Python en utilisant l'héritage et le polymorphisme pour gérer différents types de véhicules.
 
@@ -219,7 +318,9 @@ fleet.add_vehicle(car)
 fleet.show_fleet()
 ```
 
-## Exercice 3 : Gestion d'un système de commande de véhicules et de services
+---
+
+## Exercice 4 : Gestion d'un système de commande de véhicules et de services
 
 Cet exercice modélise un système de commande de véhicules avec des services associés, en utilisant la composition pour lier plusieurs objets et classes. Vous allez gérer des commandes de véhicules, ajouter des services (comme la location et l'entretien), et suivre les détails de chaque commande.
 
