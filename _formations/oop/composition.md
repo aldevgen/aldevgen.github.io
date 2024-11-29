@@ -80,7 +80,6 @@ classDiagram
    - Afficher les informations du livre "Pride and Prejudice".
    - Afficher le titre du live "Normal People".
 
-
 ---
 
 ## Exercice 2 : Gestion d'une université
@@ -127,54 +126,57 @@ classDiagram
 
 :warning: **Attention** : Chaque classe doit être bien documentée avec des commentaires pour expliquer les attributs et les méthodes.
 
+1. Classe `Professor` : représente un professeur
 
-1. Classe `University` : représente une université composée de facultés
-   - **Méthodes** :
-     - `create_faculty(name: str)` : Crée et ajoute une faculté à l'université.
-     - `__str__()` : Retourne une description complète de l'université et ses facultés.
+   - **Méthode** :
+     - `__str__()` : Retourne une chaîne décrivant le professeur.
 
-2. Classe `Faculty` : représente une faculté composée de départements
-   - **Méthodes** :
-     - `add_department(department: Department)` : Ajoute un département à la faculté.
-     - `__str__()` : Retourne une description complète de la faculté et ses départements.
+2. Classe `Department` : représente un département regroupant des professeurs
 
-3. Classe `Department` : représente un département regroupant des professeurs
    - **Méthodes** :
      - `add_professor(professor: Professor)` : Ajouter un professeur au département (maximum 5 par département).
      - `remove_professor(professor: Professor)` : Retire un professeur du département.
      - `__str__()` : Retourne une description complète du département et ses professeurs.
 
-4. Classe `Professor` : représente un professeur
-   - **Méthode** :
-     - `__str__()` : Retourne une chaîne décrivant le professeur.
+3. Classe `Faculty` : représente une faculté composée de départements
+
+   - **Méthodes** :
+     - `add_department(department: Department)` : Ajoute un département à la faculté.
+     - `__str__()` : Retourne une description complète de la faculté et ses départements.
+
+4. Classe `University` : représente une université composée de facultés
+
+   - **Méthodes** :
+     - `create_faculty(name: str)` : Crée et ajoute une faculté à l'université.
+     - `__str__()` : Retourne une description complète de l'université et ses facultés.
 
 5. Programme principal (fichier `main.py`) :
    - Créez une université nommée **Université Paris Cité**.
    - Ajoutez deux facultés : **Faculté des Lettres** et **Faculté des Sciences**.
    - Associez les départements suivants à chaque faculté :
-      - **Faculté des Lettres** :
-        - Littérature
-        - Philosophie
-      - **Faculté des Sciences** :
-        - Physique
-        - Biologie
-        - Informatique
-        - Mathématiques
+     - **Faculté des Lettres** :
+       - Littérature
+       - Philosophie
+     - **Faculté des Sciences** :
+       - Physique
+       - Biologie
+       - Informatique
+       - Mathématiques
    - Créez des professeurs : Ada Lovelace, Hannah Arendt, Louis Pasteur, Marie Curie, Rosalind Franklin, Simone de Beauvoir, Sophie Germain, Virginia Woolf
    - Répartissez les professeurs dans les départements :
-      - Département **Littérature** : Virginia Woolf
-      - Département **Philosophie** : Hannah Arendt, Simone de Beauvoir
-      - Département **Physique** : Marie Curie, Louis Pasteur
-      - Département **Biologie** : Rosalind Franklin
-      - Département **Informatique** : Ada Lovelace
-      - Département **Mathématiques** : Sophie Germain
+     - Département **Littérature** : Virginia Woolf
+     - Département **Philosophie** : Hannah Arendt, Simone de Beauvoir
+     - Département **Physique** : Marie Curie, Louis Pasteur
+     - Département **Biologie** : Rosalind Franklin
+     - Département **Informatique** : Ada Lovelace
+     - Département **Mathématiques** : Sophie Germain
    - Affichez les informations détaillées de l'université :
-      - Nom de l'université.
-      - Facultés avec leurs départements.
-      - Départements avec la liste des professeurs affiliés.
+     - Nom de l'université.
+     - Facultés avec leurs départements.
+     - Départements avec la liste des professeurs affiliés.
    - Supprimez l'université et vérifiez :
-      - Les facultés et départements associés sont également supprimés.
-      - Les professeurs restent intacts après la suppression.
+     - Les facultés et départements associés sont également supprimés.
+     - Les professeurs restent intacts après la suppression.
    - Affichez à nouveau la liste des professeurs pour confirmer leur existence.
 
 ---
@@ -293,130 +295,7 @@ classDiagram
    - Simuler la conduite d'un véhicule en ajoutant des kilomètres au kilométrage de la voiture 1.
    - Afficher à nouveau les informations du véhicule après la conduite.
 
-Exemple d'utilisation attendue :
-
-```python
-from vehicle import Vehicle
-from engine import Engine
-from doors import Doors
-
-# Création d'un moteur
-engine1 = Engine(power=120, fuel_type="essence")
-
-# Création d'une porte
-doors1 = Doors(num_doors=4)
-
-# Création d'un véhicule
-car = Vehicle(brand="Toyota", model="Corolla", year=2020, mileage=15000, engine=engine1, doors=doors1)
-
-# Affichage des informations du véhicule
-print(car)
-
-# Affichage des détails de la flotte
-fleet = Fleet()
-fleet.add_vehicle(car)
-fleet.show_fleet()
-```
-
 ---
-
-## Exercice 4 : Gestion d'un système de commande de véhicules et de services
-
-Cet exercice modélise un système de commande de véhicules avec des services associés, en utilisant la composition pour lier plusieurs objets et classes. Vous allez gérer des commandes de véhicules, ajouter des services (comme la location et l'entretien), et suivre les détails de chaque commande.
-
-```mermaid
-classDiagram
-    class Customer {
-        - name: string
-        - email: string
-        + __init__(name: string, email: string)
-        + __str__(): string
-    }
-
-    class Service {
-        - name: string
-        - description: string
-        - price: float
-        + __init__(name: string, description: string, price: float)
-        + __str__(): string
-    }
-
-    class Vehicle {
-        - brand: string
-        - model: string
-        - year: int
-        - mileage: int
-        + __init__(brand: string, model: string, year: int, mileage: int)
-        + drive(km: int): void
-        + __str__(): string
-    }
-
-    class Rental {
-        - vehicle: Vehicle
-        - customer: Customer
-        - rental_period: int
-        - services: list~Service~
-        + __init__(vehicle: Vehicle, customer: Customer, rental_period: int)
-        + add_service(service: Service): void
-        + total_price(): float
-        + __str__(): string
-    }
-
-    Customer "1" --* "0..*" Rental
-    Rental "*" *-- "1" Vehicle
-    Rental "*" *-- "0..*" Service
-```
-
-:warning: **Attention** : Chaque classe doit être bien documentée avec des commentaires pour expliquer les attributs et les méthodes.
-
-1. **Créer une classe `Customer`** (fichier `customer.py`) :
-
-   - Cette classe représente un client avec des attributs tels que le nom et l'email.
-   - Elle doit contenir une méthode `__str__()` qui affiche les informations du client.
-     <br/><br/>
-
-2. **Créer une classe `Service`** (fichier `service.py`) :
-
-   - Cette classe représente un service disponible pour un véhicule (par exemple, entretien ou location).
-   - Attributs :
-     - `name` : le nom du service.
-     - `description` : une brève description du service.
-     - `price` : le prix du service.
-   - Elle doit contenir une méthode `__str__()` qui affiche les informations du service.
-     <br/><br/>
-
-3. **Créer une classe `Vehicle`** (fichier `vehicle.py`) :
-
-   - Cette classe représente un véhicule avec des attributs pour la marque, le modèle, l'année et le kilométrage.
-   - Elle doit contenir une méthode `drive(km: int)` qui ajoute les kilomètres au kilométrage existant.
-   - Elle doit contenir une méthode spéciale `__str__()` qui affiche les informations du véhicule.
-     <br/><br/>
-
-4. **Créer une classe `Rental`** (fichier `rental.py`) :
-
-   - Cette classe représente une location d'un véhicule par un client.
-   - Attributs :
-     - `vehicle` : un véhicule qui est loué.
-     - `customer` : un client qui loue le véhicule.
-     - `rental_period` : la durée de la location en jours.
-     - `services` : une liste de services associés à la location (ex : entretien, assurance, siège bébé, etc.).
-   - Elle doit contenir les méthodes suivantes :
-     - `add_service(service: Service)` : ajoute un service à la commande.
-     - `total_price()` : calcule et retourne le prix total de la location, en prenant en compte la durée de la location et les services associés.
-       - Le prix de la location est calculé en fonction du kilométrage du véhicule : 20€ + 0,1€ par km.
-       - Le prix des services est ajouté au prix de la location.
-     - `__str__()` : affiche les informations complètes sur la location, y compris le véhicule, le client, la durée de la location, et la liste des services.
-       <br/><br/>
-
-5. **Créer un programme principal `main.py`** :
-
-   1. Créez un client nommé "Jacqueline Dupont" avec l'email "jacqueline.dupont@mail.com".
-   2. Créez un véhicule "Renault Clio", année 2018, avec un kilométrage de 25000 km.
-   3. Créez des services comme "Entretien moteur" à 150€ et "Assurance véhicule" à 50€.
-   4. Créez une commande de location pour "Jacqueline Dupont" avec le véhicule "Renault Clio" pour une période de 7 jours.
-   5. Ajoutez les services assurance et kilométrage illimité à la commande.
-   6. Affichez le prix total de la location, y compris les services.
-   7. Affichez les détails de la commande (client, véhicule, services, prix).
 
 ## Ressources
 
