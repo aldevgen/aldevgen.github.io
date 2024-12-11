@@ -14,53 +14,9 @@ visible: true
 type: formation
 ---
 
-# Introduction à la Programmation Orientée Objet
+## Introduction à la Programmation Orientée Objet
 
-<!--
-La programmation orientée objet (POO) est un paradigme de programmation qui repose sur le concept d'objets et de classes. Grâce à ce principe fondamental, la conception de code et la construction de logiciels deviennent beaucoup plus faciles. La programmation orientée objet facilite la création de logiciels modulaires, réutilisables et faciles à entretenir.
-
-Voici un example de classe en Python, on y retrouve un constructeur `__init__` et des méthodes `start`, `drive` et `display_info`.
-
-```python
-class Car:
-    def __init__(self, make, model, year):
-        self.make = make
-        self.model = model
-        self.year = year
-        self.mileage = 0
-
-    def start(self):
-        """Start the car."""
-        print(f"{self.make} {self.model} is starting!")
-
-    def drive(self, distance):
-        """Drive the car for a given distance."""
-        self.mileage += distance
-        print(f"{self.make} {self.model} is driving for {distance} km.")
-
-    def display_info(self):
-        """Display information about the car."""
-        print(f"Car: {self.make} {self.model}, Year: {self.year}, Mileage: {self.mileage} km")
-
-
-# Using the Car class
-toyota = Car("Toyota", "Corolla", 2020)
-toyota.display_info()
-toyota.start()
-toyota.drive(150)
-toyota.display_info()
-
-```
-Ci-dessous le résultat de l'exécution du code:
-```bash
-Car: Toyota Corolla, Year: 2020, Mileage: 0 km
-Toyota Corolla is starting!
-Toyota Corolla is driving for 150 km.
-Car: Toyota Corolla, Year: 2020, Mileage: 150 km
-```
--->
-
-## Gestion d'une bibliothèque
+### Exercice 1 : Gestion d'une bibliothèque
 
 L'objectif de ce TP est de gérer une bibliothèque de livres. Pour cela, nous allons créer une classe `Book` qui permettra de gérer les livres de la bibliothèque.
 
@@ -83,7 +39,6 @@ classDiagram
         + borrow() void
         + return_book() void
         + reserve() void
-        + cancel_reservation() void
     }
 ```
 
@@ -93,24 +48,29 @@ Un livre doit présenter les comportements suivants :
 
   - Prend en paramètre `title`, `author` et `genre`.
   - Initialise le livre avec un statut disponible : création des attributs `_is_borrowed` et `_is_reserved` (booléens définis par défaut à `False`).
+    <br/><br/>
 
 - **Présentation du livre** :
 
   - Affiche un message indiquant le titre, l'auteur et le genre du livre.
+    <br/><br/>
 
 - **Emprunter le livre** :
 
   - Si le livre est disponible, changer le statut d'emprunt et afficher un message indiquant que le livre a été emprunté.
   - Si le livre est déjà emprunté, afficher un message indiquant "The book is already borrowed.".
+    <br/><br/>
 
 - **Retourner le livre** :
 
   - Si le livre est emprunté, changer le statut de réservation et afficher un message indiquant que le livre a été retourné.
   - Si le livre est déjà disponible, afficher un message indiquant "The book is available.".
+    <br/><br/>
 
 - **Réserver le livre** :
   - Si le livre est disponible, changer le statut de réservation et afficher un message indiquant que le livre a été réservé.
   - Si le livre est emprunté ou déjà réservé, afficher un message indiquant "The book {self.title} is already reserved.".
+    <br/><br/>
 
 **NB** : Pour créer un livre, il faut indiquer son titre, son auteur et son genre.
 
@@ -127,7 +87,6 @@ normal_people.borrow()
 normal_people.borrow()
 normal_people.return_book()
 normal_people.reserve()
-normal_people.cancel_reservation()
 
 ```
 
@@ -142,62 +101,104 @@ The book Normal people has been borrowed successfully.
 The book Normal people is already borrowed.
 The book Normal people has been returned successfully.
 The book Normal people has been reserved successfully.
-The reservation has been canceled successfully.
 ```
 
-### TO-DO
+#### TO-DO
 
 1. Créer la classe `Book` ainsi que son constructeur. Attention à la visibilité des attributs.
 2. Implémenter la méthode `present` pour afficher les informations du livre.
 3. Implémenter la méthode `borrow` pour gérer l'emprunt du livre.
 4. Implémenter la méthode `return` pour gérer le retour du livre.
 5. Implémenter la méthode `reserve` pour gérer la réservation du livre.
-6. Implémenter la méthode `cancel_reservation` pour annuler la réservation du livre.
 
-<!--
+---
 
-## Suivi des achats de produits par des clients
+### Exercice 2 : Calculs de fractions
 
-L’objectif du programme est de permettre le suivi des achats de produits par des clients.
+L'objectif de cet exercice est de créer une classe `Fraction` permettant de réaliser des opérations sur des fractions.
 
-### Informations sur le client
+Implémenter une classe `Fraction` présentant les caractéristiques suivantes :
 
-Le système doit tracer les informations suivantes d’un client :
+- `numerator` : le numérateur de la fraction
+- `denominator` : le dénominateur de la fraction
 
-- Nom
-- Prénom
-- Tous les achats d’un client
+```mermaid
+%%{init: {"class": {"useMaxWidth": "false"}}%%
+classDiagram
+    class Fraction {
+        - numerator: int
+        - denominator: int
+        + Fraction(numerator: int, denominator: int)
+        + display() void
+        + add(fraction: Fraction) Fraction
+        + substract(fraction: Fraction) Fraction
+        + multiply(fraction: Fraction) Fraction
+        + divide(fraction: Fraction) Fraction
+    }
+```
 
-Il est nécessaire de pouvoir créer un client, en indiquant son nom et son prénom. Le système doit également permettre d’ajouter un achat pour un client.
+Une fraction doit présenter les comportements suivants :
 
-### Informations sur le produit
+- **Constructeur** :
 
-Un produit possède les informations suivantes :
+  - Prend en paramètre `numerator` et `denominator`.
+  - Initialise la fraction avec les valeurs passées en paramètre.
+    <br/><br/>
 
-- Son identifiant
-- Son libellé
-- Son prix unitaire
+- **Affichage de la fraction** :
 
-Le système doit permettre de créer un produit en renseignant les trois informations ci-dessus.
+  - Affiche la fraction au format texte : `numerator/denominator`.
+    <br/><br/>
 
-**NB :** il n’est pas nécessaire de gérer les doublons.
+- **Addition de fractions** :
 
-Le système doit également pouvoir afficher un descriptif du produit au format : [Identifiant] – [Libellé] – PU : [Prix unitaire]
+  - Prend en paramètre une fraction.
+  - Retourne une nouvelle fraction correspondant à l'addition des deux fractions.
+    <br/><br/>
 
-### Informations sur un achat
+- **Soustraction de fractions** :
 
-Les informations relatives à un achat sont les suivantes :
+  - Prend en paramètre une fraction.
+  - Retourne une nouvelle fraction correspondant à la soustraction des deux fractions.
+    <br/><br/>
 
-- Un produit
-- Une quantité achetée
+- **Multiplication de fractions** :
 
-Le système doit permettre de calculer le **Prix total** d’un achat selon la formule suivante : Prix Unitaire x Quantité
+  - Prend en paramètre une fraction.
+  - Retourne une nouvelle fraction correspondant à la multiplication des deux fractions.
+    <br/><br/>
 
-### Liste des achats d’un client
+- **Division de fractions** :
 
-Enfin, il faut pouvoir lister tous les achats d’un client sous le format suivant (1 ligne par achat) :
+  - Prend en paramètre une fraction.
+  - Retourne une nouvelle fraction correspondant à la division des deux fractions.
+    <br/><br/>
 
-Achats de [Nom] [Prénom]
+Voici un exemple d'utilisation de la classe `Fraction` :
 
-Produit : [Descriptif produit] | Quantité : [quantité] | Prix Total : [quantité x prix unitaire]
--->
+```python
+f1 = Fraction(1, 2)
+f2 = Fraction(6, 5)
+f3 = f1.add(f2)
+f4 = f1.substract(f2)
+f5 = f1.multiply(f2)
+f6 = f1.divide(f2)
+
+f1.display()
+f2.display()
+f3.display()
+f4.display()
+f5.display()
+f6.display()
+```
+
+dont le résultat attendu est le suivant :
+
+```bash
+1/2
+6/5
+17/10
+-7/10
+6/10
+5/12
+```

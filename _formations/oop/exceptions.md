@@ -6,7 +6,7 @@ importance: 8
 description: >
   Détecter, gérer et personnaliser les erreurs efficacement
 category: BUT 2 - Programmation Orientée Objet
-visible: true
+visible: false
 type: formation
 ---
 
