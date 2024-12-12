@@ -30,14 +30,15 @@ Implémenter une classe `Book` présentant les caractéristiques suivantes :
 %%{init: {"class": {"useMaxWidth": "false"}}%%
 classDiagram
     class Book {
-        - title: string
-        - author: string
-        - genre: string
-        - statut: string
+        + title: string
+        + author: string
+        + genre: string
+        - is_borrowed: bool
+        - is_reserved: bool
         + Book(title: string, author: string, genre: string)
         + present() void
         + borrow() void
-        + return_book() void
+        + return() void
         + reserve() void
     }
 ```
@@ -46,28 +47,32 @@ Un livre doit présenter les comportements suivants :
 
 - **Constructeur** :
 
-  - Prend en paramètre `title`, `author` et `genre`.
+  - Créer une fonction `__init__` qui prend en paramètre `title`, `author` et `genre`.
   - Initialise le livre avec un statut disponible : création des attributs `_is_borrowed` et `_is_reserved` (booléens définis par défaut à `False`).
     <br/><br/>
 
 - **Présentation du livre** :
 
-  - Affiche un message indiquant le titre, l'auteur et le genre du livre.
+  - Créer une fonction `present` qui affiche un message indiquant le titre, l'auteur et le genre du livre.
     <br/><br/>
 
 - **Emprunter le livre** :
 
+  - Créer une fonction `borrow` qui permet d'emprunter un livre.
   - Si le livre est disponible, changer le statut d'emprunt et afficher un message indiquant que le livre a été emprunté.
   - Si le livre est déjà emprunté, afficher un message indiquant "The book is already borrowed.".
     <br/><br/>
 
 - **Retourner le livre** :
 
-  - Si le livre est emprunté, changer le statut de réservation et afficher un message indiquant que le livre a été retourné.
+  - Créer une fonction `return` qui permet de retourner un livre.
+  - Si le livre est emprunté, changer le statut d'emprunt et afficher un message indiquant que le livre a été retourné.
   - Si le livre est déjà disponible, afficher un message indiquant "The book is available.".
     <br/><br/>
 
 - **Réserver le livre** :
+
+  - Créer une fonction `reserve` qui permet de réserver un livre.
   - Si le livre est disponible, changer le statut de réservation et afficher un message indiquant que le livre a été réservé.
   - Si le livre est emprunté ou déjà réservé, afficher un message indiquant "The book {self.title} is already reserved.".
     <br/><br/>
