@@ -60,21 +60,21 @@ Un livre doit présenter les comportements suivants :
 
   - Créer une fonction `borrow` qui permet d'emprunter un livre.
   - Si le livre est disponible, changer le statut d'emprunt et afficher un message indiquant que le livre a été emprunté.
-  - Si le livre est déjà emprunté, afficher un message indiquant "The book is already borrowed.".
+  - Si le livre est déjà emprunté, afficher un message indiquant `The book is already borrowed.`.
     <br/><br/>
 
 - **Retourner le livre** :
 
   - Créer une fonction `return` qui permet de retourner un livre.
   - Si le livre est emprunté, changer le statut d'emprunt et afficher un message indiquant que le livre a été retourné.
-  - Si le livre est déjà disponible, afficher un message indiquant "The book is available.".
+  - Si le livre est déjà disponible, afficher un message indiquant `The book is available.`.
     <br/><br/>
 
 - **Réserver le livre** :
 
   - Créer une fonction `reserve` qui permet de réserver un livre.
   - Si le livre est disponible, changer le statut de réservation et afficher un message indiquant que le livre a été réservé.
-  - Si le livre est emprunté ou déjà réservé, afficher un message indiquant "The book {self.title} is already reserved.".
+  - Si le livre est emprunté ou déjà réservé, afficher un message indiquant `The book is already reserved.`.
     <br/><br/>
 
 **NB** : Pour créer un livre, il faut indiquer son titre, son auteur et son genre.
@@ -122,11 +122,6 @@ The book Normal people has been reserved successfully.
 
 L'objectif de cet exercice est de créer une classe `Fraction` permettant de réaliser des opérations sur des fractions.
 
-Implémenter une classe `Fraction` présentant les caractéristiques suivantes :
-
-- `numerator` : le numérateur de la fraction
-- `denominator` : le dénominateur de la fraction
-
 ```mermaid
 %%{init: {"class": {"useMaxWidth": "false"}}%%
 classDiagram
@@ -136,7 +131,7 @@ classDiagram
         + Fraction(numerator: int, denominator: int)
         + display() void
         + add(fraction: Fraction) Fraction
-        + substract(fraction: Fraction) Fraction
+        + subtract(fraction: Fraction) Fraction
         + multiply(fraction: Fraction) Fraction
         + divide(fraction: Fraction) Fraction
     }
@@ -163,7 +158,7 @@ Une fraction doit présenter les comportements suivants :
 
 - **Soustraction de fractions** :
 
-  - Créer une fonction `substract` qui soustrait deux fractions (prend en paramètre une fraction).
+  - Créer une fonction `subtract` qui soustrait deux fractions (prend en paramètre une fraction).
   - Retourne une nouvelle fraction correspondant à la soustraction des deux fractions.
     <br/><br/>
 
@@ -185,7 +180,7 @@ Voici un exemple d'utilisation de la classe `Fraction` :
 f1 = Fraction(1, 2)
 f2 = Fraction(6, 5)
 f3 = f1.add(f2)
-f4 = f1.substract(f2)
+f4 = f1.subtract(f2)
 f5 = f1.multiply(f2)
 f6 = f1.divide(f2)
 
