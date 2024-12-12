@@ -17,6 +17,6 @@ type: formation
 
 Pour ce cours, nous allons utiliser PyCharm, un environnement de développement intégré (IDE) pour Python.
 
-Téléchargez PyCharm Community Edition sur le site officiel de [JetBrains](https://www.jetbrains.com/fr-fr/pycharm/download/?section=windows). :warning: **Attention** : assurez-vous de télécharger la version **Community Edition**, qui est gratuite et non la version PyCharm Professional, qui est payante.
+Téléchargez PyCharm Community Edition sur le site officiel de JetBrains ([lien ici](https://www.jetbrains.com/fr-fr/pycharm/download/?section=windows)). :warning: **Attention** : assurez-vous de télécharger la version **Community Edition**, qui est gratuite et non la version PyCharm Professional, qui est payante.
 
 {% include figure.liquid loading="eager" path="assets/img/install-pycharm.png" title="Install PyCharm" class="img-fluid rounded z-depth-1" %}
