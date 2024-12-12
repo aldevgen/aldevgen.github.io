@@ -157,25 +157,25 @@ Une fraction doit présenter les comportements suivants :
 
 - **Addition de fractions** :
 
-  - Prend en paramètre une fraction.
+  - Créer une fonction `add` qui additionne deux fractions (prend en paramètre une fraction).
   - Retourne une nouvelle fraction correspondant à l'addition des deux fractions.
     <br/><br/>
 
 - **Soustraction de fractions** :
 
-  - Prend en paramètre une fraction.
+  - Créer une fonction `substract` qui soustrait deux fractions (prend en paramètre une fraction).
   - Retourne une nouvelle fraction correspondant à la soustraction des deux fractions.
     <br/><br/>
 
 - **Multiplication de fractions** :
 
-  - Prend en paramètre une fraction.
+  - Créer une fonction `multiply` qui multiplie deux fractions (prend en paramètre une fraction).
   - Retourne une nouvelle fraction correspondant à la multiplication des deux fractions.
     <br/><br/>
 
 - **Division de fractions** :
 
-  - Prend en paramètre une fraction.
+  - Créer une fonction `divide` qui divise deux fractions (prend en paramètre une fraction).
   - Retourne une nouvelle fraction correspondant à la division des deux fractions.
     <br/><br/>
 
