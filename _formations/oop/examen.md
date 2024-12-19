@@ -269,26 +269,39 @@ classDiagram
           * Genre : rock
           * Durée : 220 secondes
           * Popularité : 45
-   - Ajouter les chansons dans chaque album des artistes créés.
-        * `Die With A Smile` de Lady Gaga et Bruno Mars
-        * `The Fame` de Lady Gaga
-        * `Unorthodox Jukebox` de Bruno Mars
-        * `Rush` de Måneskin
-   - Afficher la durée totale de l'album `Rush` de Måneskin.
-   - Afficher si les chansons `Die With A Smile` et `Lithium` sont populaires.
+   - Créer les albums suivants :
+        * `Die With A Smile`
+          * Artistes : Lady Gaga et Bruno Mars
+          * Chansons : Die With A Smile
+        * `The Fame`
+            * Artistes : Lady Gaga
+            * Chansons : Paparazzi
+        * `Unorthodox Jukebox`
+            * Artistes : Bruno Mars
+            * Chansons : Locked Out of Heaven
+        * `Rush`
+          * Artistes : Måneskin
+          * Chansons : The Loneliest, Baby Said, Kool Kids
+   - Afficher le titre de l'album `Die With A Smile`.
+   - Afficher la durée totale de l'album `Rush`.
+   - Afficher si les chansons `Die With A Smile` et `Kool Kids` sont populaires.
    - Créer une playlist nommée `Pop Songs` et y ajouter les chansons de Lady Gaga et Bruno Mars.
    - Créer une playlist nommée `Rock Songs` et y ajouter les chansons de Måneskin.
+   - Afficher la durée et le nombre de chansons de la playlist `Pop Songs`.
    - Créer un utilisateur avec les informations suivantes :
         - Nom d'utilisateur : `jane`
         - Email : `jane@email.com`
-        - Ajouter les playlists `Pop Songs` et `Rock Songs` aux playlists de Jane.
-        - Ajouter les chansons `Die With A Smile` et `Baby Said` aux favoris de Jane.
-        - Supprimer la playlist `Rock Songs` de Jane.
-        - Ajouter la chanson `Paparazzi` de Lady Gaga aux favoris de Jane.
+        - Playlists : `Pop Songs` et `Rock Songs`
+        - Chansons en favori : `Die With A Smile` et `Baby Said`
+        - Albums en favori : `The Fame` et `Rush`
+   - Supprimer la playlist `Rock Songs` des favoris de Jane.
+   - Ajouter la chanson `Paparazzi` aux favoris de Jane.
    - Créer un podcast nommé `Chez Sally` animé par Sally, durant au total 25 heures (25 heures = 90000 secondes) avec 35 épisodes et les notes suivantes : 5, 4, 3, 5, 4, 2, 5, 4, 5, 3, 4, 5, 4, 5, 1, 3.
-   - Jouer le podcast `Chez Sally` et noter le podcast avec une note de 4.
-   - Afficher la note moyenne du podcast `Chez Sally`.
-   - Sautez 30 secondes dans le podcast `Chez Sally`.
+   - Jouer le podcast `Chez Sally`
+   - Noter le podcast avec une note de 4.
+   - Afficher la note moyenne du podcast.
+   - Écouter 30 secondes du podcast.
+   - Ignorer la publicité.
    - Afficher les informations du podcast `Chez Sally`.
 
 #### :hourglass: Bonne chance !

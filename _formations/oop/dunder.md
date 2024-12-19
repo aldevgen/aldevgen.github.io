@@ -9,7 +9,7 @@ mermaid:
   enabled: true
   zoomable: true
 permalink: /oop/dunder/
-visible: false
+visible: true
 type: formation
 ---
 

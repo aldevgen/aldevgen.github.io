@@ -9,7 +9,7 @@ description: >
 mermaid:
   enabled: true
   zoomable: true
-visible: false
+visible: true
 type: formation
 ---
 

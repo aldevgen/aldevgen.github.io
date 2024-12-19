@@ -40,6 +40,7 @@ classDiagram
         + borrow() void
         + return() void
         + reserve() void
+        + cancel() void
     }
 ```
 
@@ -77,6 +78,13 @@ Un livre doit présenter les comportements suivants :
   - Si le livre est emprunté ou déjà réservé, afficher un message indiquant `The book is already reserved.`.
     <br/><br/>
 
+- **Annuler la réservation** :
+
+  - Créer une fonction `cancel` qui permet d'annuler la réservation d'un livre.
+  - Si le livre est réservé, changer le statut de réservation et afficher un message indiquant que la réservation a été annulée.
+  - Si le livre n'est pas réservé, afficher un message indiquant `The book is not reserved.`.
+    <br/><br/>
+
 **NB** : Pour créer un livre, il faut indiquer son titre, son auteur et son genre.
 
 Voici un exemple d'utilisation de la classe `Book` :
@@ -92,6 +100,7 @@ normal_people.borrow()
 normal_people.borrow()
 normal_people.return_book()
 normal_people.reserve()
+normal_people.cancel()
 
 ```
 
@@ -106,9 +115,27 @@ The book Normal people has been borrowed successfully.
 The book Normal people is already borrowed.
 The book Normal people has been returned successfully.
 The book Normal people has been reserved successfully.
+The reservation of the book Normal people has been canceled successfully.
 ```
 
-#### TO-DO
+### Conventions de nommage en Python
+
+> Les conventions de nommage en Python sont importantes pour rendre le code plus lisible et compréhensible.
+>
+> - Les noms de classes doivent commencer par une majuscule et utiliser la notation CamelCase.
+> - Les noms de fichiers doivent être en minuscules et séparés par des underscores.
+
+**Exemples**
+
+- Classe animal
+  - nom du fichier : `animal.py`
+  - nom de la classe : `class Animal`
+
+- Classe poisson rouge
+  - nom du fichier : `poisson_rouge.py`
+  - nom de la classe : `class PoissonRouge`
+
+### TO-DO
 
 1. Créer la classe `Book` ainsi que son constructeur. Attention à la visibilité des attributs.
 2. Implémenter la méthode `present` pour afficher les informations du livre.
@@ -134,6 +161,8 @@ classDiagram
         + subtract(fraction: Fraction) Fraction
         + multiply(fraction: Fraction) Fraction
         + divide(fraction: Fraction) Fraction
+        + inverse() Fraction
+        + simplify() Fraction
     }
 ```
 
@@ -173,6 +202,24 @@ Une fraction doit présenter les comportements suivants :
   - Créer une fonction `divide` qui divise deux fractions (prend en paramètre une fraction).
   - Retourne une nouvelle fraction correspondant à la division des deux fractions.
     <br/><br/>
+
+- **Inverse d'une fraction** :
+
+    - Créer une fonction `inverse` qui retourne l'inverse de la fraction.
+        <br/><br/>
+
+- **Simplification d'une fraction** :
+
+    - Créer une fonction `simplify` qui simplifie une fraction, par exemple $$\frac{2}{4}$$ devient $$\frac{1}{2}$$.
+        <br/><br/>
+
+Rappels sur les fonctions mathématiques :
+
+- Addition de fractions : $$\frac{a}{b} + \frac{c}{d} = \frac{ad + bc}{bd}$$
+- Soustraction de fractions : $$\frac{a}{b} - \frac{c}{d} = \frac{ad - bc}{bd}$$
+- Multiplication de fractions : $$\frac{a}{b} \times \frac{c}{d} = \frac{ac}{bd}$$
+- Division de fractions : $$\frac{a}{b} \div \frac{c}{d} = \frac{a}{b} \times \frac{d}{c}$$
+- Inverse d'une fraction : $$\frac{a}{b} \rightarrow \frac{b}{a}$$
 
 Voici un exemple d'utilisation de la classe `Fraction` :
 
