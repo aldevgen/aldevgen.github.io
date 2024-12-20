@@ -76,6 +76,7 @@ classDiagram
     %% Classe Album
     class Album {
         + title: str
+        + duration: int
         + artists: List[Artist]
         + songs: List[Song]
         + __str__() str
@@ -178,6 +179,7 @@ classDiagram
 
 <b><u>Attributs</u></b>
 - `title` : le titre de l'album.
+- `duration` : la durée totale de l'album en secondes.
 - `artists` : la liste des artistes de l'album.
 - `songs` : la liste des chansons de l'album.
 
