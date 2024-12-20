@@ -2,14 +2,14 @@
 layout: page
 title: Examen
 description: >
-  TP noté
+  Création d'un gestionnaire de musique et de podcasts
 importance: 9
 category: BUT 2 - Programmation Orientée Objet
 mermaid:
   enabled: true
   zoomable: true
 permalink: /oop/exam/
-visible: false
+visible: true
 type: formation
 ---
 
