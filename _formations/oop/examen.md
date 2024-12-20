@@ -160,6 +160,7 @@ classDiagram
 - `duration` : la durée de la chanson en secondes.
 - `current` : la position actuelle de la chanson (nombre de secondes écoulées, par défaut 0).
 - `play_count` : le nombre de fois que le média a été écouté.
+- `genre` : le genre musical de la chanson.
 - `popularity` : un entier représentant la popularité de la chanson (de 1 à 100).
 
 <b><u>Méthodes</u></b>
