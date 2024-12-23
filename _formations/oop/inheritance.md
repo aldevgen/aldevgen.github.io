@@ -9,7 +9,7 @@ mermaid:
   enabled: true
   zoomable: true
 permalink: /oop/inheritance/
-visible: true
+visible: false
 type: formation
 ---
 
