@@ -1,4 +1,5 @@
-FROM ruby:latest
+FROM ruby:3.3.6
+# FROM ruby:latest
 
 # uncomment these if you are having this issue with the build:
 # /usr/local/bundle/gems/jekyll-4.3.4/lib/jekyll/site.rb:509:in `initialize': Permission denied @ rb_sysopen - /srv/jekyll/.jekyll-cache/.gitignore (Errno::EACCES)
@@ -51,6 +52,7 @@ ENV EXECJS_RUNTIME=Node \
 
 # create a directory for the jekyll site
 RUN mkdir /srv/jekyll
+RUN bundle config build.nokogiri --use-system-libraries
 
 # copy the Gemfile and Gemfile.lock to the image
 ADD Gemfile.lock /srv/jekyll

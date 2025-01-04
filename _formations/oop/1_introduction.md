@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Introduction
-importance: 3
+title: TP1
+importance: 2
 category: BUT 2 - Programmation Orientée Objet
 related_publications: false
 description: >
