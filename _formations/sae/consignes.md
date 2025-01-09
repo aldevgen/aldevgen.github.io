@@ -3,7 +3,7 @@ layout: page
 title: Consignes
 description: SAÉ
 importance: 2
-category: BUT 3 - SAÉ
+category: BUT 3 - SAÉ NoSQL
 permalink: /sae/consignes/
 visible: true
 type: formation

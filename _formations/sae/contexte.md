@@ -3,7 +3,7 @@ layout: page
 title: Contexte
 description: SAÉ
 importance: 1
-category: BUT 3 - SAÉ
+category: BUT 3 - SAÉ NoSQL
 related_publications: false
 permalink: /sae/contexte/
 visible: true
