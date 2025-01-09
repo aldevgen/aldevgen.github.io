@@ -27,13 +27,14 @@ La Mère Noël veut également calculer le temps de chargement des cadeaux dans 
 classDiagram
     class Gift {
         + size : string
-        + __init__(size: float)
+        + __init__(size: string)
         + compute_weight() float
         + compute_time() float
     }
 
     class Sleigh {
-        + capacity : float 
+        + capacity : float
+        + current_capacity : float
         + gifts : list
         + __init__(capacity: float)
         + add_gift(gift: Gift) void
