@@ -26,7 +26,7 @@ La Mère Noël veut également calculer le temps de chargement des cadeaux dans 
 ```mermaid
 classDiagram
     class Gift {
-        + size : float 
+        + size : string
         + __init__(size: float)
         + compute_weight() float
         + compute_time() float
