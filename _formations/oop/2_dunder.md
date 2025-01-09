@@ -30,6 +30,7 @@ classDiagram
         + __init__(size: string)
         + compute_weight() float
         + compute_time() float
+        + wrap_gift() void
     }
 
     class Sleigh {
@@ -63,21 +64,22 @@ Définissez une classe `Gift` qui permet de représenter un cadeau, caractéris�
 La classe `Gift` aura les méthodes suivantes :
 
 - `__init__(size: str)` : constructeur d’un cadeau à partir de sa taille.
-- `compute_weight()` : renvoie le poids du cadeau.
-- `compute_time()` : renvoie le temps d'emballage du cadeau.
+- `compute_weight()` : méthode décorée par `@timer` qui renvoie le poids du cadeau.
+- `compute_time()` : méthode décorée par `@timer` qui renvoie le temps d'emballage du cadeau.
+- `wrap_gift()` : méthode décorée par `@timer` qui attend le temps d'emballage du cadeau (i.e. `time.sleep()`)
 
 Définissez une classe `Sleigh` qui permet de calculer la capacité du traîneau en fonction de la taille des cadeaux. La classe `Sleigh` comportera au moins les méthodes suivantes :
 
 - `__init__(capacity: float)` : constructeur d’un traîneau à partir de sa capacité.
+- `compute_free_capacity()` : renvoie la capacité restante du traîneau.
 - `add_gift(gift: Gift)` : ajoute un cadeau au traîneau (seulement si la capacité du traîneau est suffisante).
 - `remove_gift(gift: Gift)` : retire un cadeau du traîneau.
-- `compute_free_capacity()` : renvoie la capacité restante du traîneau.
 - `__len__()` : renvoie la capacité du traîneau.
 - `__eq__(other: Sleigh)` : compare si les traîneaux ont la même capacité.
 - `__lt__(other: Sleigh)` : compare si la capacité du traîneau est inférieure à celle d'un autre traîneau.
 - `__gt__(other: Sleigh)` : compare si la capacité du traîneau est supérieure à celle d'un autre traîneau.
 
-
+Créer une classe main qui permet de tester les classes `Gift` et `Sleigh`.
 
 ## Exercice 2 : points du plan
 
@@ -95,6 +97,8 @@ classDiagram
         + t() float
         + __str__() string
         + __eq__(other: Point) bool
+        + __add__(other: Point) Point
+        + __sub__(other: Point) Point
         + homothety(k: float) void
         + translation(dx: float, dy: float) void
         + rotation(a: float) void
@@ -104,10 +108,12 @@ classDiagram
 
 La classe `Point` comportera au moins les méthodes suivantes :
 
-- `__init__()` : constructeur d’un point à partir de ses coordonnées cartésiennes.
+- `__init__(x, y)` : constructeur d’un point à partir de ses coordonnées cartésiennes.
 - Les méthodes `x()` et `y()` retournent les coordonnées cartésiennes du point. Les méthodes `r()` et `t()` retournent les coordonnées polaires du point (voir ci-dessous). Ces 4 méthodes sont définies comme des propriétés.
 - `__str__()` : renvoie les coordonnées du point sous format texte. Par exemple, si on crée un point d'abscisse 2 et d'ordonnée 3 (i.e. `Point(x=2, y=3)`), la fonction retournera $$(2.0, 3.0)$$.
 - `__eq__(other)` : compare si les points sont identiques (i.e. ont les mêmes coordonnées).
+- `__add__(other)` : additionne les coordonnées de deux points pour obtenir un nouveau point.
+- `__sub__(other)` : soustrait les coordonnées de deux points pour obtenir un nouveau point.
 - `homothety(k)` : applique au point une homothétie de centre $$(0, 0)$$ et de rapport $$k$$ (k est un flottant). Pour cela, on multiplie les coordonnées $$(x, y)$$ par $$k$$ pour obtenir $$(kx, ky)$$.
 - `translation(dx, dy)` : applique au point une translation de vecteur $$(dx, dy)$$. Cela consiste à remplacer $$(x, y)$$ par $$(x + dx, y + dy)$$.
 - `rotation(a)` : applique au point une rotation de centre $$(0, 0)$$ et d’angle $$a$$. Une manière – qui n’est pas la plus efficace – de faire cela consiste à calculer les coordonnées polaires $$(r, t)$$ correspondant à $$(x, y)$$ puis les coordonnées cartésiennes $$(x′, y′)$$ correspondant à $$(r, t + a)$$.
