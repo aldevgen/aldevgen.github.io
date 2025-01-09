@@ -15,12 +15,12 @@ type: formation
 
 # Héritage et polymorphisme
 
-L'héritage est un mécanisme qui permet de créer une classe enfant qui hérite des attributs et des méthodes de la classe parent.
+L'héritage est un mécanisme qui permet de créer une classe enfant qui hérite des attributs et des méthodes de la classe parente.
 
 ## Exercice : gestion des employés d'un restaurant
 
 Pauses Café est une chaîne de cafés qui souhaite gérer les employés de ses différents établissements.
-Pour cela, Paula DUPOINT, la responsable des ressources humaines, vous demande de créer une application qui permettra de gérer les employés de la chaîne.
+Pour cela, Paula DUPONT, la responsable des ressources humaines, vous demande de créer une application qui permettra de gérer les employés de la chaîne.
 
 Dans les restaurants, il y a des serveurs, des cuisiniers, des caissiers, des managers. Chaque employé a des attributs et des comportements spécifiques.
 

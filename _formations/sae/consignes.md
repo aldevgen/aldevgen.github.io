@@ -6,6 +6,7 @@ importance: 2
 category: BUT 3 - SAÉ
 permalink: /sae/consignes/
 visible: true
+type: formation
 ---
 
 ## Rendu final

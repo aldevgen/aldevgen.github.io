@@ -7,6 +7,7 @@ category: BUT 3 - SAÉ
 related_publications: false
 permalink: /sae/contexte/
 visible: true
+type: formation
 ---
 
 ## :car: Contexte
