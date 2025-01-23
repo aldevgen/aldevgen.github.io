@@ -136,9 +136,9 @@ classDiagram
     
 ```
 
-**Question 1 : Classe `MagicalItem`**  
+**Question 1 : Classe `AbstractMagicalItem`**  
 
-Créer une classe abstraite `MagicalItem` (fichier `magical_item.py`) avec :  
+Créer une classe abstraite `AbstractMagicalItem` (fichier `abstract_magical_item.py`) avec :  
 - **Attributs** :  
   - `name` : nom de l'objet magique  
   - `power` : puissance de l'objet  
@@ -173,7 +173,7 @@ Créer les classes `Wand` et `Potion` héritant de `MagicalItem`.
 
 **Question 3 : Classes de Sorts**  
 
-Créer une classe abstraite `Spell` (fichier `spell.py`) et ses classes dérivées `OffensiveSpell` et `DefensiveSpell` :  
+Créer une classe `Spell` (fichier `spell.py`) et ses classes dérivées `OffensiveSpell` et `DefensiveSpell` :  
 
 - **Pour `Spell`** :  
   - **Attributs** : 
