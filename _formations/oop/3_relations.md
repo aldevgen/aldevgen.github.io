@@ -52,7 +52,7 @@ class Garage:
         self.cars.append(car)
 ```
 
-Vous pouvez faire le diagramme UML sur papier ou utiliser un outil en ligne comme [Draw.io](https://app.diagrams.net/) ou [Lucidchart](https://www.lucidchart.com/pages/fr).
+Vous pouvez faire le diagramme UML sur papier ou utiliser un outil en ligne comme [Draw.io](https://app.diagrams.net/).
 
 ## Exercice 2 : système de gestion magique à Poudlard
 
