@@ -13,77 +13,79 @@ mermaid:
   zoomable: true
 ---
 
-## Gestion des exceptions
+# Bonnes pratiques de développement
 
-L'objectif de ce TP est de vous familiariser avec la gestion des exceptions en Python. Pour cela, nous allons créer des classes d'exceptions personnalisées et les utiliser dans un programme de réservation de places d'avion.
+L'objectif de ce TP est de vous familiariser avec les bonnes pratiques de développement en Python. Vous allez apprendre à gérer les exceptions et à créer des tests unitaires pour valider le bon fonctionnement de votre code. Il est important de tester votre code pour vous assurer qu'il fonctionne correctement et pour anticiper les erreurs.
 
-### Exercice 1 : création de Pokémon 
+:warning: Veillez à mettre en pratique les bonnes pratiques de développement suivantes :
+
+- **Gestion des exceptions** : utilisez des exceptions pour gérer les erreurs et les cas limites.
+- **Tests unitaires** : créez des tests unitaires pour valider le bon fonctionnement de votre code.
+- **Documentation** : documentez votre code pour expliquer son fonctionnement et son utilisation.
+- **Type hints** : utilisez les annotations de type pour spécifier les types des paramètres et des valeurs de retour.
+
+Tous ces éléments seront pris en compte dans le TP noté. :wink:
+
+---
+
+## Exercice 1 : PokéTech Corp 🎮
 
 **Contexte :**
-Tu viens d’être embauché par la PokéTech Corp pour développer un simulateur de combat Pokémon en Python !
-Ta mission ? Implémenter un système de gestion de Pokémon avec des classes bien conçues, tester leur bon fonctionnement avec `unittest` et gérer les erreurs avec des exceptions custom.
+Tu viens d’être embauché par la PokéTech Corp pour développer un simulateur de combat Pokémon !
+
+Ta mission ? Implémenter un système de gestion de Pokémon avec des classes bien conçues, tester leur bon fonctionnement avec `unittest` et gérer les erreurs avec des exceptions personnalisées.
 
 ```mermaid
 classDiagram
     class Pokemon {
         + nom : str
         + type : str
-        + pv : int
-        + attaque : int
-        + __init__(nom: str, type: str, pv: int, attaque: int)
+        + hp : int
+        + attack : int
+        + __init__(nom: str, type: str, hp: int, attack: int)
         + __str__() str
-        + attaquer(autre_pokemon: Pokemon) void
+        + fight(other: Pokemon) void
     }
     
-    class PokemonFeu
-    class PokemonEau
-    Pokemon <|-- PokemonFeu
-    Pokemon <|-- PokemonEau
-    class ValeurIncorrecteException
-    Pokemon --> ValeurIncorrecteException
+    class PokemonTrainer {
+        + team : list~Pokemon~
+        + __init__(team: list~Pokemon~)
+        + choose_pokemon() Pokemon
+        + fight(opponent: Pokemon) void
+    }
+    PokemonTrainer o-- Pokemon
+    
+    class IncorrectPokemonException
+    Pokemon --> IncorrectPokemonException
+    PokemonTrainer --> IncorrectPokemonException
 ```
 
-**Partie 1 : Création des classes Pokémon**
+**Question 1** : Implémenter une classe `Pokemon` avec les attributs suivants :  
+- `nom` : le nom du Pokémon.  
+- `type` : le type élémentaire du Pokémon (ex: Feu, Eau, Plante).  
+- `hp` : *hit points* qui correspondent aux points de vie (PV) du Pokémon qui doivent être ≥ 0.  
+- `attack` : la puissance d’attaque du Pokémon (doit être ≥ 0).  
 
-Implémente une classe `Pokemon` avec les attributs suivants :  
-- `nom` (str) : le nom du Pokémon.  
-- `type` (str) : le type élémentaire du Pokémon (ex: "Feu", "Eau", "Plante").  
-- `pv` (int) : les points de vie du Pokémon (doivent être ≥ 0).  
-- `attaque` (int) : la puissance d’attaque du Pokémon (doit être ≥ 0).  
+💡 **Exception à coder :** Créer une exception `IncorrectPokemonException` qui sera levée si les PV ou l’attaque sont négatifs.
 
-Ajoute les méthodes suivantes :  
-- `__str__()` : affiche les infos du Pokémon sous forme lisible.  
-- `attaquer(autre_pokemon)` : réduit les PV de l’autre Pokémon en fonction de l’attaque.  
-- Une vérification pour s’assurer que `pv` et `attaque` sont positifs (sinon, lève une exception `ValeurIncorrecteException`).  
+Ajouter les méthodes suivantes :  
+- `__str__()` : afficher les infos du Pokémon.  
+- `fight(other: Pokemon)` : réduire les PV de l’autre Pokémon en fonction de l’attaque.  
+- S’assurer que `hp` et `attack` sont positifs ; sinon lever une exception `IncorrectPokemonException`.
 
-💡 **Exception à coder :**  
-Crée une exception `ValeurIncorrecteException` qui sera levée si les PV ou l’attaque sont négatifs.  
+**Question 2** : Tests avec `unittest` :  
+- Vérifier que la création d’un Pokémon avec une attaque ou des PV négatifs lève bien une exception.  
+- Tester la méthode `fight()` en s’assurant que les PV sont bien réduits après un coup.  
 
-**Partie 2 : Héritage et Pokémon spéciaux**
+**Question 3** : Ajouter une classe `PokemonTrainer` (dresseur) qui possède une équipe de Pokémon.
+- Implémenter une méthode pour choisir un Pokémon et le faire combattre.  
+- Gérer le cas où un Pokémon est KO avec une exception `IncorrectPokemonException`.
 
-Crée deux sous-classes :  
-- `PokemonFeu` qui ajoute un bonus de +10 en attaque.  
-- `PokemonEau` qui réduit les dégâts subis de 10%.  
+🧪 **À toi de jouer !** Teste ton code, corrige les erreurs et assure-toi que ton simulateur est digne d’un vrai dresseur Pokémon !
 
-**Astuce :** Utilise `super()` pour réutiliser le constructeur de `Pokemon` !
+---
 
-**Partie 3 : Test avec `unittest`**
-
-Réalise une série de tests avec `unittest` :  
-- Vérifie que la création d’un Pokémon avec une attaque ou des PV négatifs lève bien une exception.  
-- Teste la méthode `attaquer()` en s’assurant que les PV sont bien réduits après un coup.  
-- Vérifie que les bonus/malus des sous-classes sont bien appliqués.  
-
-**Partie 4 : Bonus (si t’es un vrai dresseur Pokémon)**
-
-Ajoute une classe `Dresseur` qui peut posséder une équipe de Pokémon (une liste).  
-- Implémente une méthode pour choisir un Pokémon et le faire combattre.  
-- Gère les cas où un Pokémon est KO (PV = 0).  
-
-🧪 **À toi de jouer !** Teste ton code, corrige les erreurs et assure-toi que ton simulateur est digne d’un vrai dresseur Pokémon ! 🎮🔥
-
-
-### Exercice 2 : réservation de places d'avion
+## Exercice 2 : réservation de places d'avion :airplane:
 
 Vous devez écrire un programme qui permet de réserver des places dans un avion. Le programme doit permettre de réserver une place, de lister les places disponibles et de lister les places réservées.
 
@@ -150,7 +152,7 @@ classDiagram
 
 <!--
 
-### Exercice 3 : polygones
+## Exercice 3 : polygones
 
 Pour cet exercice, nous allons créer des polygones. Pour cela, nous avons besoin d'un point, vous pouvez réutiliser la classe `Point` du TP2.  
 
