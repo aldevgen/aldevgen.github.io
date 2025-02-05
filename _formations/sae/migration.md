@@ -25,7 +25,11 @@ L'objectif de cette séance est d'écrire le script de migration d'une base de d
 
 Pour la suite du TP nous utiliserons les données `Gymnase2000` disponibles dans le fichier `Gymnase2000.sqlite` dont le schéma est ci-dessous.
 
-![Gymnase2000 ER](../img/Gymnase2000.png)
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/sae/Gymnase2000.png" title="Gymnase ER graph" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
 
 À partir de ce schéma, nous allons créer deux collections :
 - **Gymnases** : chaque document concerne un *gymnase*, dans lequel on ajoute les informations de toutes les *séances* prévues (sous la forme d'une liste)
@@ -33,7 +37,7 @@ Pour la suite du TP nous utiliserons les données `Gymnase2000` disponibles dans
 
 ## Cluster MongoDB
 
-Avant de commencer le TP, connectez-vous à [MongoDB Atlas](https://account.mongodb.com/account/login?signedOut=true) et créez un cluster comme vu lors des TPs. Si vous avez besoin d'un rappel vous pouvez consulter la page [installation MongoDB](../../TP/installation-mongo.md).
+Avant de commencer le TP, connectez-vous à [MongoDB Atlas](https://account.mongodb.com/account/login?signedOut=true) et créez un cluster comme vu lors des TPs. Si vous avez besoin d'un rappel vous pouvez consulter la page [installation MongoDB](../../nosql/mongodb/).
 
 - Database name : `sae`
 - Collection name : `gymnases`
