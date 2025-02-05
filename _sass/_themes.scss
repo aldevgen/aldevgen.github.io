@@ -11,6 +11,8 @@
   --global-text-color-light: #{$grey-color};
   --global-theme-color: #{$purple-color};
   --global-hover-color: #{$purple-color};
+  --global-inverse-theme-color: #{$green-purple-color};
+  --global-complementary-theme-color: #{$blue-purple-color};
   --global-hover-text-color: #{$white-color};
   --global-footer-bg-color: #{$grey-color-dark};
   --global-footer-text-color: #{$grey-color-light};
@@ -41,6 +43,10 @@
   --global-danger-block-bg: #ffe0e0;
   --global-danger-block-text: #600;
   --global-danger-block-title: #c00;
+  --global-example-block: #0077cc;
+  --global-example-block-bg: #e0f0ff;
+  --global-example-block-text: #003366;
+  --global-example-block-title: #0077cc;
 
   #light-toggle-system {
     padding-left: 10px;
@@ -81,6 +87,8 @@ html[data-theme="dark"] {
   --global-text-color-light: #{$grey-color};
   --global-theme-color: #{$purple-color};
   --global-hover-color: #{$light-purple-color};
+  --global-inverse-theme-color: #{$green-purple-color};
+  --global-complementary-theme-color: #{$blue-purple-color};
   --global-hover-text-color: #{$white-color};
   --global-footer-bg-color: #{$grey-color-dark};
   --global-footer-text-color: #{$grey-color-light};
@@ -110,6 +118,10 @@ html[data-theme="dark"] {
   --global-danger-block-bg: #ffe0e0;
   --global-danger-block-text: #600;
   --global-danger-block-title: #c00;
+  --global-example-block: #0077cc;
+  --global-example-block-bg: #e0f0ff;
+  --global-example-block-text: #003366;
+  --global-example-block-title: #0077cc;
 
   .repo-img-light {
     display: none;

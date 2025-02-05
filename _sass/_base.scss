@@ -4,10 +4,19 @@
 
 // Typography
 
+h1 {
+  color: var(--global-theme-color);
+}
+
+h2 {
+  color: var(--global-inverse-theme-color);
+}
+
+h3 {
+  color: var(--global-complementary-theme-color);
+}
+
 p,
-h1,
-h2,
-h3,
 h4,
 h5,
 h6,
@@ -128,6 +137,27 @@ blockquote {
     h5,
     h6 {
       color: var(--global-danger-block-title);
+    }
+  }
+
+  &.block-example {
+    border-color: var(--global-example-block);
+    background-color: var(--global-example-block-bg);
+
+    em,
+    li,
+    p,
+    strong {
+      color: var(--global-example-block-text);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--global-example-block-title);
     }
   }
 }

@@ -20,6 +20,8 @@ $green-color-light: #ddffdd !default;
 $green-color-bright: #11d68b !default;
 $purple-color: #7d62b0 !default;
 $light-purple-color: color.adjust($purple-color, $lightness: 25%);
+$green-purple-color: #97b063 !default; // Inverse of #7d62b0 (purple-color)
+$blue-purple-color: #6399b0 !default; // Complementary of #7d62b0 (purple-color)
 $pink-color: #f92080 !default;
 $pink-color-light: #ffdddd !default;
 $yellow-color: #efcc00 !default;
