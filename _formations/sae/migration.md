@@ -27,7 +27,7 @@ Pour la suite du TP nous utiliserons les données `Gymnase2000` disponibles dans
 
 ![Gymnase2000 ER](../img/Gymnase2000.png)
 
-À partir de ce schéma nous allons créer deux collections :
+À partir de ce schéma, nous allons créer deux collections :
 - **Gymnases** : chaque document concerne un *gymnase*, dans lequel on ajoute les informations de toutes les *séances* prévues (sous la forme d'une liste)
 - **Sportifs** : chaque document concerne un *sportif.ve*, pour chaque sportif.ve on stockera les informations concernant les sports pour lesquels il/elle joue, les sports pour lesquel il/elle s'entraîne ainsi que ceux pour lesquels il/elle est arbitre.
 

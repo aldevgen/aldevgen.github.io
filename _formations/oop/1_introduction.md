@@ -14,9 +14,9 @@ visible: true
 type: formation
 ---
 
-## Introduction à la Programmation Orientée Objet
+# Introduction à la Programmation Orientée Objet
 
-### Exercice 1 : Gestion d'une bibliothèque
+## Exercice 1 : Gestion d'une bibliothèque
 
 L'objectif de ce TP est de gérer une bibliothèque de livres. Pour cela, nous allons créer une classe `Book` qui permettra de gérer les livres de la bibliothèque.
 
@@ -118,22 +118,24 @@ The book Normal people has been reserved successfully.
 The reservation of the book Normal people has been canceled successfully.
 ```
 
-### Conventions de nommage en Python
-
+> #### :warning: Conventions de nommage en Python
+>
 > Les conventions de nommage en Python sont importantes pour rendre le code plus lisible et compréhensible.
 >
 > - Les noms de classes doivent commencer par une majuscule et utiliser la notation CamelCase.
 > - Les noms de fichiers doivent être en minuscules et séparés par des underscores.
+{: .block-warning }
 
-**Exemples**
-
-- Classe animal
-  - nom du fichier : `animal.py`
-  - nom de la classe : `class Animal`
-
-- Classe poisson rouge
-  - nom du fichier : `poisson_rouge.py`
-  - nom de la classe : `class PoissonRouge`
+> #### Exemples
+> 
+> - Classe animal
+>   - nom du fichier : `animal.py`
+>   - nom de la classe : `class Animal`
+> 
+> - Classe sea anemone
+>   - nom du fichier : `sea_anemone.py`
+>   - nom de la classe : `class SeaAnemone`
+{: .block-example }
 
 ### TO-DO
 
@@ -145,7 +147,7 @@ The reservation of the book Normal people has been canceled successfully.
 
 ---
 
-### Exercice 2 : Calculs de fractions
+## Exercice 2 : Calculs de fractions
 
 L'objectif de cet exercice est de créer une classe `Fraction` permettant de réaliser des opérations sur des fractions.
 

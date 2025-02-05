@@ -60,7 +60,7 @@ Poudlard, l'école des sorciers, souhaite mettre en place un système pour gére
 
 ```mermaid
 classDiagram
-    class MagicalItem {
+    class AbstractMagicalItem {
         - name: string
         - power: int
         - owner: Wizard
@@ -80,18 +80,18 @@ classDiagram
         - used: bool
         + activate() bool
     }
-    MagicalItem <|-- Wand
-    MagicalItem <|-- Potion
+    AbstractMagicalItem <|-- Wand
+    AbstractMagicalItem <|-- Potion
 
     class Character {
         - name: string
         - max_health: int
         - current_health: int
         - spells: List~Spell~
-        + learn_spell(spell: Spell): void
-        + take_damage(amount: int): void
-        + heal(amount: int): void
-        + select_spell(spell_name: string): Spell
+        + learn_spell(spell: Spell) void
+        + take_damage(amount: int: void
+        + heal(amount: int) void
+        + select_spell(spell_name: string) Spell
         + is_alive() bool
         + update_spells() void
     }
@@ -101,14 +101,14 @@ classDiagram
         + activate_magical_item(item_name: string) void
     }
     Character <|-- Wizard
-    Wizard "1" o-- "0..*" MagicalItem : "owns"
+    Wizard "1" o-- "0..*" AbstractMagicalItem : "owns"
 
     class Spell {
         - name: string
         - damage: int
         - cooldown: int = 0
         - max_cooldown: int = 2
-        + can_cast(): bool
+        + can_cast() bool
         + cast(caster: Character, target: Character) bool
         + update_cooldown() void
     }
@@ -125,14 +125,14 @@ classDiagram
 
     class Hogwarts {
         - students: List~Wizard~
-        - magical_artifacts: List~MagicalItem~
-        + enroll_student(wizard: Wizard): void
-        + create_magical_artifact(artifact: MagicalItem) void
+        - magical_artifacts: List~AbstractMagicalItem~
+        + enroll_student(wizard: Wizard) void
+        + create_magical_artifact(artifact: AbstractMagicalItem) void
         + display_students() void
     }
     
     Hogwarts *-- Wizard
-    Hogwarts *-- MagicalItem
+    Hogwarts *-- AbstractMagicalItem
     
 ```
 
@@ -150,7 +150,7 @@ Créer une classe abstraite `AbstractMagicalItem` (fichier `abstract_magical_ite
 
 **Question 2 : Classes `Wand` et `Potion`**  
 
-Créer les classes `Wand` et `Potion` héritant de `MagicalItem`.
+Créer les classes `Wand` et `Potion` héritant de `AbstractMagicalItem`.
 
 - **Pour `Wand`** (fichier `wand.py`) :  
   - Attributs :
@@ -199,7 +199,7 @@ Créer une classe `Spell` (fichier `spell.py`) et ses classes dérivées `Offens
 
 **Question 4 : Classe `Character`**  
 
-Créer une classe abstraite `Character` (fichier `character.py`) avec :  
+Créer une classe `Character` (fichier `character.py`) avec :  
 
 - **Attributs** :  
   - `name` : nom du personnage  
@@ -241,7 +241,7 @@ Créer la classe `Hogwarts` (fichier `hogwarts.py`) avec :
 
 - **Méthodes** :  
   - `enroll_student(wizard: Wizard)` : inscrire un étudiant.
-  - `create_magical_artifact(artifact: MagicalItem)` : ajouter un objet magique.
+  - `create_magical_artifact(artifact: AbstractMagicalItem)` : ajouter un objet magique.
   - `display_students()` : afficher la liste des étudiants inscrits.
 
 ---
