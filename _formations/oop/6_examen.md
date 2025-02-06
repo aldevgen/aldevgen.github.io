@@ -1,9 +1,9 @@
 ---
 layout: page
-title: Examen
+title: TP6
 description: >
-  Création d'un gestionnaire de musique et de podcasts
-importance: 9
+  TP noté
+importance: 7
 category: BUT 2 - Programmation Orientée Objet
 mermaid:
   enabled: true
