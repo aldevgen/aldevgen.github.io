@@ -2,7 +2,7 @@
 layout: page
 title: Migration
 description: Migration de la base de données
-importance: 3
+importance: 4
 category: BUT 3 - SAÉ NoSQL
 related_publications: false
 permalink: /sae/migration/
