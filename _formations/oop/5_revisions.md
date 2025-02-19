@@ -96,19 +96,19 @@ classDiagram
     BankAccount --> OverdraftException
 ```
 
-### 1️⃣ Attributs
+### Attributs
 - `owner` → Nom du propriétaire du compte  
 - `balance` → Solde du compte  
 - `withdrawal_limit` → Montant maximum qu’on peut retirer en une seule fois  
 - `transactions` → Historique des transactions  
 
-### 2️⃣ Méthodes
+### Méthodes
 - `deposit(amount: float)` → Ajouter un montant au solde  
 - `withdraw(amount: float)` → Retirer un montant (en respectant le plafond et en évitant le découvert)  
 - `transfer(amount: float, recipient: BankAccount)` → Transférer de l’argent entre comptes  
 - `get_transaction_history()` → Retourner la liste des transactions  
 
-### 3️⃣ Exceptions Personnalisées  
+### Exceptions Personnalisées  
 - `OverdraftException` → Levée si un retrait met le compte à découvert  
 - `WithdrawalLimitException` → Levée si un retrait dépasse la limite autorisée  
 
@@ -116,48 +116,118 @@ classDiagram
 🔹 Ajouter un système de sécurité qui demande un code PIN avant chaque transaction et bloque le compte après 3 erreurs.  
 🔹 Ajouter des intérêts qui s’appliquent automatiquement chaque mois.  
 
-<!--
+
 
 ## Exercice 3 : L’Académie des Jedi 🛡️  
+ 
+Dans une galaxie lointaine, très lointaine... la guerre entre les Jedi et les Sith fait rage.  
+Mais une nouvelle menace surgit : une rébellion de droïdes qui se retournent contre leurs maîtres !  
 
-### 🎯 Objectifs
-
-Bienvenue à **l’Académie des Jedi**, où de jeunes Padawans apprennent à maîtriser la force sous la guidance de leur Maître Jedi. Chaque Jedi possède des compétences uniques et doit gérer son énergie pour utiliser la Force. Cependant, certains pouvoirs sont immuables et ne peuvent pas être modifiés une fois définis !  
-
-Tu devras utiliser :  
-✅ **Héritage** → Pour gérer les Jedi et Sith  
-✅ **Associations** → Pour lier un Padawan à son Maître Jedi  
-✅ **Décorateurs** → Pour limiter l’usage de la Force et marquer certains pouvoirs comme **final**  
-✅ **Exceptions** → Pour gérer l’épuisement de la Force  
-✅ **Tests unitaires** → Pour s’assurer du bon fonctionnement  
-
+Les Jedi et les Sith devront utiliser **la force**, leur **sabre laser** et leurs **pouvoirs uniques** pour triompher.  
+Mais attention, abuser de la force peut vous laisser **sans énergie** au pire moment...  
 
 ```mermaid
 classDiagram
-    class Jedi {
-        - name: str
+    class Character {
+        + name: str
         - force: int
-        + use_force() str
+        # inventory: list
+        + add_to_inventory(item)
+        + use_force()
         + meditate() str
+        + __str__() str
+        + __le__(other: Character) bool
+    }
+
+    class Jedi {
+        + light_power: str
+        + use_light_power() str
     }
 
     class Sith {
         + dark_power: str
         + use_dark_power() str
+        + corrupt_droid(droid: Droid) str
     }
 
-    class JediMaster {
+    class Droid {
+        + model: str
+        - corrupted: bool
+        + hack() str
+        + repair() str
+    }
+
+    class Master {
         - name: str
-        + train(jedi: Jedi) str
+        + train(apprentice: Character) str
+    }
+    
+    class LightSaber {
+        + color: str
+        - intensity: int
+        - activated: bool
+        + activate() void
+        + deactivate() void
+        + adjust_intensity(level: int)
     }
 
-    Jedi <|-- Sith
-    JediMaster o-- Jedi
+    Character <|-- Jedi
+    Character <|-- Sith
+    Character o-- LightSaber
+    Master o-- Character
+    Character o-- Droid
 ```
 
-### 🔥 Challenge Bonus
-🔹 Ajoute un autre Sith qui a un pouvoir différent du Côté Obscur.  
-🔹 Crée un duel entre deux Sith ou un Sith contre un Jedi.  
-🔹 Ajoute une régénération automatique après un certain temps.
+### Sabre laser
 
--->
+Chaque Jedi ou Sith possède un **sabre laser** de couleur unique.  
+Le sabre peut être **activé/désactivé** et son **intensité ajustée** (entre 1 et 10).  
+
+**Attributs :**  
+- `color` → Couleur du sabre  
+- `intensity` → Intensité du sabre (1 à 10, valeur par défaut : 5)  
+- `activated`  → État du sabre  
+
+**Méthodes :**  
+- `activate()` → Allume le sabre  
+- `deactivate()` → Éteint le sabre  
+- `adjust_intensity(level: int)` → Ajuste l’intensité (uniquement entre 1 et 10)  
+
+### Personnages
+
+Un personnage a un **nom**, une **quantité de force**, un **sabre laser** et un **inventaire** d’objets (classe abstraite).  
+
+**Attributs :**  
+- `name` → Nom du personnage 
+- `force` → Quantité de force (protégé)  
+- `inventory` → Inventaire (privé) 
+- `sabre` → Son sabre laser  
+
+**Méthodes :**  
+- `add_to_inventory(item: str)` → Ajoute un objet à l’inventaire  
+- `use_force()` (abstraite) → Utilise la force  
+- `meditate()` → Regagne de la force (+20)  
+
+### Jedi et Sith  
+
+Un Jedi et un Sith peuvent utiliser la force différemment :  
+
+**Jedi** :  
+- `light_power` → Pouvoir lumineux (ex. "Soin de force")  
+- `use_light_power()` → Utilise un pouvoir lumineux (consomme 25 de force)  
+
+**Sith** :  
+- `dark_power` (str) → Pouvoir obscur (ex. "Éclair Sith")  
+- `use_dark_power()` → Utilise un pouvoir obscur (consomme 25 de force)  
+- `corrupt_droid(droid: Droid)` → Corrompt un droïde pour qu’il se retourne contre ses alliés  
+
+### Décorateur  
+
+Certains pouvoirs (ex. utiliser la force, pouvoir lumineux/obscur) doivent **consommer de la force**.  
+Créer un décorateur `force_required` qui vérifie si un personnage a assez de force pour utiliser un pouvoir.
+
+Si un personnage n’a plus assez de force, une exception `NotEnoughForceError` doit être levée.  
+
+### 🔥 Challenge Bonus  
+🔹 Ajout du sabre laser avec gestion d’activation/désactivation/intensité.  
+🔹 Tests unitaires améliorés.  
