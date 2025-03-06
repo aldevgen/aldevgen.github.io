@@ -116,8 +116,8 @@ classDiagram
         + username str
         + email str
         + subscription Subscription
-        + watch_history list
-        + __init__(id, username, email)
+        + watch_history WatchHistory
+        + __init__(id, username, email, subscription)
         + watch(content: Content)
     }
     
