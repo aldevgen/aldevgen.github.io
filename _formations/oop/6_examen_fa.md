@@ -243,15 +243,21 @@ La classe `WatchHistory` permet de stocker les contenus visionnés par les utili
 
 Un utilisateur dispose d'un abonnement et d'un historique.
 
-| Attribut/Méthode | Description |
-|------------------|-------------|
-| `id` | Identifiant de l'utilisateur |
-| `username` | Nom d'utilisateur |
-| `email` | Adresse email |
-| `subscription` | Abonnement de l'utilisateur |
-| `watch_history` | Historique de visionnage de l'utilisateur |
-| `__init__(id, username, email)` | Constructeur de la classe User |
-| `watch(content: Content)` | Méthode permettant à l'utilisateur de visionner un contenu |
+| Attribut/Méthode | Description                                                                      |
+|------------------|----------------------------------------------------------------------------------|
+| `id` | Identifiant de l'utilisateur                                                     |
+| `username` | Nom d'utilisateur                                                                |
+| `email` | Adresse email                                                                    |
+| `subscription` | Abonnement de l'utilisateur                                                      |
+| `watch_history` | Historique de visionnage de l'utilisateur                                        |
+| `__init__(id, username, email)` | Constructeur de la classe User                                                   |
+| `watch(content: Content)` | Méthode permettant à l'utilisateur de visionner un contenu (cf note ci-dessous). |
+
+---
+
+Lorsqu'un utilisateur regarde un contenu, le programme doit vérifier qu'il peut le regarder en fonction de son abonnement. Si l'utilisateur a un abonnement gratuit, il ne peut regarder que les contenus dont la durée totale ne dépasse pas 120 minutes par mois. Si l'utilisateur a un abonnement premium, il n'y a pas de limite de temps.
+
+Pour les utilisateurs avec un abonnement gratuit, une publicité s'affiche au début du visionnage. Ensuite, le programme affiche le message "Nom de l'utilisateur is watching Nom du contenu". L'utilisateur peut regarder le contenu et l'ajouter à son historique. La durée du contenu est ajoutée au temps de visionnage de l'utilisateur. Dans le cas contraire, une exception `AccessDeniedException` est levée si l'utilisateur a dépassé son quota de visionnage mensuel. Une exception `TimeLimitExceededException` est levée si le contenu dépasse la limite de temps autorisée.
 
 ---
 
@@ -260,6 +266,7 @@ Un utilisateur dispose d'un abonnement et d'un historique.
 Créer un fichier main avec :
 - Film Inception (Identifiant : `7882`, Genre : Sci-Fi, Année : 2010, Durée : 148 minutes)
 - Film The Dark Knight (Identifiant : `6824`, Genre : Action, Année : 2008, Durée : 152 minutes)
+- Film Whiplash (Identifiant : `9823`, Genre : Drama, Année : 2014, Durée : 106 minutes)
 - Série Breaking Bad (Identifiant : `3356`, Genre : Drame, Année : 2008, Durée : 45 minutes, 5 saisons)
   * Saison 1 : 7 épisodes
   * Saison 2 : 13 épisodes
