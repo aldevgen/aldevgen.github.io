@@ -65,6 +65,7 @@ classDiagram
         + get_id() int
         + get_title() str
         + rating (property) float
+        + add_rating(rating: int) void
         +__eq__(other) bool
     }
     
