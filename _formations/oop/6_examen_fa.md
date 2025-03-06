@@ -192,7 +192,7 @@ La classe `Subscription` définit les méthodes et attributs communs à tous les
 |-----------------|-------------|
 | `viewed_time` | Temps de visionnage cumulé en minutes |
 | `__init__()` | Constructeur initialisant le temps de visionnage à 0 |
-| `can_watch(media: Media) -> bool` | Méthode abstraite déterminant si un média peut être visionné |
+| `can_watch(content: Content) -> bool` | Méthode abstraite déterminant si un média peut être visionné |
 | `add_viewing_time(duration: int)` | Méthode ajoutant du temps au compteur de visionnage |
 | `show_advertisement()` | Méthode gérant l'affichage des publicités |
 | `is_premium() -> bool` | Méthode abstraite indiquant si l'abonnement est premium |
@@ -205,7 +205,7 @@ La classe `FreeSubscription` définit les méthodes et attributs spécifiques à
 
 | Attribut/Méthode | Description                                                             |
 |------------------|-------------------------------------------------------------------------|
-| `can_watch(media: Media) -> bool` | Vérifie si le temps cumulé + la durée du média ne dépasse pas la limite |
+| `can_watch(content: Content) -> bool` | Vérifie si le temps cumulé + la durée du média ne dépasse pas la limite |
 | `add_viewing_time(duration: int)` | Ajoute la durée du média visionné au compteur de temps                  |
 | `show_advertisement()` | Affiche une publicité (texte) pour l'abonnement premium                 |
 | `is_premium() -> bool` | Retourne toujours `False` car c'est un abonnement gratuit               |
@@ -218,7 +218,7 @@ La classe `PremiumSubscription` définit les méthodes et attributs spécifiques
 
 | Attribut/Méthode | Description |
 |------------------|-------------|
-| `can_watch(media: Media) -> bool` | Retourne toujours `True` car aucune limite de temps pour les abonnés premium |
+| `can_watch(content: Content) -> bool` | Retourne toujours `True` car aucune limite de temps pour les abonnés premium |
 | `add_viewing_time(duration: int)` | Ne fait rien car pas de limite de temps pour les abonnements premium |
 | `show_advertisement()` | Ne fait rien car pas de publicités pour les abonnements premium |
 | `is_premium() -> bool` | Retourne toujours `True` car c'est un abonnement premium |
