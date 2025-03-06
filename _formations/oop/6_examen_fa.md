@@ -140,19 +140,20 @@ classDiagram
 
 **Contenus**
 
-| Attribut/Méthode | Description                                        |
-|------------------|----------------------------------------------------|
-| `id`              | Identifiant du film                                |
-| `title`           | Titre du contenu                                   |
-| `genre`           | Genre du contenu.                                  
-| `year`	            | Année de sortie.                                   |             
-| `ratings`	         | Liste des évaluations du contenu.                  |  
-| `duration`	        | Durée du contenu en minutes.                       |
+| Attribut/Méthode                             | Description                                        |
+|----------------------------------------------|----------------------------------------------------|
+| `id`                                         | Identifiant du film                                |
+| `title`                                      | Titre du contenu                                   |
+| `genre`                                      | Genre du contenu.                                  
+| `year`	                                      | Année de sortie.                                   |             
+| `ratings`	                                   | Liste des évaluations du contenu.                  |  
+| `duration`	                                  | Durée du contenu en minutes.                       |
 | `__init__(id, title, genre, year, duration)` | 	Constructeur de la classe Content.                |
-| `get_id()` | 	Retourne l'identifiant du contenu.                |
-| `get_title()`	 | Retourne le titre du contenu.                      |
-| `rating (property)` | 	Propriété calculée renvoyant la note moyenne.     |
-| `__eq__(other)` | 	Compare si deux contenus ont le même identifiant. |
+| `get_id()`                                   | 	Retourne l'identifiant du contenu.                |
+| `get_title()`	                               | Retourne le titre du contenu.                      |
+| `rating (property)`                          | 	Propriété calculée renvoyant la note moyenne.     |
+| `add_rating(rating: int)`                    | 	Ajoute une évaluation au contenu. La note doit être comprise entre 1 et 10, sinon une exception `InvalidRatingError` doit être levée.                |
+| `__eq__(other)`                              | 	Compare si deux contenus ont le même identifiant. |
 
 ---
 
