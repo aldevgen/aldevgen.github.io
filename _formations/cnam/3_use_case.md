@@ -10,6 +10,7 @@ visible: true
 mermaid:
   enabled: true
   zoomable: true
+tabs: true
 ---
 
 # Cas pratique avec Apache Cassandra
@@ -71,9 +72,52 @@ Nous avons créé un keyspace `health` lors de la création de la base de donné
 
 ### 2. Création du schéma de données
 
+
+{% tabs group-name %}
+
+{% tab group-name Question %}
+
 À partir du cours, créez les tables `cas_medicaux` et `patients` dans le keyspace `health` avec les colonnes décrites ci-dessus.
 
+{% endtab %}
+
+{% tab group-name Correction %}
+
+```sql
+-- Table pour les cas médicaux
+DROP TABLE IF EXISTS cas_medicaux;
+CREATE TABLE IF NOT EXISTS cas_medicaux (
+    id TEXT PRIMARY KEY,
+    date_diag DATE,
+    pathologie TEXT,
+    code_patho TEXT,
+    patient_prenom TEXT,
+    patient_sexe TEXT,
+    patient_naissance DATE,
+    dept_code TEXT,
+    dept_nom TEXT
+);
+
+-- Table pour les patients avec leur historique de pathologies
+DROP TABLE IF EXISTS patients;
+CREATE TABLE IF NOT EXISTS patients (
+    id TEXT PRIMARY KEY,
+    prenom TEXT,
+    sexe TEXT,
+    date_naissance DATE,
+    pathologies LIST<FROZEN<MAP<TEXT, TEXT>>>
+);
+```
+
+{% endtab %}
+
+{% endtabs %}
+
 ### 3. Insertion des données
+
+{% tabs group-name %}
+
+{% tab group-name Question %}
 
 Insérer dans la table `cas_medicaux` les données du patient `23257`.
 
@@ -81,7 +125,33 @@ Insérer dans la table `cas_medicaux` les données du patient `23257`.
 |--------|------------|------------|-----------|----------|--------------------|-------------------|----------------|--------------|
 | 23257  | addictions | 2021-01-12 |        72 |   Sarthe | Troubles addictifs |        1946-08-27 |        aaliyah |            f |
 
----
+
+{% endtab %}
+
+{% tab group-name Correction %}
+
+```sql
+INSERT INTO cas_medicaux (id, date_diag, pathologie, code_patho, patient_prenom, patient_sexe, patient_naissance, dept_code, dept_nom)
+VALUES (
+    '23257', 
+    '2021-01-12', 
+    'Troubles addictifs', 
+    'addictions', 
+    'aaliyah', 
+    'f', 
+    '1946-08-27', 
+    '72', 
+    'Sarthe'
+);
+```
+
+{% endtab %}
+
+{% endtabs %}
+
+{% tabs group-name %}
+
+{% tab group-name Question %}
 
 Puis, insérer dans la table `patients` les données suivantes :
 
@@ -89,13 +159,32 @@ Puis, insérer dans la table `patients` les données suivantes :
 |-----|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|-----|
 | 403 | 1927-02-11     | [{'date': '2021-08-08', 'dept': '09', 'intitule': 'Maladies inflammatoires chroniques'}, {'date': '2023-04-11', 'dept': '09', 'intitule': 'Accident vasculaire cérébral'}, {'date': '2022-07-02', 'dept': '09', 'intitule': 'Maladies métaboliques, héréditaires ou amylose'}]   | allison |    f|
 
----
+{% endtab %}
+
+{% tab group-name Correction %}
+
+```sql
+INSERT INTO patients (id, prenom, sexe, date_naissance, pathologies)
+VALUES (
+    '403', 
+    'allison', 
+    'f', 
+    '1927-02-11', 
+    [{'intitule': 'Maladies inflammatoires chroniques', 'date': '2021-08-08', 'dept': '09'}, {'intitule': 'Accident vasculaire cérébral', 'date': '2023-04-11', 'dept': '09'}, {'intitule': 'Maladies métaboliques, héréditaires ou amylose', 'date': '2022-07-02', 'dept': '09'}]
+);
+```
+
+{% endtab %}
+
+{% endtabs %}
 
 Une fois les deux requêtes d'insertion effectuées, vous pouvez insérer les données contenues dans le fichier `init.cql` qui est téléchargeable <a href="/assets/code/init.cql" download>ici</a>.
 
 ### 4. Requêtes sur les données
 
-1) Quel est le résultat de la requête suivante ?
+1) Afficher les patients ayant les identifiants `408` et `500`.
+
+2) Quel est le résultat de la requête suivante ?
 
 ```sql
 SELECT *
@@ -105,7 +194,11 @@ WHERE pathologie='Diabète';
 
 Est-elle valide ? Si non, que faire pour corriger cette requête ?
 
-2) Écrivez une requête pour afficher les patients vivant dans le département de la Sarthe.
+3) Écrivez une requête pour afficher les patients vivant dans le département de la Sarthe.
+
+4) Mettre à jour la pathologie du patient `23350` pour remplacer `Diabète` par `Diabète de type 2` (champ `pathologie`).
+
+5) Supprimer les informations concernant le cas médical `23265` (patient Aaren).
 
 ---
 
