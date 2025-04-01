@@ -182,9 +182,11 @@ Une fois les deux requêtes d'insertion effectuées, vous pouvez insérer les do
 
 ### 4. Requêtes sur les données
 
-1) Afficher les patients ayant les identifiants `408` et `500`.
+1) Afficher les 5 premiers cas médicaux.
 
-2) Quel est le résultat de la requête suivante ?
+2) Afficher les patients ayant les identifiants `408` et `500`.
+
+3) Quel est le résultat de la requête suivante ?
 
 ```sql
 SELECT *
@@ -194,12 +196,11 @@ WHERE pathologie='Diabète';
 
 Est-elle valide ? Si non, que faire pour corriger cette requête ?
 
-3) Écrivez une requête pour afficher les patients vivant dans le département de la Sarthe.
-
 4) Mettre à jour la pathologie du patient `23350` pour remplacer `Diabète` par `Diabète de type 2` (champ `pathologie`).
 
 5) Supprimer les informations concernant le cas médical `23265` (patient Aaren).
 
+6) Comment requêter les patients vivant dans le département de la Sarthe ?
 ---
 
 :tada: Bravo, vous venez de requêter des données de santé stockées dans une base de données Apache Cassandra avec CQL !
