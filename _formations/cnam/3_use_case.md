@@ -201,6 +201,7 @@ Est-elle valide ? Si non, que faire pour corriger cette requête ?
 5) Supprimer les informations concernant le cas médical `23265` (patient Aaren).
 
 6) Comment requêter les patients vivant dans le département de la Sarthe ?
+
 ---
 
 :tada: Bravo, vous venez de requêter des données de santé stockées dans une base de données Apache Cassandra avec CQL !
