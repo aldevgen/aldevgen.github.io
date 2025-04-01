@@ -25,8 +25,6 @@ L'objectif de ce TP est de se familiariser avec la base de données `Apache Cass
 3. Requêtes sur les données
 4. Suppression de données
 5. Mise à jour de données
-6. Création d'un index
-
 
 ## Présentation des données
 
@@ -71,7 +69,6 @@ La table `patients` contient les informations des patients :
 Nous avons créé un keyspace `health` lors de la création de la base de données. Nous allons donc l'utiliser pour stocker nos données. Nous allons maintenant populer ce keyspace avec les données des cas médicaux et des patients.
 
 ### 2. Création du schéma de données
-
 
 {% tabs group-name %}
 
@@ -201,6 +198,22 @@ Est-elle valide ? Si non, que faire pour corriger cette requête ?
 5) Supprimer les informations concernant le cas médical `23265` (patient Aaren).
 
 6) Comment requêter les patients vivant dans le département de la Sarthe ?
+
+7) Créer une nouvelle table `patients_pathologie_dept` avec les champs suivants :
+
+| Colonne           | Type |
+|-------------------|------|
+| `id`              | TEXT |
+| `prenom`          | TEXT |
+| `sexe`            | TEXT |
+| `date_naissance`  | DATE |
+| `pathologie_nom`  | TEXT |
+| `pathologie_date` | DATE |
+| `dept`            | TEXT |
+
+Où `dept` est la clé primaire.
+
+8) Insérer les données des patients ayant des pathologies dans la table `patients_pathologie_dept` qui sont <a href="/assets/code/init_dept.cql" download>ici</a>.
 
 ---
 
