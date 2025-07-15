@@ -21,7 +21,7 @@ Nous allons créer un [compte Atlas](https://account.mongodb.com/account/registe
 Une fois que vous avez créé votre compte vous allez pouvoir créer un projet, nommé `but-sd` ici. Ensuite, une page demandera d'ajouter des membres, il n'y a rien à faire. Confirmez simplement la création du projet en cliquant sur **Create project**.
 
 <div class="row justify-content-sm-center">
-    {% include figure.liquid path="assets/img/mongodb/creation-project.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    {% include figure.liquid path="assets/img/mongodb/creation-project.png" title="Creation project" class="img-fluid rounded z-depth-1" %}
 </div>
 
 ### Création d'un utilisateur Atlas
@@ -29,13 +29,13 @@ Une fois que vous avez créé votre compte vous allez pouvoir créer un projet, 
 Une fois ceci fait on aura besoin de créer un utilisateur, afin de pouvoir requêter la base de données. Pour cela, dans le menu à gauche, cliquez sur **Database access**.
 
 <div class="row justify-content-sm-center">
-    {% include figure.liquid path="assets/img/mongodb/create-user.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    {% include figure.liquid path="assets/img/mongodb/create-user.png" title="Create user" class="img-fluid rounded z-depth-1" %}
 </div>
 
 Une fois sur la page des **Database access** cliquez sur **Add new database user** afin d'ajouter un utilisateur de la base de données. Cela ouvrira un nouvel onglet comme ci-dessous. Il faudra ainsi définir son nom, son mot de passe et son rôle. Dans notre cas, nous appelerons notre utilisateur `user_mongo` et nous générerons le mot de passe aléatoirement en cliquant sur **Autogenerate Secure Password**. Enfin, nous lui assignerons le rôle d'administrateur Atlas.
 
-<div class="row justify-content-sm-center">
-    {% include figure.liquid path="assets/img/mongodb/creation-user.png" title="example image" class="img-fluid rounded z-depth-1" %}
+<div class="row justify-content-sm-center" style="width: 80%; margin: 0 auto;">
+    {% include figure.liquid path="assets/img/mongodb/creation-user.png" title="Creation user" class="img-fluid rounded z-depth-1" %}
 </div>
 
 > #### :warning: Mot de passe
@@ -45,28 +45,37 @@ Une fois sur la page des **Database access** cliquez sur **Add new database user
 {: .block-warning }
 
 Une fois ceci fait vous aurez la vue suivante :
-
-![User created](https://github.com/alannadevgen/resources-nosql/blob/main/TP/TP1/img/user-created.png)
+<div class="row justify-content-sm-center">
+    {% include figure.liquid path="assets/img/mongodb/user-created.png" title="User created" class="img-fluid rounded z-depth-1" %}
+</div>
 
 ### Création d'un cluster Atlas
 
 Maintenant nous pouvons créer un cluster qui hébergera notre base de données.
 
-![Create cluster](https://github.com/alannadevgen/resources-nosql/blob/main/TP/TP1/img/create-cluster.png)
+<div class="row justify-content-sm-center">
+    {% include figure.liquid path="assets/img/mongodb/create-cluster.png" title="Create cluster" class="img-fluid rounded z-depth-1" %}
+</div>
 
-Nous prenons l'instance M0 qui est gratuite et donnons un nom à cette dernière, ici `cluster-but-sd`. Il n'y a pas besoin de changer les autres paramètres.
+Nous prenons l'instance `M0` qui est gratuite et donnons un nom à cette dernière, ici `cluster-but-sd`. Il n'y a pas besoin de changer les autres paramètres.
 
-![Creation cluster](https://github.com/alannadevgen/resources-nosql/blob/main/TP/TP1/img/creation-cluster.png)
+<div class="row justify-content-sm-center" style="width: 80%; margin: 0 auto;">
+    {% include figure.liquid path="assets/img/mongodb/creation-cluster.png" title="Creation cluster" class="img-fluid rounded z-depth-1" %}
+</div>
 
 ### Connexion au cluster Atlas
 
 Enfin, la dernière étape consiste à choisir le connecteur à la base de données. Dans notre cas, nous utiliserons l'API Python donc nous sélectionnons **Drivers**.
 
-![Connection method](https://github.com/alannadevgen/resources-nosql/blob/main/TP/TP1/img/connection-method.png)
+<div class="row justify-content-sm-center" style="width: 70%; margin: 0 auto;">
+    {% include figure.liquid path="assets/img/mongodb/connection-method.png" title="Connection method" class="img-fluid rounded z-depth-1" %}
+</div>
 
 Sur la page suivante nous pouvons choisir le type de Driver, Python dans notre cas.
 
-![MongoDB driver](https://github.com/alannadevgen/resources-nosql/blob/main/TP/TP1/img/mongodb-driver.png)
+<div class="row justify-content-sm-center" style="width: 70%; margin: 0 auto;">
+    {% include figure.liquid path="assets/img/mongodb/mongodb-driver.png" title="MongoDB driver" class="img-fluid rounded z-depth-1" %}
+</div>
 
 > #### :information_source: Connection string
 >
@@ -86,7 +95,9 @@ pip install pymongo[srv]
 
 Maintenant nous allons pouvoir utiliser le cluster créé sur Atlas. Commençons par se connecter à notre instance.
 
-![Compass connection](https://github.com/alannadevgen/resources-nosql/blob/main/TP/TP1/img/compass-connection.png)
+<div class="row justify-content-sm-center">
+    {% include figure.liquid path="assets/img/mongodb/compass-connection.png" title="Compass connection" class="img-fluid rounded z-depth-1" %}
+</div>
 
 La connexion va se faire via la _connection string_ qui peut être trouvée dans la configuration du cluster Atlas.
 
@@ -96,16 +107,22 @@ La connexion va se faire via la _connection string_ qui peut être trouvée dans
 >
 {: .block-warning }
 
-![Compass add connection](https://github.com/alannadevgen/resources-nosql/blob/main/TP/TP1/img/compass-add-connection.png)
+<div class="row justify-content-sm-center" style="width: 85%; margin: 0 auto;">
+    {% include figure.liquid path="assets/img/mongodb/compass-add-connection.png" title="Compass add connection" class="img-fluid rounded z-depth-1" %}
+</div>
 
 Une fois ceci fait, nous allons créer une base de données appelée `tp` qui contiendra une collection nommée `restaurants`.
 
-![Create database](https://github.com/alannadevgen/resources-nosql/blob/main/TP/TP1/img/create-database.png)
+<div class="row justify-content-sm-center">
+    {% include figure.liquid path="assets/img/mongodb/create-database.png" title="Create database" class="img-fluid rounded z-depth-1" %}
+</div>
 
 ## Import des données
 
 Ensuite, il suffit d'importer le fichier JSON qui se situe [ici](https://github.com/alannadevgen/formation-nosql/blob/main/TP/TP1/restaurants.json).
 
-![Import data](https://github.com/alannadevgen/resources-nosql/blob/main/TP/TP1/img/import-data.png)
+<div class="row justify-content-sm-center">
+    {% include figure.liquid path="assets/img/mongodb/import-data.png" title="Import data" class="img-fluid rounded z-depth-1" %}
+</div>
 
 Et voilà, vous êtes prêts à requêter les données ! :tada:
