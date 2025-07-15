@@ -1,12 +1,13 @@
 ---
 layout: page
-title: Cassandra
-description: TP
+title: TP4
+description: Agrégation avec MongoDB
 importance: 4
 category: BUT 3 - NoSQL
 related_publications: false
-permalink: /nosql/cassandra/
+permalink: /nosql/mongodb/
+type: formation
 visible: true
 ---
 
-# TP NoSQL
+# TP4

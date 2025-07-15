@@ -1,11 +1,12 @@
 ---
 layout: page
-title: Installation
-description: Installation de MongoDB
+title: TP3
+description: Introduction à MongoDB
 importance: 3
 category: BUT 3 - NoSQL
 related_publications: false
 permalink: /nosql/mongodb/
+type: formation
 visible: true
 ---
 
@@ -72,7 +73,7 @@ Sur la page suivante nous pouvons choisir le type de Driver, Python dans notre c
 Pour requêter les données dans notre base de données nous allons utiliser le package [`pymongo`](https://docs.mongodb.com/drivers/pymongo/), que l'on peut installer via :
 
 ```bash
-$ pip install pymongo[srv]
+pip install pymongo[srv]
 ```
 
 ## Connexion à Compass
