@@ -5,7 +5,7 @@ description: Introduction à MongoDB
 importance: 3
 category: BUT 3 - NoSQL
 related_publications: false
-permalink: /nosql/mongodb/
+permalink: /nosql/mongodb/introduction/
 type: formation
 visible: true
 ---
@@ -38,8 +38,11 @@ Une fois sur la page des **Database access** cliquez sur **Add new database user
     {% include figure.liquid path="assets/img/mongodb/creation-user.png" title="example image" class="img-fluid rounded z-depth-1" %}
 </div>
 
-> [!CAUTION]
+> #### :warning: Mot de passe
+>
 > Pensez à bien enregistrer le mot de passe dans un endroit sécurisé de votre ordinateur et ne pas le mettre sur un repo public GitHub.
+>
+{: .block-warning }
 
 Une fois ceci fait vous aurez la vue suivante :
 
@@ -65,8 +68,11 @@ Sur la page suivante nous pouvons choisir le type de Driver, Python dans notre c
 
 ![MongoDB driver](https://github.com/alannadevgen/resources-nosql/blob/main/TP/TP1/img/mongodb-driver.png)
 
-> [!NOTE]
+> #### :information_source: Connection string
+>
 > Pensez à copier la _connection string_, cela nous servira ensuite à nous connecter en Python à la base de données que nous venons de créer.
+>
+{: .block-example }
 
 ## Interrogation des données MongoDB en Python
 
@@ -84,8 +90,11 @@ Maintenant nous allons pouvoir utiliser le cluster créé sur Atlas. Commençons
 
 La connexion va se faire via la _connection string_ qui peut être trouvée dans la configuration du cluster Atlas.
 
-> [!CAUTION]
+> #### :warning: Mot de passe
+>
 > N'oubliez pas de remplacer le mot de passe sur l'image ci-dessous par celui que vous avez enregistré plus haut.
+>
+{: .block-warning }
 
 ![Compass add connection](https://github.com/alannadevgen/resources-nosql/blob/main/TP/TP1/img/compass-add-connection.png)
 
