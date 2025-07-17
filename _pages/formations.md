@@ -6,10 +6,10 @@ description: Ressources pédagogiques pour les étudiants du BUT Science des Don
 nav: true
 nav_order: 3
 display_categories: [
-  Git,
+  # Git,
   BUT 2 - Programmation Orientée Objet,
   BUT 3 - NoSQL,
-#  BUT 3 - SAÉ NoSQL,
+  BUT 3 - SAÉ NoSQL,
   Cnam CS103 - Bases de données à grande échelle
 ]
 horizontal: false
