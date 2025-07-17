@@ -71,8 +71,8 @@ Cassandra définit des keyspaces pour regrouper les tables. Un keyspace est l'é
 CREATE KEYSPACE library
 WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 3};
 ```
-  
-- **Changement de keyspace** : 
+
+- **Changement de keyspace** :
 ```sql
 USE library ;
 ```
@@ -110,7 +110,7 @@ CREATE TABLE library.users (
     age INT
 );
 ```
-  Pour plus d'informations sur les types de données supportés par Apache Cassandra, vous pouvez consulter [la documentation](https://cassandra.apache.org/doc/latest/cql/types.html).
+  Pour plus d'informations sur les types de données supportés par Apache Cassandra, vous pouvez consulter [la documentation](https://cassandra.apache.org/doc/4.1/cassandra/cql/types.html).
 
   - __Clé primaire composite__
 ```sql
@@ -157,7 +157,7 @@ Cette commande permet de voir les détails de la table `users` du keyspace `libr
   ```sql
   INSERT INTO library.users (id, name, age)
   VALUES (6a6148d1-4a56-4d6a-a610-cdf7b7e3b959, 'Alice', 30);
-  
+
   INSERT INTO library.users (id, name, age)
   VALUES (uuid(), 'Bob', 23);
   ```
@@ -223,5 +223,5 @@ DROP INDEX IF EXISTS name_index;
 {: .block-warning }
 
 ## Documentation :
-- [Manipulation de données](https://cassandra.apache.org/doc/stable/cassandra/cql/ddl.html) : CREATE, ALTER, DROP (table, keyspace)
-- [Requêtes](https://cassandra.apache.org/doc/stable/cassandra/cql/dml.html) : SELECT, INSERT, UPDATE, DELETE
+- [Manipulation de données](https://cassandra.apache.org/doc/4.1/cassandra/cql/ddl.html) : CREATE, ALTER, DROP (table, keyspace)
+- [Requêtes](https://cassandra.apache.org/doc/4.1/cassandra/cql/dml.html) : SELECT, INSERT, UPDATE, DELETE
