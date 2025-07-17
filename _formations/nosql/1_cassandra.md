@@ -1,12 +1,17 @@
 ---
 layout: page
-title: Introduction
-description: Cours
+title: TP1
+description: Cassandra
 importance: 1
 category: BUT 3 - NoSQL
 related_publications: false
-permalink: /nosql/introduction/
+permalink: /nosql/cassandra/
+type: formation
 visible: true
 ---
 
-# Cours NoSQL
+# TP1
+
+## Cours
+
+## TP

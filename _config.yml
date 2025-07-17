@@ -50,7 +50,7 @@ socials_in_search: false
 bib_search: false
 
 # Dimensions
-max_width: 930px
+max_width: 1000px
 
 # TODO: add layout settings (single page vs. multi-page)
 
@@ -213,6 +213,7 @@ markdown: kramdown
 highlighter: rouge
 kramdown:
   input: GFM
+  toc_levels: 1..6 # set the levels of the table of contents (1..6)
   syntax_highlighter_opts:
     css_class: "highlight"
     span:
