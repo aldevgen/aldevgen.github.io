@@ -1,0 +1,67 @@
+/*!
+ * Bootstrap Table of Contents v1.0.1 (http://afeld.github.io/bootstrap-toc/)
+ * Copyright 2015 Aidan Feldman
+ * Licensed under MIT (https://github.com/afeld/bootstrap-toc/blob/gh-pages/LICENSE.md)
+ */
+/* modified from https://github.com/twbs/bootstrap/blob/94b4076dd2efba9af71f0b18d4ee4b163aa9e0dd/docs/assets/css/src/docs.css#L548-L601 */
+/* All levels of nav */
+nav[data-toggle="toc"] .nav {
+  list-style: none;
+  padding-left: 0;
+}
+
+nav[data-toggle="toc"] .nav > li > a {
+  display: block;
+  padding: 4px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #{$grey-color};
+  text-decoration: none;
+}
+
+nav[data-toggle="toc"] .nav > li > a:hover,
+nav[data-toggle="toc"] .nav > li > a:focus {
+  padding-left: 20px;
+  color: #{$dark-purple-color};
+  border-left: 1px solid #{$dark-purple-color};
+  background-color: transparent;
+}
+
+nav[data-toggle="toc"] .nav-link.active,
+nav[data-toggle="toc"] .nav-link.active:hover,
+nav[data-toggle="toc"] .nav-link.active:focus {
+  padding-left: 20px;
+  font-weight: bold;
+  color: #{$dark-purple-color};
+  background-color: transparent;
+  border-left: 2px solid #{$dark-purple-color};
+}
+
+/* Nav: second level */
+nav[data-toggle="toc"] .nav > li > ul {
+  padding-left: 20px;
+}
+
+nav[data-toggle="toc"] .nav .nav > li > a {
+  padding: 4px 20px;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+nav[data-toggle="toc"] .nav .nav > li > a:hover,
+nav[data-toggle="toc"] .nav .nav > li > a:focus {
+  padding-left: 20px;
+  color: #{$dark-purple-color};
+  border-left: 1px solid #{$dark-purple-color};
+  background-color: transparent;
+}
+
+nav[data-toggle="toc"] .nav .nav > li > .active,
+nav[data-toggle="toc"] .nav .nav > li > .active:hover,
+nav[data-toggle="toc"] .nav .nav > li > .active:focus {
+  padding-left: 20px;
+  font-weight: bold;
+  color: #{$dark-purple-color};
+  background-color: transparent;
+  border-left: 2px solid #{$dark-purple-color};
+}
