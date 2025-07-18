@@ -37,7 +37,7 @@ Pour la suite du TP nous utiliserons les données `Gymnase2000` disponibles dans
 
 ## Cluster MongoDB
 
-Avant de commencer le TP, connectez-vous à [MongoDB Atlas](https://account.mongodb.com/account/login?signedOut=true) et créez un cluster comme vu lors des TPs. Si vous avez besoin d'un rappel vous pouvez consulter la page [installation MongoDB](../../nosql/mongodb/).
+Avant de commencer le TP, connectez-vous à [MongoDB Atlas](https://account.mongodb.com/account/login?signedOut=true) et créez un cluster comme vu lors des TPs. Si vous avez besoin d'un rappel vous pouvez consulter la page [installation MongoDB](../nosql/installation-mongodb.md).
 
 - Database name : `sae`
 - Collection name : `gymnases`
@@ -189,7 +189,7 @@ On peut faire cette opération au travers d'une liste compréhension pour toutes
 sessions = [
     seances.query('IdGymnase == @id')
         .drop(columns=["IdGymnase", "IdSport"])
-        .to_dict(orient = "records") 
+        .to_dict(orient = "records")
         for id in gymnases.IdGymnase
 ]
 print(sessions)
