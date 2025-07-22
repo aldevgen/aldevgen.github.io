@@ -23,9 +23,7 @@ As a passionate music enthusiast, I'm always on the hunt for new melodies and rh
 
 By the way, here's a glimpse of the song I'm currently enjoying:
 
-<p align="center">
-  <img src="https://spotify-github-profile.kittinanx.com/api/view?uid=31fg2ntukyb3ep4pt6a7tk2fapsq&cover_image=true&theme=default&show_offline=true&background_color=121212&interchange=true&bar_color_cover=true" alt="Alanna's currently playing song"/>
-</p>
+<img src="https://spotify-github-profile.kittinanx.com/api/view.svg?uid=31fg2ntukyb3ep4pt6a7tk2fapsq&cover_image=true&theme=natemoo-re&show_offline=true&background_color=121212&interchange=true&bar_color=53b14f&bar_color_cover=false" alt="Alanna's currently playing song"/>
 
 <!--
 
