@@ -19,7 +19,7 @@ social: true # includes social icons at the bottom of the page
 
 <!--💻 Now working as a Data Engineer, I am committed to using data to drive impactful outcomes for organisations and society alike.-->
 
-As a passionate music enthusiast, I'm always on the hunt for new melodies and rhythms ; I'm currently developing an [music quiz](https://github.com/alannadevgen/quizzify) web application! This project aims to create an experience for users by generating quizzes based on their Spotify listening history. Leveraging the power of the Spotify API and the FastAPI framework, this app is designed to be both fun and interactive. Stay tuned for updates and prepare to test your musical knowledge like never before!
+As a passionate music enthusiast, I'm always on the hunt for new melodies and rhythms ; I'm currently developing a [music quiz](https://github.com/alannadevgen/quizzify) application! This project aims to create an experience for users by generating quizzes based on their Spotify listening history. Leveraging the power of the Spotify API and the FastAPI framework, this app is designed to be both fun and interactive. Stay tuned for updates and prepare to test your musical knowledge like never before!
 
 By the way, here's a glimpse of the song I'm currently enjoying:
 
