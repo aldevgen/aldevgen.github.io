@@ -1,119 +1,255 @@
 {
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   "contact": {
+    "position": "Data Engineer - Google Cloud Certified",
+    "image": "assets/img/me.jpg",
     "email": "alannadevlingenin@gmail.com",
-    "phone": "(+33) 06 99 39 43 26",
-    "url": "https://alannadevgen.github.io/"
+    "phone": "+33 6 99 39 43 26",
+    "url": "",
+    "summary": "Experienced Data Engineer specializing in scalable data solutions across pharmaceutical, retail, and SaaS industries. I build ETL pipelines, implement data platforms, and automate workflows using dbt, FastAPI, and Kubernetes. Proven track record of delivering data infrastructure that drives business decisions and improves performance.",
+    "location": {
+      "countryCode": "US",
+      "address": "France"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "alanna-devlin-genin",
+        "url": "https://www.linkedin.com/in/alanna-devlin-genin/"
+      }
+    ]
   },
   "work": [
     {
+      "name": "Schneider Electric",
+      "position": "AI Software Engineer",
+      "startDate": "2025-02-28",
+      "endDate": "",
+      "summary": "As an AI Software Engineer at Schneider Electric, I am involved in the development of innovative solutions to enhance industrial processes and improve operational efficiency.",
+      "highlights": [
+        "Deployment of a cloud-to-edge RAG (Retrieval-Augmented Generation) system for industrial procedure explanations, enabling real-time access to information.",
+        "Packaging of Python libraries to reduce the licensing issues of the RAG system, ensuring compliance with proprietary license.",
+        "Creation of self-extracting archives on Ubuntu cross-copatible with Windows"
+      ],
+      "url": "https://www.se.com/ww/en/",
+      "location": "Rueil-Malmaison, France"
+    },
+    {
       "name": "LittleBigCode",
-      "position": "Data Engineer",
-      "url": " https://littlebigcode.fr/",
-      "startDate": "2023-04-01",
-      "endDate": "now",
-      "summary": "",
-      "highlights": ["Data Engineering", "Pipelines", "Data Platform", "CI/CD"]
+      "position": "Data Engineer Consultant",
+      "startDate": "2023-04-30",
+      "endDate": "",
+      "highlights": [],
+      "summary": "As a Data Engineer Consultant at LittleBigCode, I support clients in the design and deployment of scalable data solutions, optimizing architecture, pipeline industrialization, and cloud infrastructure to ensure reliable and high-performance workflows.\n\nMy expertise spans CI/CD automation and infrastructure (Terraform, Kubernetes), ETL pipeline development (Spark, dbt), and API deployment (FastAPI, PostgreSQL, Cassandra) in both on-premise and cloud environments. I also work on data platform optimization and provide technical support to analytics teams.\n\nPassionate about data engineering, I leverage my skills to develop high-value solutions, enhancing system reliability and facilitating access to strategic insights. 🚀",
+      "url": "https://littlebigcode.fr/",
+      "location": "Paris, France"
+    },
+    {
+      "name": "IUT de Paris - Rives de Seine",
+      "position": "Adjunct professor",
+      "startDate": "2024-09-30",
+      "endDate": "2025-03-31",
+      "highlights": ["2nd year – Object-Oriented Programming in Python", "3rd year – NoSQL & Database Migration"],
+      "summary": "Alongside my work as a Data Engineer, I teach at my former school, working with students in Data Science Bachelor.",
+      "url": "https://iutparis-seine.u-paris.fr/",
+      "location": "Paris, France"
+    },
+    {
+      "name": "Servier",
+      "position": "Data Platform Engineer",
+      "startDate": "2024-03-31",
+      "endDate": "2025-01-31",
+      "highlights": [
+        "Deployment of 15 dashboards powered by 25 data sources for 1,200 users.",
+        "Management of 50 Power BI datasets, available in self-service Excel for business teams.",
+        "Monitoring of 150+ daily pipelines, ensuring optimal reliability."
+      ],
+      "summary": "The Data Factory, through specialized Feature Teams, enhances financial monitoring via analytical dashboards. The Data Platform integrates and processes data from diverse sources using advanced tools like BigQuery and dbt. Key activities include ELT pipeline development, real-time data updates, and comprehensive support for data analysts.",
+      "url": "https://servier.com/",
+      "location": "Suresnes, France"
+    },
+    {
+      "name": "Graal Systems",
+      "position": "Data Engineer / Product Owner",
+      "startDate": "2023-04-30",
+      "endDate": "2024-02-28",
+      "highlights": [
+        "Developed low-code ETL pipeline engine supporting multiple frameworks (Spark, Flink, Dask, Pandas, Apache Beam) with automated code export, achieving production deployment in 3 months and optimizing test execution time by 92%.",
+        "Designed and deployed scalable activity feed system using Apache Cassandra on Kubernetes, reaching production in 1 month with automated quality controls and enterprise-grade reliability.",
+        "Combined Data Engineering and Product Owner roles to identify user needs, manage product backlog, and deliver cloud-native solutions that democratize data infrastructure management"
+      ],
+      "summary": "Graal Systems develops a SaaS platform that automates data infrastructure management, allowing developers to focus on their projects without technical constraints. As Data Engineer & Product Owner, I delivered two key initiatives: a low-code ETL pipeline engine supporting multiple frameworks (Spark, Flink, Dask), and a scalable activity feed system using Apache Cassandra.",
+      "url": "https://www.linkedin.com/company/graal-systems/",
+      "location": "Neuilly-sur-Seine, France"
     },
     {
       "name": "Carrefour",
+      "position": "Machine Learning Engineer",
+      "startDate": "2022-06-30",
+      "endDate": "2022-08-31",
+      "highlights": [
+        "Developed predictive ML models for accounting provisions using time series, random forests, and regression techniques, deployed on GCP (BigQuery, Vertex AI) with automated dashboards.",
+        "Built customer database reconciliation pipeline achieving 100% SIRET matching and 30% address-based matching with INSEE's SIRENE database, significantly improving data quality.",
+        "Optimized financial operations through automated provision management and model selection for direct debit rejection prediction, minimizing losses and enhancing decision-making"
+      ],
+      "summary": "Carrefour, a leading French retail giant, is committed to providing quality products and services to its customers. As a Machine Learning Engineer, I contributed to the development of predictive models and data pipelines to enhance financial operations and customer data quality.",
+      "url": "https://www.carrefour.com/fr",
+      "location": "Caen, France"
+    },
+    {
+      "name": "Conservatoire National des Arts et Métiers (CNAM)",
       "position": "Data Scientist",
-      "url": " https://littlebigcode.fr/",
-      "startDate": "2023-04-01",
-      "endDate": "now",
-      "summary": "",
-      "highlights": ["Data Engineering", "Pipelines", "Data Platform", "CI/CD"]
+      "startDate": "2021-06-30",
+      "endDate": "2021-08-31",
+      "highlights": [
+        "Modeled absenteeism patterns for employees with severe depression using random forests, decision trees, and logistic regression to identify key risk factors.",
+        "Published research findings in a scientific journal, contributing to understanding of mental health impact on workplace absenteeism.",
+        "Profiled high-risk employees through advanced statistical modeling and data analysis, providing actionable insights for workplace mental health management"
+      ],
+      "summary": "I conducted a comprehensive study on absenteeism related to mental health, specifically focusing on employees with severe depression.",
+      "url": "https://www.cnam.fr/",
+      "location": "Paris, France"
+    },
+    {
+      "name": "Conservatoire National des Arts et Métiers (CNAM)",
+      "position": "R Shiny Developer",
+      "startDate": "2020-04-30",
+      "endDate": "2020-06-30",
+      "highlights": [
+        "Developed interactive R Shiny application for psychosocial risk analysis using clustering, random forests, and regression models to identify workplace stress factors.",
+        "Implemented comprehensive data visualization tool combining statistical methods with machine learning to facilitate workplace risk prevention and decision-making.",
+        "Contributed to workplace well-being research through bibliographic synthesis and data-driven insights for mental and physical health promotion"
+      ],
+      "url": "https://www.cnam.fr/",
+      "summary": "As an R Shiny Developer, I created a dynamic visualization tool to identify psychosocial risk factors in the workplace to reduce stress and promote employee well-being. The interactive application provides data-driven insights for workplace risk prevention and decision-making.",
+      "location": "Paris, France"
     }
   ],
   "volunteer": [
     {
-      "organization": "People's Climate March",
-      "location": "Zurich, Switzerland",
-      "position": "Lead Organizer",
-      "url": "https://example.com",
-      "startDate": "2014-04-01",
-      "endDate": "2015-07-01",
-      "summary": "Lead organizer for the New York City branch of the People's Climate March, the largest climate march in history.",
-      "highlights": ["Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march.", "Men of the year 2014 by Time magazine"]
+      "organization": "Ensora",
+      "position": "Étudiante tuteur",
+      "startDate": "2021-09-30",
+      "endDate": "2023-04-30",
+      "summary": "Réalisation de séances de tutorat\n- préparation des séances (exercices, préparation d'annales, etc.)\n- réalisation de fiches",
+      "highlights": [],
+      "url": "https://www.linkedin.com/company/69237434"
+    },
+    {
+      "organization": "Ensora",
+      "position": "Présidente de l'association",
+      "startDate": "2022-04-30",
+      "endDate": "2023-04-30",
+      "summary": "Organisation et réalisation de séances de tutorat pour les élèves des promotions inférieures\n- recueil des difficultés et besoins des élèves\n- recherche de tuteurs\n- réservation de salles avec la scolarité\n- planification de séances en amont des examens\n- communication des séances à venir (par mail et via réseaux sociaux)\n- création d'une boîte mail pour l'association\n- mise à disposition de ressources réalisées par les étudiants (fiches, résumés de cours, ...)",
+      "highlights": [],
+      "url": "https://www.linkedin.com/company/69237434"
     }
   ],
   "education": [
     {
-      "institution": "University of Zurich, Zurich, Switzerland",
-      "location": "Zurich, Switzerland",
-      "url": "https://www.uzh.ch/",
-      "area": "Software Development",
-      "studyType": "PhD",
-      "startDate": "1905-01-01",
-      "endDate": "1905-01-01",
-      "score": "10",
-      "courses": ["Theory of Relativity"]
-    }
-  ],
-  "certificates": [
-    {
-      "name": "Machine Learning",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-location-dot"
+      "institution": "Ecole nationale de la Statistique et de l'Analyse de l'Information (ENSAI)",
+      "area": "Big Data and Data Engineering",
+      "studyType": "Engineering degree (Diplôme d'ingénieur)",
+      "startDate": "2020",
+      "endDate": "2023",
+      "score": "",
+      "url": "https://www.ensai.fr/",
+      "courses": ["DevOps", "Software engineering", "Cloud computing", "SQL and NoSQL", "Object-oriented programming"]
     },
     {
-      "name": "Quantum Teleportation",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-clipboard-check"
+      "institution": "IUT de Paris - Rives de Seine",
+      "area": "Data Science Bachelor",
+      "studyType": "DUT STID (Statistique et Informatique Décisionnelle)",
+      "startDate": "2018",
+      "endDate": "2020",
+      "score": "Mention Très Bien, Major de promotion sur les deux années de formation",
+      "url": "https://iutparis-seine.u-paris.fr/metiers-de-la-data/bachelor-universitaire-de-technologie-stid/",
+      "courses": ["Statistics", "Machine Learning", "Time series", "Relational databases", "Statistical programming"]
     }
   ],
+  "awards": [],
+  "certificates": [
+    {
+      "name": "Professional Data Engineer Certification",
+      "issuer": "Google Cloud",
+      "endDate": "2025-12-31",
+      "startDate": "2024-12-17",
+      "url": "https://www.credly.com/badges/66af62f3-a7d1-4f1d-8ed2-64c8a4d64e43"
+    }
+  ],
+  "publications": [],
   "skills": [
     {
-      "name": "Physics",
-      "level": "Master",
-      "icon": "fa-solid fa-hashtag",
-      "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
-      ]
+      "name": "Languages, libraries and frameworks",
+      "level": "",
+      "keywords": ["Python", "SQL", "Apache Spark", "PySpark", "JavaScript", "Java", "Bash"],
+      "icon": "fa-solid fa-hashtag"
+    },
+    {
+      "name": "Databases",
+      "level": "",
+      "keywords": ["PostgreSQL", "Apache Cassandra", "MongoDB", "BigQuery", "MySQL", "SQLite"],
+      "icon": "fa-solid fa-database"
+    },
+    {
+      "name": "DevOps and CI/CD",
+      "level": "",
+      "keywords": ["Docker", "Kubernetes", "Terraform", "Git", "GitHub Actions", "GitLab CI", "Tekton", "ArgoCD"],
+      "icon": "fa-solid fa-recycle"
     }
   ],
   "languages": [
     {
-      "language": "French",
-      "fluency": "Native speaker",
-      "icon": ""
+      "language": "\uD83C\uDDEC\uD83C\uDDE7 English",
+      "fluency": "Native Speaker"
     },
     {
-      "language": "English",
-      "fluency": "Native speaker",
-      "icon": ""
+      "language": "\uD83C\uDDEB\uD83C\uDDF7 French",
+      "fluency": "Native Speaker"
+    },
+    {
+      "language": "\uD83C\uDDEA\uD83C\uDDF8 Spanish",
+      "fluency": "Professional Working"
+    },
+    {
+      "language": "\uD83C\uDDE8\uD83C\uDDF3 Chinese",
+      "fluency": "Elementary"
     }
   ],
-  "interests": [
-    {
-      "name": "Physics",
-      "icon": "fa-solid fa-tag",
-      "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
-      ]
-    }
-  ],
-  "projects": [
-    {
-      "name": "Quantum Computing",
-      "summary": "Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation. Computers that perform quantum computations are known as quantum computers.",
-      "highlights": ["Quantum Teleportation", "Quantum Cryptography"],
-      "startDate": "2018-01-01",
-      "endDate": "2018-01-01",
-      "url": "https://example.com"
-    }
-  ]
+  "interests": [],
+  "references": [],
+//  "projects": [
+//    {
+//      "name": "Etude de la croissance staturo-pondérale des enfants de la cohorte PELAGIE",
+//      "startDate": "2022-01-31",
+//      "summary": "En partenariat avec l'IRSET (INSERM), modélisation de la croissance en taille et poids des enfants de la cohorte PELAGIE entre la naissance et 13 ans à l'aide de 4 modèles structuraux (Jenss-Bayley, Jenss adapté, Reed 1er et 2nd ordre).\n\nLangages utilisés : R, LaTeX",
+//      "url": null,
+//      "endDate": "2022-05-31"
+//    },
+//    {
+//      "name": "Les indicateurs de développement de la Banque Mondiale ",
+//      "startDate": "2019-02-28",
+//      "summary": "A partir d'une base de données de la Banque mondiale, faire une analyse portant sur les indicateurs du Développement Durable de l'ONU.\n\nRéalisation d'une fiche INSEE Première\nTests de corrélation\n\nWDI (World Development Indicators)\nhttp://datatopics.worldbank.org/world-development-indicators/\n\nLogiciels utilisés : Excel, R",
+//      "url": null,
+//      "endDate": "2019-06-30"
+//    },
+//    {
+//      "name": "Challenge Dataviz 2019 - Enedis",
+//      "startDate": "2019-05-31",
+//      "summary": "Réalisation d'une datavisualisation à partir de données réelles sur le photovoltaïque.\n- Recherche d'une problématique à partir du jeu de données\n- Représentation des données suivant notre problématique\n- Choix des représentations graphiques\n\nClassé 2ème de l'IUT Paris Descartes\n\nLogiciels utilisés : Tableau et Excel",
+//      "url": "http://stid-france.fr/?page_id=4510",
+//      "endDate": "2019-05-31"
+//    },
+//    {
+//      "name": "Réalisation d'une enquête sur les lycéens d'Île-de-France",
+//      "startDate": "2018-09-30",
+//      "summary": "Conception d'un questionnaire portant sur internet\nPassation du questionnaire dans les lycées\nNettoyage des données collectées\nAnalyse des questionnaires\nCompte rendu de l'enquête\n\nLogiciels utilisés : LimeSurvey, Tableau, Excel, Explore Data\n",
+//      "url": null,
+//      "endDate": "2019-01-31"
+//    }
+//  ],
+  "meta": {
+    "version": "v1.0.0",
+    "canonical": "https://github.com/jsonresume/resume-schema/blob/v1.0.0/schema.json"
+  }
 }
