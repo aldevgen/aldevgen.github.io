@@ -29,7 +29,7 @@
       "highlights": [
         "Deployment of a cloud-to-edge RAG (Retrieval-Augmented Generation) system for industrial procedure explanations, enabling real-time access to information.",
         "Packaging of Python libraries to reduce the licensing issues of the RAG system, ensuring compliance with proprietary license.",
-        "Creation of self-extracting archives on Ubuntu cross-copatible with Windows"
+        "Creation of self-extracting archives on Ubuntu cross-compatible with Windows"
       ],
       "url": "https://www.se.com/ww/en/",
       "location": "Rueil-Malmaison, France"
@@ -40,7 +40,7 @@
       "startDate": "2023-04-30",
       "endDate": "",
       "highlights": [],
-      "summary": "As a Data Engineer Consultant at LittleBigCode, I support clients in the design and deployment of scalable data solutions, optimizing architecture, pipeline industrialization, and cloud infrastructure to ensure reliable and high-performance workflows.\n\nMy expertise spans CI/CD automation and infrastructure (Terraform, Kubernetes), ETL pipeline development (Spark, dbt), and API deployment (FastAPI, PostgreSQL, Cassandra) in both on-premise and cloud environments. I also work on data platform optimization and provide technical support to analytics teams.\n\nPassionate about data engineering, I leverage my skills to develop high-value solutions, enhancing system reliability and facilitating access to strategic insights. 🚀",
+      "summary": "As a Data Engineer Consultant at LittleBigCode, I support clients in the design and deployment of scalable data solutions, optimizing architecture, pipeline industrialization, and cloud infrastructure to ensure reliable and high-performance workflows.\n\nMy expertise spans CI/CD automation and infrastructure (Terraform, Kubernetes), ETL pipeline development (Spark, dbt), and API deployment (FastAPI, PostgreSQL, Apache Cassandra) in both on-premise and cloud environments. I also work on data platform optimization and provide technical support to analytics teams.\n\nPassionate about data engineering, I leverage my skills to develop high-value solutions, enhancing system reliability and facilitating access to strategic insights. 🚀",
       "url": "https://littlebigcode.fr/",
       "location": "Paris, France"
     },
@@ -74,11 +74,11 @@
       "startDate": "2023-04-30",
       "endDate": "2024-02-28",
       "highlights": [
-        "Developed low-code ETL pipeline engine supporting multiple frameworks (Spark, Flink, Dask, Pandas, Apache Beam) with automated code export, achieving production deployment in 3 months and optimizing test execution time by 92%.",
+        "Developed low-code ETL pipeline engine supporting multiple frameworks (Apache Spark, Apache Flink, Dask, Pandas, Apache Beam) with automated code export, achieving production deployment in 3 months and optimizing test execution time by 92%.",
         "Designed and deployed scalable activity feed system using Apache Cassandra on Kubernetes, reaching production in 1 month with automated quality controls and enterprise-grade reliability.",
         "Combined Data Engineering and Product Owner roles to identify user needs, manage product backlog, and deliver cloud-native solutions that democratize data infrastructure management"
       ],
-      "summary": "Graal Systems develops a SaaS platform that automates data infrastructure management, allowing developers to focus on their projects without technical constraints. As Data Engineer & Product Owner, I delivered two key initiatives: a low-code ETL pipeline engine supporting multiple frameworks (Spark, Flink, Dask), and a scalable activity feed system using Apache Cassandra.",
+      "summary": "Graal Systems develops a SaaS platform that automates data infrastructure management, allowing developers to focus on their projects without technical constraints. As Data Engineer & Product Owner, I delivered two key initiatives: a low-code ETL pipeline engine supporting multiple frameworks (e.g. Apache Spark, Apache Flink, Dask), and a scalable activity feed system using Apache Cassandra.",
       "url": "https://www.linkedin.com/company/graal-systems/",
       "location": "Neuilly-sur-Seine, France"
     },
@@ -90,7 +90,7 @@
       "highlights": [
         "Developed predictive ML models for accounting provisions using time series, random forests, and regression techniques, deployed on GCP (BigQuery, Vertex AI) with automated dashboards.",
         "Built customer database reconciliation pipeline achieving 100% SIRET matching and 30% address-based matching with INSEE's SIRENE database, significantly improving data quality.",
-        "Optimized financial operations through automated provision management and model selection for direct debit rejection prediction, minimizing losses and enhancing decision-making"
+        "Optimized financial operations through automated provision management and model selection for direct debit rejection prediction, minimizing losses and enhancing decision-making."
       ],
       "summary": "Carrefour, a leading French retail giant, is committed to providing quality products and services to its customers. As a Machine Learning Engineer, I contributed to the development of predictive models and data pipelines to enhance financial operations and customer data quality.",
       "url": "https://www.carrefour.com/fr",
@@ -104,7 +104,7 @@
       "highlights": [
         "Modeled absenteeism patterns for employees with severe depression using random forests, decision trees, and logistic regression to identify key risk factors.",
         "Published research findings in a scientific journal, contributing to understanding of mental health impact on workplace absenteeism.",
-        "Profiled high-risk employees through advanced statistical modeling and data analysis, providing actionable insights for workplace mental health management"
+        "Profiled high-risk employees through advanced statistical modeling and data analysis, providing actionable insights for workplace mental health management."
       ],
       "summary": "I conducted a comprehensive study on absenteeism related to mental health, specifically focusing on employees with severe depression.",
       "url": "https://www.cnam.fr/",
@@ -117,8 +117,8 @@
       "endDate": "2020-06-30",
       "highlights": [
         "Developed interactive R Shiny application for psychosocial risk analysis using clustering, random forests, and regression models to identify workplace stress factors.",
-        "Implemented comprehensive data visualization tool combining statistical methods with machine learning to facilitate workplace risk prevention and decision-making.",
-        "Contributed to workplace well-being research through bibliographic synthesis and data-driven insights for mental and physical health promotion"
+        "Implemented comprehensive data visualization tool combining statistical methods with Machine Learning to facilitate workplace risk prevention and decision-making.",
+        "Contributed to workplace well-being research through bibliographic synthesis and data-driven insights for mental and physical health promotion."
       ],
       "url": "https://www.cnam.fr/",
       "summary": "As an R Shiny Developer, I created a dynamic visualization tool to identify psychosocial risk factors in the workplace to reduce stress and promote employee well-being. The interactive application provides data-driven insights for workplace risk prevention and decision-making.",
@@ -128,20 +128,33 @@
   "volunteer": [
     {
       "organization": "Ensora",
-      "position": "Étudiante tuteur",
+      "position": "Tutor",
       "startDate": "2021-09-30",
       "endDate": "2023-04-30",
-      "summary": "Réalisation de séances de tutorat\n- préparation des séances (exercices, préparation d'annales, etc.)\n- réalisation de fiches",
-      "highlights": [],
+      "summary": "As a volunteer tutor, I helped lower-level students overcome their difficulties in statistics and computer science. I organized tutoring sessions, prepared exercises and review sheets, and created educational resources to facilitate their learning.",
+      "highlights": [
+        "Delivered engaging and effective tutoring sessions, employing a variety of teaching methods to cater to diverse learning styles and needs",
+        "Designed and developed comprehensive session plans, including exercises and past exam papers, to ensure thorough preparation and reinforce key concepts",
+        "Created and distributed customized worksheets and learning materials to supplement tutoring sessions and facilitate student understanding and retention",
+        "Curated and distributed educational resources, including student-created notes and course summaries, to enhance learning materials and support student success"
+      ],
       "url": "https://www.linkedin.com/company/69237434"
     },
     {
       "organization": "Ensora",
-      "position": "Présidente de l'association",
+      "position": "President of the association",
       "startDate": "2022-04-30",
       "endDate": "2023-04-30",
-      "summary": "Organisation et réalisation de séances de tutorat pour les élèves des promotions inférieures\n- recueil des difficultés et besoins des élèves\n- recherche de tuteurs\n- réservation de salles avec la scolarité\n- planification de séances en amont des examens\n- communication des séances à venir (par mail et via réseaux sociaux)\n- création d'une boîte mail pour l'association\n- mise à disposition de ressources réalisées par les étudiants (fiches, résumés de cours, ...)",
-      "highlights": [],
+      "summary": "ENSORA is ENSAI's tutoring club, which aims to help students in difficulty and support them in preparing for their exams.",
+      "highlights": [
+        "Planned, coordinated, and led tutoring sessions for students in lower grades, fostering a supportive and effective learning environment",
+        "Gathered and analyzed data on students' academic challenges and needs to tailor tutoring programs and improve educational outcomes",
+        "Recruited, trained, and managed a team of tutors, ensuring high-quality instruction and mentorship for students",
+        "Liaised with school administration to secure and manage room bookings for tutoring sessions, optimizing the use of school facilities",
+        "Developed and implemented strategic session schedules, particularly during exam periods, to maximize student preparation and performance",
+        "Executed comprehensive communication strategies to promote upcoming sessions, utilizing email and social media platforms to engage students",
+        "Established and managed an official email account for the association, streamlining communication and maintaining professional correspondence"
+      ],
       "url": "https://www.linkedin.com/company/69237434"
     }
   ],
