@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://alannadevgen.github.io/sitemap.xml
+Sitemap: https://aldevgen.github.io/sitemap.xml
