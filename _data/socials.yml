@@ -1,0 +1,50 @@
+# the socials will be displayed in the order they are defined here
+# for more information, refer to the documentation of jekyll-socials plugin: https://github.com/george-gca/jekyll-socials
+cv_pdf: /assets/pdf/CV_DataEngineer_Alanna_DEVLIN_GENIN_FR.pdf
+email: alannadevlingenin@gmail.com
+github_username: aldevgen
+linkedin_username: alanna-devlin-genin
+discord_id: 691386280738685009
+spotify_id: 31fg2ntukyb3ep4pt6a7tk2fapsq
+work_url: https://www.linkedin.com/company/renault-digital/
+
+# academia_edu:  your organization and your username Ex. https://organization.academia.edu/UserName
+#  organization: princeton # your organization as appears in the subdomain
+#  username:  AlbertEinstein # your username
+# acm_id: # your dl.acm.org/profile/id
+# arxiv_id: # your arXiv author ID
+# blogger_url: # your blogger URL
+# bluesky_url: # your bluesky URL
+# dblp_url: # your DBLP profile url
+# facebook_id: # your facebook id
+# flickr_id: # your flickr id
+# github_username: # your GitHub user name
+# gitlab_username: # your GitLab user name
+# hal_id: # your HAL id (https://hal.science/)
+# ieee_id: # your ieeexplore.ieee.org/author/id
+# kaggle_id: # your kaggle id
+# keybase_username: # your keybase user name
+# lastfm_id: # your lastfm id
+# lattes_id: # your ID on Lattes (Brazilian Lattes CV)
+# leetcode_id: # your LeetCode id
+# linkedin_username: # your LinkedIn user name
+# mastodon_username: # your mastodon instance+username in the format instance.tld/@username
+# medium_username: # your Medium username
+# orcid_id: # your ORCID ID
+# osf_id: # your OSF ID
+# pinterest_id: # your pinterest id
+# publons_id: # your ID on Publons
+# quora_username: # your Quora username
+# research_gate_profile: # your profile on ResearchGate
+# scopus_id: # your profile on Scopus
+# semanticscholar_id: # your Semantic Scholar ID
+# stackoverflow_id: # your stackoverflow id
+# strava_userid: # your strava user id
+# telegram_username: # your Telegram user name
+# unsplash_id: # your unsplash id
+# youtube_id: # your youtube channel id (youtube.com/@<youtube_id>)
+# zotero_username: # your zotero username
+#custom_social: # can be any name here other than the ones already defined above
+#  logo: https://www.alberteinstein.com/wp-content/uploads/2024/03/cropped-favicon-192x192.png # can be png, svg, jpg
+#  title: Custom Social
+#  url: https://www.alberteinstein.com/
