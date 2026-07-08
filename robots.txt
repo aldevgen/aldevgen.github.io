@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://aldevgen.github.io/sitemap.xml
