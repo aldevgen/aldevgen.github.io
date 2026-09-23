@@ -2,9 +2,9 @@
 layout: page
 type: formation
 title: Collaboration sur un repo
-description:
+description: Utiliser GitHub ou GitLab pour collaborer sur un projet
 category: Versionnage avec git
-visible: true
+visible: false
 img: /assets/img/git/version-control.jpg
 tabs: true
 mermaid:

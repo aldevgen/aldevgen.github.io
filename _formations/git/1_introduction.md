@@ -1,8 +1,8 @@
 ---
 layout: page
 type: formation
-title: Introduction
-description: Introduction au versionnage
+title: Introduction à Git
+description: Comprendre le versionnage et les concepts fondamentaux de Git
 category: Versionnage avec git
 visible: true
 img: /assets/img/git/git-logo.png

@@ -2,9 +2,9 @@
 layout: page
 type: formation
 title: GitHub CI
-description: (optionnel) Introduction aux GitHub Actions
+description: Automatiser les tests d'un projet avec GitHub Actions
 category: Versionnage avec git
-visible: true
+visible: false
 img: /assets/img/git/github-actions.jpg
 tabs: true
 mermaid:
