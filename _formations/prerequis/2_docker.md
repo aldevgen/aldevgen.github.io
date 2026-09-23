@@ -4,7 +4,7 @@ type: formation
 title: Docker
 description: Conteneurisation avec Docker
 category: Prérequis
-visible: true
+visible: false
 img: /assets/img/prerequis/docker.jpg
 tabs: true
 mermaid:
@@ -27,5 +27,5 @@ docker images
 
 ```bash
 # lister les conteneurs en cours d'exécution
-docker container
+docker container ls
 ```
