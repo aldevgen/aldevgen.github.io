@@ -16,8 +16,11 @@ h3 {
   color: var(--global-complementary-theme-color);
 }
 
+h4 {
+  color: var(--global-analogous-theme-color);
+}
+
 p,
-h4,
 h5,
 h6,
 em,
@@ -26,6 +29,10 @@ li,
 span,
 strong {
   color: var(--global-text-color);
+}
+
+h5 {
+  text-decoration: underline;
 }
 
 hr {
