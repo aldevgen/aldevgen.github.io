@@ -33,7 +33,7 @@ Le symbole `$` n'est pas une partie de la commande : il indique simplement que l
 
 Dans cet exemple, l'utilisateur est `alanna`, le nom de la machine est `ordi-alanna` et le terminal est dans le dossier `Documents`.
 
-> :sassy_woman: La touche `tabulation` (ou `tab`) complète souvent le nom d'un fichier ou d'une commande.
+> :bulb: La touche `tabulation` (ou `tab`) complète souvent le nom d'un fichier ou d'une commande.
 > Les flèches haut et bas permettent de retrouver les commandes précédentes.
 {:.block-tip}
 
@@ -185,7 +185,7 @@ macOS   : /Users/utilisateur/Documents/exercices/notes.txt
 
 {% endtabs %}
 
-> :sassy_woman: Il est recommandé d'utiliser des noms de fichiers simples, sans caractères spéciaux ni espaces. Sinon, il faut ajouter des guillemets autour du chemin vers le fichier
+> :bulb: Il est recommandé d'utiliser des noms de fichiers simples, sans caractères spéciaux ni espaces. Sinon, il faut ajouter des guillemets autour du chemin vers le fichier
 {:.block-tip}
 
 ### Créer des dossiers et des fichiers
@@ -395,9 +395,10 @@ Réaliser les opérations suivantes dans un dossier de travail :
 1. Afficher le dossier courant.
 2. Créer un dossier `boutique`.
 3. Entrer dans ce dossier et créer `fruits.txt`.
-4. Ajouter une liste de fruits dans le fichier.
-5. Afficher son contenu.
-6. Créer une copie nommée `fruits-exotiques.txt` contenant les fruits suivants : `ananas`, `papaye`, `mangue` et `banane`.
-7. Créer un sous-dossier `archive` et y déplacer la copie.
-8. Lister le contenu du dossier et de `archive`.
-9. Supprimer le fichier dans `archive` uniquement après avoir vérifié son chemin.
+4. Ajouter une liste de fruits dans le fichier : `pomme`, `poire` et `cerise`.
+5. Renommer le fichier en `fruits-locaux.txt`.
+6. Afficher son contenu.
+7. Créer une copie nommée `fruits-exotiques.txt` contenant les fruits suivants : `ananas`, `papaye`, `mangue` et `banane`.
+8. Créer un sous-dossier `archive` et y déplacer la copie.
+9. Lister le contenu du dossier et de `archive`.
+10. Supprimer le fichier dans `archive` uniquement après avoir vérifié son chemin.
