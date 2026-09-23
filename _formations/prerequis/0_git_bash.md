@@ -1,8 +1,8 @@
 ---
 layout: page
 type: formation
-title: Pré-requis pour Windows
-description: Installation de git bash
+title: Installation de Git Bash
+description: Pré-requis pour Windows
 category: Prérequis
 visible: true
 img: /assets/img/prerequis/git-bash.jpg
@@ -12,16 +12,20 @@ mermaid:
   zoomable: true
 ---
 
-# Installation de git bash
+# Installation de Git Bash
 
-Commencer par vérifier si git bash est installé sur la machine. Pour cela, cliquer sur la touche Windows, et taper
+Dans la suite du cours, nous utiliserons des commandes bash.
+Sous Windows, Git Bash permet d'exécuter ces commandes dans un environnement proche de celui d'un terminal Linux ou macOS.
+Une grande majorité des serveurs utilisés en informatique fonctionnent sous Linux ; il est donc utile de connaître ces commandes, même lorsque l'on travaille depuis un ordinateur Windows.
+
+Commencer par vérifier si Git Bash est installé sur la machine. Pour cela, cliquer sur la touche Windows, et taper
 `git bash`. S'il est présent, passer à la section suivante. Sinon, suivre les instructions suivantes.
 
 {% include figure.liquid loading="eager" path="assets/img/prerequis/git-bash-installed.jpg" title="Git bash installed" class="img-fluid rounded z-depth-2 mx-auto d-block" max-width="600px" %}
 
 ## Télécharger l'exécutable
 
-Pour installer git bash, il faut télécharger l'[éxécutable](https://git-scm.com/install/windows) en cliquant sur `Click here to download`.
+Pour installer **Git for Windows**, il faut télécharger l'[éxécutable](https://git-scm.com/install/windows) en cliquant sur `Click here to download`.
 
 {% include figure.liquid loading="eager" path="assets/img/prerequis/install-git-windows.png" title="Git" class="img-fluid rounded z-depth-2 mx-auto d-block" max-width="850px" %}
 
