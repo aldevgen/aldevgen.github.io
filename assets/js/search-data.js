@@ -11,7 +11,7 @@ ninja.data = [{
     },
   },{id: "nav-formations",
           title: "Formations",
-          description: "Ressources pédagogiques pour les étudiant·es du BUT Science des Données et les auditeur·rices du certificat CS103 Intelligence Artificielle en Santé du Cnam",
+          description: "Ressources pédagogiques pour les étudiant·es du BUT Science des Données (IUT de Paris - Rives de Seine) et les auditeurices du certificat CS103 Intelligence Artificielle en Santé (Cnam)",
           section: "Navigation",
           handler: () => {
             window.location.href = "/formations/";
@@ -116,51 +116,66 @@ ninja.data = [{
           description: "Devoir Maison sur MongoDB et Apache Cassandra",
           section: "Formations",handler: () => {
               window.location.href = "/formations/cnam/cs103/devoir-maison/";
-            },},{id: "formations-introduction",
-          title: 'Introduction',
-          description: "Introduction au versionnage",
+            },},{id: "formations-introduction-à-git",
+          title: 'Introduction à Git',
+          description: "Comprendre le versionnage et les concepts fondamentaux de Git et GitHub",
           section: "Formations",handler: () => {
               window.location.href = "/formations/git/introduction/";
-            },},{id: "formations-premiers-pas",
-          title: 'Premiers pas',
-          description: "",
+            },},{id: "formations-premiers-pas-avec-git",
+          title: 'Premiers pas avec Git',
+          description: "Configuration de Git et création d&#39;un dépôt sur GitHub",
           section: "Formations",handler: () => {
               window.location.href = "/formations/git/premiers-pas/";
+            },},{id: "formations-cycle-des-commits",
+          title: 'Cycle des commits',
+          description: "Enregistrer, inspecter et documenter les changements avec Git",
+          section: "Formations",handler: () => {
+              window.location.href = "/formations/git/updates/";
             },},{id: "formations-gérer-un-dépôt-distant",
           title: 'Gérer un dépôt distant',
-          description: "",
+          description: "Synchroniser un dépôt local avec GitHub ou GitLab",
           section: "Formations",handler: () => {
               window.location.href = "/formations/git/repo-management/";
             },},{id: "formations-collaboration-sur-un-repo",
           title: 'Collaboration sur un repo',
-          description: "",
+          description: "Utiliser GitHub ou GitLab pour collaborer sur un projet",
           section: "Formations",handler: () => {
               window.location.href = "/formations/git/software-forge/";
             },},{id: "formations-flux-de-travail",
           title: 'Flux de travail',
-          description: "",
+          description: "Organiser son travail avec les branches et les fusions",
           section: "Formations",handler: () => {
               window.location.href = "/formations/git/workflows/";
             },},{id: "formations-github-ci",
           title: 'GitHub CI',
-          description: "(optionnel) Introduction aux GitHub Actions",
+          description: "Automatiser les tests d&#39;un projet avec GitHub Actions",
           section: "Formations",handler: () => {
               window.location.href = "/formations/git/github-ci/";
+            },},{id: "formations-installation-de-git-bash",
+          title: 'Installation de Git Bash',
+          description: "Pré-requis pour Windows",
+          section: "Formations",handler: () => {
+              window.location.href = "/formations/prerequis/git-bash/";
+            },},{id: "formations-installation-de-pycharm",
+          title: 'Installation de PyCharm',
+          description: "Installation de l&#39;IDE PyCharm pour le développement Python",
+          section: "Formations",handler: () => {
+              window.location.href = "/formations/prerequis/pycharm/";
             },},{id: "formations-terminal",
           title: 'Terminal',
           description: "Commandes de base du terminal",
           section: "Formations",handler: () => {
               window.location.href = "/formations/prerequis/terminal/";
-            },},{id: "formations-notebooks-en-python",
-          title: 'Notebooks en Python',
-          description: "Introduction à Jupyter et marimo",
-          section: "Formations",handler: () => {
-              window.location.href = "/formations/prerequis/notebooks/";
             },},{id: "formations-docker",
           title: 'Docker',
           description: "Conteneurisation avec Docker",
           section: "Formations",handler: () => {
               window.location.href = "/formations/prerequis/docker/";
+            },},{id: "formations-notebooks-en-python",
+          title: 'Notebooks en Python',
+          description: "Introduction à Jupyter et marimo",
+          section: "Formations",handler: () => {
+              window.location.href = "/formations/prerequis/notebooks/";
             },},{
       id: 'light-theme',
       title: 'Change theme to light',
