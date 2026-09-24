@@ -4,7 +4,7 @@ type: formation
 title: Notebooks en Python
 description: Introduction à Jupyter et marimo
 category: Prérequis
-visible: true
+visible: false
 img: /assets/img/prerequis/jupyter-notebook.jpg
 tabs: true
 mermaid:

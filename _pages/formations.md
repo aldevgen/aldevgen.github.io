@@ -3,13 +3,13 @@ layout: page
 title: Formations
 permalink: /formations/
 description: >
-  Ressources pédagogiques pour les étudiant·es du BUT Science des Données
-  et les auditeur·rices du certificat CS103 Intelligence Artificielle en Santé du Cnam
+  Ressources pédagogiques pour les étudiant·es du BUT Science des Données (IUT de Paris - Rives de Seine)
+  et les auditeurices du certificat CS103 Intelligence Artificielle en Santé (Cnam)
 nav: true
 nav_order: 1
 display_categories: [
-    # "Prérequis",
-    # "Versionnage avec git",
+     "Prérequis",
+     "Versionnage avec git",
     # "BUT 2 - Programmation Orientée Objet en Python",
     # "BUT 3 - Des bases de données distribuées au NoSQL",
     # "BUT 3 - SAÉ migration vers NoSQL",
