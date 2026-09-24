@@ -137,7 +137,7 @@ git add notes.txt
 
 Ici, `add` est le verbe et `notes.txt` indique le fichier concerné.
 
-> :bulb: **Points essentiels**
+> :bulb: **À retenir**
 > - La gestion de versions permet de suivre les modifications apportées aux fichiers et aux projets.
 > - Git et GitHub sont deux outils différents.
 > - Les commandes Git suivent généralement la forme `git verbe options`.
