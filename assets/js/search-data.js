@@ -56,6 +56,11 @@ ninja.data = [{
           description: "TP noté",
           section: "Formations",handler: () => {
               window.location.href = "/formations/but/but2/poo/examen-fi/";
+            },},{id: "formations-pré-requis-mongodb",
+          title: 'Pré-requis MongoDB',
+          description: "Installation et configuration de MongoDB",
+          section: "Formations",handler: () => {
+              window.location.href = "/formations/but/but3/nosql/install-mongodb/";
             },},{id: "formations-tp1",
           title: 'TP1',
           description: "Requêtage et agrégation avec MongoDB",
