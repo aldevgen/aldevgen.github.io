@@ -48,40 +48,114 @@ La seconde introduit les agrégations et propose des questions plus complexes.
 
 Dans un premier temps, nous allons installer MongoDB Compass qui est une interface permettant de visualiser les données.
 
-## 1.1 Installation de MongoDB Compass
+## 1.1 Configuration de la base de données 
+
+> :warning: Nous allons créer un serveur MongoDB, merci de NE PAS CHANGER les noms mentionnés ci-dessous (nom de l'utilisateur, nom de la collection, etc.)
+{:.block-warning}
+
+### Création du compte Atlas
+
+Nous allons créer un [compte Atlas](https://account.mongodb.com/account/register?signedOut=true) afin de pouvoir héberger une base de données MongoDB.
+
+### Création d'un projet Atlas
+
+Une fois que vous avez créé votre compte vous allez pouvoir créer un projet, nommé `but-sd` ici. Ensuite, une page demandera d'ajouter des membres, il n'y a rien à faire. Confirmez simplement la création du projet en cliquant sur **Create project**.
+
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/creation-project.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block" max-width="650px"%}
+
+### Création d'un utilisateur Atlas
+
+Une fois ceci fait on aura besoin de créer un utilisateur, afin de pouvoir requêter la base de données. Pour cela, dans le menu à gauche, cliquez sur **Database access**.
+
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/create-user.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block"%}
+
+Une fois sur la page des **Database access** cliquez sur **Add new database user** afin d'ajouter un utilisateur de la base de données. Cela ouvrira un nouvel onglet comme ci-dessous. Il faudra ainsi définir son nom, son mot de passe et son rôle. Dans notre cas, nous appelerons notre utilisateur `user_mongo` et nous générerons le mot de passe aléatoirement en cliquant sur **Autogenerate Secure Password**. Enfin, nous lui assignerons le rôle d'administrateur Atlas.
+
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/creation-user.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block" max-width="650px"%}
+
+> :warning: Pensez à bien enregistrer le mot de passe dans un endroit sécurisé de votre ordinateur.
+{:.block-warning}
+
+Une fois ceci fait vous aurez la vue suivante : 
+
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/user-created.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block"%}
+
+### Création d'un cluster Atlas
+
+Maintenant nous pouvons créer un cluster qui hébergera notre base de données.
+
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/create-cluster.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block"%}
+
+Nous prenons l'instance M0 qui est gratuite et donnons un nom à cette dernière, ici `cluster-but-sd`. Il n'y a pas besoin de changer les autres paramètres.
+
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/creation-cluster.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block" max-width="650px"%}
+
+### Ajout de l'IP
+
+Parfois, la connexion au cluster échoue. Pour palier ce problème, nous allons permettre que le cluster se connecter à notre IP.
+
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/mongo-add-ip-access-list.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block"%}
+
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/mongo-add-new-ip-access-list.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block"%}
+
+
+### Connexion au cluster Atlas
+
+Enfin, la dernière étape consiste à choisir le connecteur à la base de données. Dans notre cas, nous utiliserons l'API Python donc nous sélectionnons **Drivers**.
+
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/connection-method.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block" max-width="650px"%}
+
+Sur la page suivante nous pouvons choisir le type de Driver, Python dans notre cas.
+
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/mongodb-driver.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block" max-width="650px"%}
+
+> Pensez à copier la *connection string*, cela nous servira ensuite à nous connecter en Python à la base de données que nous venons de créer.
+> 
+> La *connection string* par défaut ressemble à : `mongodb+srv://user_mongo:<db_password>@cluster-but-sd.7z6bi.mongodb.net/?retryWrites=true&w=majority&appName=cluster-but-sd`.
+> Il faut bien évidemment changer le mot de passe.
+> 
+> Par exemple si le mot de passe est `1g9dsa9kdaw063` alors la *connection string* sera : `mongodb+srv://user_mongo:1g9dsa9kdaw063@cluster-but-sd.7z6bi.mongodb.net/?retryWrites=true&w=majority&appName=cluster-but-sd` sans les crochets.
+{:.block-example}
+
+## 1.2 Installation de MongoDB Compass
 
 Pour gérer notre base de données, nous allons utiliser [MongoDB Compass](https://www.mongodb.com/try/download/compass).
-Pour cela, cliquez sur le lien pour télécharger **MongoDB Compass Download (GUI)** et suivez les instructions d'installation selon votre OS.
+Cliquez sur le lien pour télécharger **MongoDB Compass Download (GUI)** et suivez les instructions d'installation selon votre OS.
 
 {% include figure.liquid loading="eager" path="assets/img/cnam/mongodb/compass-connection.png" title="Compass connection" class="img-fluid rounded z-depth-1 mx-auto d-block"%}
 
-## 1.2 Configuration de la base de données avec Docker
 
-Commencez par installer [Docker Desktop pour Windows](https://docs.docker.com/desktop/setup/install/windows-install/).
+Maintenant nous allons pouvoir utiliser le cluster créé sur Atlas. Commençons par se connecter à notre instance.
+La connexion va se faire via la *connection string* qui peut être trouvée dans la configuration du cluster Atlas. 
 
-Une fois, Docker Desktop installé, vous pouver ouvrir un terminal et lancer la commande suivante.
-Cette dernière permet de télécharger l’image MongoDB en local.
+> N'oubliez pas de remplacer le mot de passe sur l'image ci-dessous par celui que vous avez enregistré plus haut.
+{:.block-warning}
 
-```shell
-docker pull mongodb/mongodb-community-server:latest
-```
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/compass-add-connection.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block" max-width="650px"%}
 
-Puis exécuter le serveur `mongodb` en local.
+Une fois ceci fait, nous allons créer une base de données appelée `tp` qui contiendra une collection nommée `restaurants`.
 
-```shell
-docker run --rm --name mongodb -d -p 27017:27017 mongodb/mongodb-community-server
-```
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/create-database.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block"%}
 
-À la fin du TP, vous pouvez supprimer la base de données grâce à la commande suivante.
+## Import des données
 
-```shell
-docker stop mongodb
-```
+Ensuite, il suffit d'importer le fichier JSON qui se situe [ici](https://github.com/aldevgen/data/blob/main/json/restaurants.json).
+
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/telecharger-fichier.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block"%}
+
+Puis de l'importer dans MongoDB Compass :
+
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/import-data.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block"%}
+
 
 ## 1.3 Utilisation du template
 
 Pour faciliter les TPs, un notebook de template est disponible pour réaliser ce TP ainsi que les suivants.
 Vous pouvez réalisez un fork du projet [GitHub](https://github.com/aldevgen/but3-formation-nosql-tp).
+
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/git-fork.png" title="Git fork" class="img-fluid rounded z-depth-1 mx-auto d-block"%}
+
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/git-create-fork.png" title="Git fork" class="img-fluid rounded z-depth-1 mx-auto d-block"%}
 
 ---
 
