@@ -58,6 +58,11 @@ ninja.data = [{
               window.location.href = "/formations/but/but2/poo/examen-fi/";
             },},{id: "formations-tp1",
           title: 'TP1',
+          description: "Requêtage et agrégation avec MongoDB",
+          section: "Formations",handler: () => {
+              window.location.href = "/formations/but/but3/nosql/mongodb/";
+            },},{id: "formations-tp1",
+          title: 'TP1',
           description: "Gestion du cache avec Redis",
           section: "Formations",handler: () => {
               window.location.href = "/formations/but/but3/nosql/redis/";
