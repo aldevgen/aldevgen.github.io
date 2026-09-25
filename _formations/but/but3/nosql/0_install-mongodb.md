@@ -35,7 +35,7 @@ Une fois ceci fait on aura besoin de créer un utilisateur, afin de pouvoir requ
 
 Une fois sur la page des **Database access** cliquez sur **Add new database user** afin d'ajouter un utilisateur de la base de données. Cela ouvrira un nouvel onglet comme ci-dessous. Il faudra ainsi définir son nom, son mot de passe et son rôle. Dans notre cas, nous appelerons notre utilisateur `user_mongo` et nous générerons le mot de passe aléatoirement en cliquant sur **Autogenerate Secure Password**. Enfin, nous lui assignerons le rôle d'administrateur Atlas.
 
-{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/creation-use.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block" max-width="650px"%}
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/creation-user.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block" max-width="650px"%}
 
 > Pensez à bien enregistrer le mot de passe dans un endroit sécurisé de votre ordinateur et ne pas le mettre sur un repo public GitHub.
 {:.block-warning}
