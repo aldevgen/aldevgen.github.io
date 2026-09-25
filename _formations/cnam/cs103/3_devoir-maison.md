@@ -5,7 +5,7 @@ title: DM
 description: Devoir Maison sur MongoDB et Apache Cassandra
 category: Cnam CS103 - Introduction au NoSQL
 visible: true
-img:
+img: /assets/img/cnam/homework.jpg
 tabs: true
 mermaid:
   enabled: true

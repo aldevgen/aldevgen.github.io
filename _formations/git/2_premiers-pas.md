@@ -3,7 +3,7 @@ layout: page
 type: formation
 title: Premiers pas avec Git
 description: Configuration de Git et création d'un dépôt sur GitHub
-category: Versionnage avec git
+category: Versionnage avec Git
 visible: true
 img: /assets/img/git/first-steps.jpg
 tabs: true

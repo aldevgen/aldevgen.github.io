@@ -1,10 +1,10 @@
 ---
 layout: page
 type: formation
-title: TP1
+title: TP3
 description: Gestion du cache avec Redis
 category: BUT 3 - Des bases de données distribuées au NoSQL
-visible: true
+visible: false
 img: /assets/img/redis.png
 tabs: true
 mermaid:

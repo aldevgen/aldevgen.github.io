@@ -3,7 +3,7 @@ layout: page
 type: formation
 title: Gérer un dépôt distant
 description: Synchroniser un dépôt local avec GitHub ou GitLab
-category: Versionnage avec git
+category: Versionnage avec Git
 visible: false
 img: /assets/img/git/git-remote.jpg
 tabs: true

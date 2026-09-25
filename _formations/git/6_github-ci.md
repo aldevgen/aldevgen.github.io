@@ -3,7 +3,7 @@ layout: page
 type: formation
 title: GitHub CI
 description: Automatiser les tests d'un projet avec GitHub Actions
-category: Versionnage avec git
+category: Versionnage avec Git
 visible: false
 img: /assets/img/git/github-actions.jpg
 tabs: true
