@@ -264,7 +264,7 @@ Pour plus d'informations sur les commandes CQL, vous pouvez consulter la documen
 
 Pour ce TP, nous allons créer une base de données Apache Cassandra via **Docker**. Docker est une plateforme de conteneurisation qui permet de créer, déployer et exécuter des applications dans des conteneurs. Un conteneur est une unité légère et autonome qui contient tout ce dont une application a besoin pour fonctionner, y compris le code, les packages, les dépendances et les fichiers de configuration.
 
-Pour créer la base de données, il suffit d'exécuter les commandes suivantes dans votre terminal (PowerShell, Git bash, etc.) :
+Pour créer la base de données, il suffit d'exécuter les commandes suivantes dans votre terminal (PowerShell, Git Bash, etc.) :
 
 1. Téléchargement de l'image Apache Cassandra en local.
 

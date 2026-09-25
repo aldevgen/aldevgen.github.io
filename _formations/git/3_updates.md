@@ -3,7 +3,7 @@ layout: page
 type: formation
 title: Cycle des commits
 description: Enregistrer, inspecter et documenter les changements avec Git
-category: Versionnage avec git
+category: Versionnage avec Git
 visible: false
 img: /assets/img/git/git-flow-update.jpg
 tabs: true

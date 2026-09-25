@@ -1,10 +1,10 @@
 ---
 layout: page
 type: formation
-title: TP3
+title: TP2
 description: Introduction à Apache Cassandra
 category: BUT 3 - Des bases de données distribuées au NoSQL
-visible: true
+visible: false
 img: /assets/img/apache-cassandra.png
 tabs: true
 mermaid:

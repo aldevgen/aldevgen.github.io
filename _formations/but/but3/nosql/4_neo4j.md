@@ -4,7 +4,7 @@ type: formation
 title: TP4
 description: Modélisation de graphs avec Neo4j
 category: BUT 3 - Des bases de données distribuées au NoSQL
-visible: true
+visible: false
 img: /assets/img/neo4j.png
 tabs: true
 mermaid:

@@ -3,7 +3,7 @@ layout: page
 type: formation
 title: Introduction à Git
 description: Comprendre le versionnage et les concepts fondamentaux de Git et GitHub
-category: Versionnage avec git
+category: Versionnage avec Git
 visible: true
 img: /assets/img/git/git-logo.png
 tabs: true

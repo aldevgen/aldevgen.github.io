@@ -25,7 +25,7 @@ Commencer par vérifier si Git Bash est installé sur la machine. Pour cela, cli
 
 ## Télécharger l'exécutable
 
-Pour installer **Git for Windows**, il faut télécharger l'[éxécutable](https://git-scm.com/install/windows) en cliquant sur `Click here to download`.
+Pour installer **Git for Windows**, il faut télécharger l'[exécutable](https://git-scm.com/install/windows) en cliquant sur `Click here to download`.
 
 {% include figure.liquid loading="eager" path="assets/img/prerequis/install-git-windows.png" title="Git" class="img-fluid rounded z-depth-2 mx-auto d-block" max-width="850px" %}
 
