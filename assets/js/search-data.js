@@ -61,21 +61,16 @@ ninja.data = [{
           description: "Requêtage et agrégation avec MongoDB",
           section: "Formations",handler: () => {
               window.location.href = "/formations/but/but3/nosql/mongodb/";
-            },},{id: "formations-tp1",
-          title: 'TP1',
-          description: "Gestion du cache avec Redis",
-          section: "Formations",handler: () => {
-              window.location.href = "/formations/but/but3/nosql/redis/";
             },},{id: "formations-tp2",
           title: 'TP2',
-          description: "Requêtage et agrégation avec MongoDB",
-          section: "Formations",handler: () => {
-              window.location.href = "/formations/but/but3/nosql/mongodb/";
-            },},{id: "formations-tp3",
-          title: 'TP3',
           description: "Introduction à Apache Cassandra",
           section: "Formations",handler: () => {
               window.location.href = "/formations/but/but3/nosql/cassandra/";
+            },},{id: "formations-tp3",
+          title: 'TP3',
+          description: "Gestion du cache avec Redis",
+          section: "Formations",handler: () => {
+              window.location.href = "/formations/but/but3/nosql/redis/";
             },},{id: "formations-tp4",
           title: 'TP4',
           description: "Modélisation de graphs avec Neo4j",
