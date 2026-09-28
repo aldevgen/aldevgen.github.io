@@ -409,3 +409,106 @@ Date:   Sat May 17 18:34:45 2025 -0400
 9. Vérifiez qu'il ne reste aucune modification en attente et consultez l'historique pour retrouver les deux versions créées.
 
 **Pour faire le bilan :** expliquez où se trouve le fichier avant sa préparation, après sa préparation et après son enregistrement. Reliez ces étapes à la métaphore de la photographie et justifiez en quoi les deux messages de version sont descriptifs.
+
+[//]: # -----------------------------------------------------------------------------------------------------------------
+
+# Diffusion des modifications sur GitHub
+
+## :satellite: Transmettre le journal de bord à la Terre
+
+Le journal d'Amara est bien à jour, mais il n'existe pour l'instant que sur son ordinateur de bord.
+Si le reste de l'équipe, ou le centre de contrôle sur Terre, veut le consulter, il faut transmettre ces informations.
+
+## Dépôts locaux et distants
+
+Le versionnage prend tout son sens lorsque nous commençons à collaborer avec d'autres personnes.
+Nous disposons déjà de presque tout ce qu'il faut pour cela ; il ne manque qu'une chose : copier les changements d'un dépôt vers un autre.
+
+Des systèmes comme Git permettent de déplacer le travail entre deux dépôts quelconques.
+En pratique, il est toutefois plus simple d'utiliser une copie comme point central, et de la garder sur le web plutôt que sur l'ordinateur de quelqu'un.
+La plupart des développeur·euses utilisent des services d'hébergement comme [GitHub](https://github.com), [Bitbucket](https://bitbucket.org) ou [GitLab](https://gitlab.com/) pour conserver ces copies principales ; nous utilisons GitHub.
+
+Avant de partager nos changements, regardons d'abord notre dépôt `mission-spatiale` sur GitHub.
+
+Même si nous avons modifié notre copie locale de `mission-spatiale`, la copie distante sur GitHub ne contient encore que le fichier README.
+C'est parce que nous n'avons pas encore *poussé* (**push**) nos changements (ou commits) vers le dépôt distant.
+
+> ### Connecter un dépôt local à un dépôt distant
+> Notez que notre dépôt local contient toujours notre travail sur `mars.txt`, alors que le dépôt distant sur GitHub ne contient que le fichier README.
+>
+> Comme nous avons d'abord créé notre dépôt sur GitHub, puis que nous l'avons cloné sur notre ordinateur, les deux dépôts sont déjà connectés.
+> Si nous avions au contraire créé le dépôt local en premier, puis le dépôt distant sur GitHub, il aurait fallu les connecter manuellement avec une commande comme :
+>
+> ```bash
+> $ git remote add origin git@github.com:amara-okoye/mission-spatiale.git
+> ```
+>
+> `origin` est un nom local qui désigne le dépôt distant.
+> Il pourrait s'appeler n'importe comment, mais `origin` est une convention souvent utilisée par défaut dans git et GitHub, il est donc préférable de la conserver sauf raison particulière.
+>
+> Ici, nous pouvons simplement vérifier que les deux dépôts sont connectés avec la commande :
+>
+> ```bash
+> $ git remote -v
+> ```
+>
+> ```output
+> origin  https://github.com/amara-okoye/mission-spatiale.git (fetch)
+> origin  https://github.com/amara-okoye/mission-spatiale.git (push)
+> ```
+{:.block-example}
+
+## Pousser les changements locaux vers GitHub
+
+Cette commande envoie les changements de notre dépôt local vers le dépôt sur GitHub :
+
+```bash
+$ git push origin main
+```
+
+```output
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (9/9), 992 bytes | 992.00 KiB/s, done.
+Total 9 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/amara-okoye/mission-spatiale.git
+   f537d84..2f2d364  main -> main
+```
+
+Nous pouvons aussi récupérer (**pull**) les changements du dépôt distant vers le dépôt local :
+
+```bash
+$ git pull origin main
+```
+
+```output
+From https://github.com/amara-okoye/mission-spatiale
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+```
+
+Ici, `git pull` n'a aucun effet car les deux dépôts sont déjà synchronisés.
+Si quelqu'un d'autre avait poussé des changements vers le dépôt sur GitHub, cette commande les aurait téléchargés dans notre dépôt local.
+
+Vérifions que nos changements sont bien arrivés sur GitHub : allez dans la **fenêtre de votre navigateur avec le dépôt GitHub et actualisez** la page.
+
+{% include figure.liquid loading="eager" path="assets/img/git/github-pushed-changes.png" title="Les changements ont été poussés" class="img-fluid rounded z-depth-2 mx-auto d-block" %}
+
+Vous devriez maintenant voir le fichier `mars.txt`.
+Cliquez sur **nom du le fichier** : son contenu est identique à celui affiché dans l'IDE.
+
+{% include figure.liquid loading="eager" path="assets/img/git/github-mars.png" title="Affichage de mars.txt" class="img-fluid rounded z-depth-2 mx-auto d-block" %}
+
+Cliquez maintenant sur le lien **History** (Historique) en haut à droite.
+Vous devriez voir chaque commit réalisé sur le fichier, même si nous n'avons poussé qu'une seule fois.
+
+{% include figure.liquid loading="eager" path="assets/img/git/github-mars-history.png" title="Historique des commits de mars.txt" class="img-fluid rounded z-depth-2 mx-auto d-block" %}
+
+> :bulb: **À retenir**
+> - Un dépôt Git local peut être connecté à un ou plusieurs dépôts distants.
+> - `git push` copie les changements d'un dépôt local vers un dépôt distant.
+> - `git pull` copie les changements d'un dépôt distant vers un dépôt local.
+{:.block-tip}
