@@ -24,140 +24,169 @@ mermaid:
 # Cas pratique : modélisation d'un blog
 --->
 
-# TP MongoDB — Introduction et agrégations
+# 1. Préparation de la base de données MongoDB
 
-## Objectifs
-
-À l'issue de ce TP, vous saurez :
-
-- créer et utiliser une base MongoDB hébergée sur MongoDB Compass ;
-- décrire le modèle document de MongoDB et le format BSON ;
-- interroger une collection avec PyMongo (`find`, `count_documents`, `distinct`) ;
-- filtrer, projeter, trier et limiter des résultats ;
-- construire une pipeline d'agrégation avec `aggregate` ;
-- utiliser notamment `$match`, `$project`, `$unwind`, `$group`, `$sort`, `$limit`,
-  `$addFields` et `$sortByCount` ;
-- exploiter les résultats dans un `DataFrame` pandas.
-
-Le TP est organisé en deux parties. La première présente MongoDB et les requêtes élémentaires. 
-La seconde introduit les agrégations et propose des questions plus complexes.
-
----
-
-# 1. Préparation de l'environnement
-
-Dans un premier temps, nous allons installer MongoDB Compass qui est une interface permettant de visualiser les données.
+> :warning: Nous allons créer un serveur. Veuillez **utiliser les noms exacts** indiqués ci-dessous (nom du cluster, nom de la base de données, etc.).
+> Si vous les modifiez, il sera plus difficile de vous aider en cas de problème.
+{:.block-warning}
 
 ## 1.1 Configuration de la base de données 
-
-> :warning: Nous allons créer un serveur MongoDB, merci de NE PAS CHANGER les noms mentionnés ci-dessous (nom de l'utilisateur, nom de la collection, etc.)
-{:.block-warning}
 
 ### Création du compte Atlas
 
 Nous allons créer un [compte Atlas](https://account.mongodb.com/account/register?signedOut=true) afin de pouvoir héberger une base de données MongoDB.
+Choissisez le mode de connection qui vous plaît : Google, GitHub ou via adresse mail.
 
-### Création d'un projet Atlas
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/mongodb/atlas-create-account.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
 
-Une fois que vous avez créé votre compte vous allez pouvoir créer un projet, nommé `but-sd` ici. Ensuite, une page demandera d'ajouter des membres, il n'y a rien à faire. Confirmez simplement la création du projet en cliquant sur **Create project**.
+Lors de la création du compte, le site demande de renseigner des informations personnelles.
+Il est possible d'ignorer cette étape via `Skip personalization` en bas de la page.
 
-{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/creation-project.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block" max-width="650px"%}
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/mongodb/atlas-create-account-personalisation.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
 
-### Création d'un utilisateur Atlas
+### Création du cluster
 
-Une fois ceci fait on aura besoin de créer un utilisateur, afin de pouvoir requêter la base de données. Pour cela, dans le menu à gauche, cliquez sur **Database access**.
+Par défaut, MongoDB Atlas créer un cluster, celui-ci hébergera notre base de données.
+Pour cela, sélectionner l'**instance gratuite** que nous appelerons `cluster-but-sd`. Il n'y a pas besoin de changer les autres paramètres.
+Puis cliquer sur `Create Deployment`.
 
-{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/create-user.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block"%}
+MongoDB Atlas permet d'avoir **une instance gratuite**, si vous en avez déjà créée une vous ne pourrez pas en créer une autre.
 
-Une fois sur la page des **Database access** cliquez sur **Add new database user** afin d'ajouter un utilisateur de la base de données. Cela ouvrira un nouvel onglet comme ci-dessous. Il faudra ainsi définir son nom, son mot de passe et son rôle. Dans notre cas, nous appelerons notre utilisateur `user_mongo` et nous générerons le mot de passe aléatoirement en cliquant sur **Autogenerate Secure Password**. Enfin, nous lui assignerons le rôle d'administrateur Atlas.
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/mongodb/atlas-creation-cluster.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
 
-{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/creation-user.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block" max-width="650px"%}
+### Configuration d'un utilisateur Atlas
 
-> :warning: Pensez à bien enregistrer le mot de passe dans un endroit sécurisé de votre ordinateur.
+Lors de la création du cluster, MongoDB Atlas créé également un utilisateur avec le format `<nom>_db_user` avec un mot de passe aléatoire.
+Ici, l'utilisateur est `alannadevgen_db_user` et le mot de passe commence par `wT...`.
+Télécharger le fichier de configuration en cliquant sur `Download .env file`.
+Ce fichier contient, le nom de l'utilisateur, son mot de passe et une *connection string*.
+
+> :warning: Ce fichier est sensible car il contient un mot de passe et un lien de connexion vers un serveur.
+> Veillez à ne pas le partager ni le publier sur un repo Git.
 {:.block-warning}
 
-Une fois ceci fait vous aurez la vue suivante : 
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/mongodb/atlas-database-user-credentials.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
 
-{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/user-created.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block"%}
+Voici un exemple de fichier `atlas-credentials.env`, caviardé pour des raisons de sécurité.
 
-### Création d'un cluster Atlas
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/mongodb/atlas-credentials.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block" max-width="650px" %}
 
-Maintenant nous pouvons créer un cluster qui hébergera notre base de données.
-
-{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/create-cluster.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block"%}
-
-Nous prenons l'instance M0 qui est gratuite et donnons un nom à cette dernière, ici `cluster-but-sd`. Il n'y a pas besoin de changer les autres paramètres.
-
-{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/creation-cluster.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block" max-width="650px"%}
+> Cette **MONGODB_URI** nous servira ensuite à nous connecter à la base de données.
+> Conservez-là précieusement
+{:.block-example}
 
 ### Ajout de l'IP
 
-Parfois, la connexion au cluster échoue. Pour palier ce problème, nous allons permettre que le cluster se connecter à notre IP.
+Parfois la connexion au cluster, depuis un notebook, échoue.
+Pour palier ce problème, nous allons permettre que le cluster se connecter à toutes les IP.
+Pour ce faire, aller dans l'onglet `Database & Network access`.
 
-{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/mongo-add-ip-access-list.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block"%}
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/mongodb/atlas-database-network-access-menu.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
 
-{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/mongo-add-new-ip-access-list.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block"%}
+Puis sélectionner le menu `IP access list`.
+Pour ajouter une nouvelle addresse IP sélectionner `+ Add IP address`.
 
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/mongodb/atlas-current-ip.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
 
-### Connexion au cluster Atlas
+Cela nous permet ensuite d'ajouter l'IP `0.0.0.0` à la liste des IP autorisées.
 
-Enfin, la dernière étape consiste à choisir le connecteur à la base de données. Dans notre cas, nous utiliserons l'API Python donc nous sélectionnons **Drivers**.
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/mongodb/atlas-allow-access-ip.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
 
-{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/connection-method.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block" max-width="650px"%}
-
-Sur la page suivante nous pouvons choisir le type de Driver, Python dans notre cas.
-
-{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/mongodb-driver.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block" max-width="650px"%}
-
-> Pensez à copier la *connection string*, cela nous servira ensuite à nous connecter en Python à la base de données que nous venons de créer.
-> 
-> La *connection string* par défaut ressemble à : `mongodb+srv://user_mongo:<db_password>@cluster-but-sd.7z6bi.mongodb.net/?retryWrites=true&w=majority&appName=cluster-but-sd`.
-> Il faut bien évidemment changer le mot de passe.
-> 
-> Par exemple si le mot de passe est `1g9dsa9kdaw063` alors la *connection string* sera : `mongodb+srv://user_mongo:1g9dsa9kdaw063@cluster-but-sd.7z6bi.mongodb.net/?retryWrites=true&w=majority&appName=cluster-but-sd` sans les crochets.
-{:.block-example}
 
 ## 1.2 Installation de MongoDB Compass
 
-Pour gérer notre base de données, nous allons utiliser [MongoDB Compass](https://www.mongodb.com/try/download/compass).
-Cliquez sur le lien pour télécharger **MongoDB Compass Download (GUI)** et suivez les instructions d'installation selon votre OS.
+La base de données MongoDB Atlas est maintenant configurée, nous allons pouvoir l'utiliser via le client MongoDB Compass.
+Cliquez sur le lien pour télécharger [**MongoDB Compass Download (GUI)**]((https://www.mongodb.com/try/download/compass)) et suivez les instructions d'installation selon votre OS.
 
-{% include figure.liquid loading="eager" path="assets/img/cnam/mongodb/compass-connection.png" title="Compass connection" class="img-fluid rounded z-depth-1 mx-auto d-block"%}
+Une fois l'installation faite, nous allons pouvoir utiliser le cluster créé sur MongoDB Atlas.
+Cliquer sur l'un des boutons `+ Add new connection`.
+
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/mongodb/compass-add-connection.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
+
+La connexion va se faire via la *connection string* (cf. `MONGODB_URI`) qui peut être trouvée dans le fichier `atlas-credentials.env`.
+Puis cliquer sur `Save & Connect`.
+
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/mongodb/compass-add-new-connection.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
+
+Une fois ceci fait, nous allons créer une base de données ainsi qu'une collection. Il faut cliquer sur le **+** à côté du nom du serveur.
+
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/mongodb/compass-create-database.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
+
+Cette base de données sera appelée `tp` et contiendra une collection nommée `restaurants`.
+
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/mongodb/compass-create-database-restaurants.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
+
+## 1.3 Import des données
+
+Pour ce TP, nous utiliserons la base de données `restaurants` issue du jeu de données d'exemple de [MongoDB Atlas](https://www.mongodb.com/docs/atlas/sample-data/sample-restaurants/).
+
+Pour ce faire, télécharger le [fichier JSON](https://github.com/aldevgen/data/blob/main/json/restaurants.json) depuis le repo GitHub.
+
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/mongodb/git-dowload-file.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
+
+Puis de l'importer dans MongoDB Compass via `Import data`. Une fois ceci fait, vous aurez la vue suivante :
+
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/mongodb/compass-database-imported.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
+
+Vous remarquez que certains champs sont imbriqués tels que `address` et `grades`.
+Pour avoir une vue complète d'un document, il suffit de cliquer sur la flèche en haut à gauche comme indiqué ici.
+Cela permet de réduire ou agrandir l'affichage d'un document.
+
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/mongodb/compass-expand-document.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
 
 
-Maintenant nous allons pouvoir utiliser le cluster créé sur Atlas. Commençons par se connecter à notre instance.
-La connexion va se faire via la *connection string* qui peut être trouvée dans la configuration du cluster Atlas. 
+## 1.4 Utilisation du template
 
-> N'oubliez pas de remplacer le mot de passe sur l'image ci-dessous par celui que vous avez enregistré plus haut.
-{:.block-warning}
+Pour faciliter les TPs, un notebook sera mis à disposition pour réaliser ce TP ainsi que les suivants.
+Pour récupérer le template, vous allez réaliser un fork du projet [GitHub](https://github.com/aldevgen/but3-formation-nosql-tp).
+Ainsi, cliquez sur `Fork` en haut à droite.
 
-{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/compass-add-connection.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block" max-width="650px"%}
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/mongodb/git-fork.png" title="Git fork" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
 
-Une fois ceci fait, nous allons créer une base de données appelée `tp` qui contiendra une collection nommée `restaurants`.
+Cela va ouvrir une nouvelle page pour configurer le fork.
+Assurez-vous que votre nom d'utilisateur est bien sélectionné puis cliquez sur `Create fork`.
+Vous avez désormais une copie du repo `but3-formation-nosql-tp` sur votre compte GitHub.
 
-{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/create-database.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block"%}
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/mongodb/git-create-fork.png" title="Git fork" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
 
-## Import des données
+Maintenant, nous voulons télécharger le repo en local afin de pouvoir utiliser le notebook Python.
+Nous allons utiliser Git Bash. Cherchez et ouvrez un terminal Git Bash depuis la touche Windows. 
 
-Ensuite, il suffit d'importer le fichier JSON qui se situe [ici](https://github.com/aldevgen/data/blob/main/json/restaurants.json).
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/mongodb/windows-git-bash.png" title="Git" class="img-fluid rounded z-depth-1 mx-auto d-block" max-width="650px" %}
 
-{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/telecharger-fichier.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block"%}
+Dans la suite de ce cours, nous utiliserons à chaque séance Git.
+Si vous ne vous sentez pas à l'aise avec cet outil, vous pouvez vous référer au pré-requis.
 
-Puis de l'importer dans MongoDB Compass :
+Le terminal affiche quelques informations intéressantes :
+- le nom de l'utilisateur &rarr; `alanna.devlin`
+- le nom de la machine &rarr; `B-1-13-22`
+- le dossier courant &rarr; `~`
 
-{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/import-data.png" title="MongoDB" class="img-fluid rounded z-depth-1 mx-auto d-block"%}
+Commencons par regarder le contenu du dossier courant.
+Ici, nous sommes dans le disque `Z` et le dossier courant contient 2 dossiers : `NoSQL` et `POO`. 
 
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/mongodb/git-bash-ls.png" title="Git" class="img-fluid rounded z-depth-1 mx-auto d-block" max-width="650px" %}
 
-## 1.3 Utilisation du template
+Nous allons désormais nous déplacer dans le dossier `NoSQL` avec la commande `cd`.
 
-Pour faciliter les TPs, un notebook de template est disponible pour réaliser ce TP ainsi que les suivants.
-Vous pouvez réalisez un fork du projet [GitHub](https://github.com/aldevgen/but3-formation-nosql-tp).
+> Vous pouvez vous aider de la touche *tab* pour vous déplacer de dossier en dossier si vous tapez les premières lettres d'un dossier.
+> - Si vous avez un dossier `BUT3` faites `cd BUT3` puis `cd NoSQL`.
+> - Si vous n'avez pas encore créé de dossier `NoSQL` depuis l'explorateur de fichier vous pouvez le faire depuis le terminal : `cd BUT3` &rarr; `mkdir NoSQL` &rarr; `cd NoSQL`.
+{:.block-example}
 
-{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/git-fork.png" title="Git fork" class="img-fluid rounded z-depth-1 mx-auto d-block"%}
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/mongodb/git-bash-cd.png" title="Git" class="img-fluid rounded z-depth-1 mx-auto d-block" max-width="650px" %}
 
-{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/git-create-fork.png" title="Git fork" class="img-fluid rounded z-depth-1 mx-auto d-block"%}
+Une fois dans le bon dossier, nous allons pouvoir cloner le projet.
+Pour cela, retournez sur **votre repo** `but3-formation-nosql-tp` celui que vous avez forké (pas sur mon repo).
+Cliquez sur le bouton vert `< > Code` puis sur le bouton **Copy URL to clipboard** situé à côté d'URL.
 
----
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/mongodb/git-clone-template.png" title="Git" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
+
+Retournez dans le terminal Git Bash et insérer la commande `git clone <URL>` où `<URL>` est celle copiée précédemment.
+
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/mongodb/git-bash-clone.png" title="Git" class="img-fluid rounded z-depth-1 mx-auto d-block" max-width="650px" %}
+
+:tada: Vous venez tout juste de cloner votre premier repo.
 
 # 2. Le modèle de données MongoDB
 
@@ -212,9 +241,8 @@ Les exemples de cours ci-dessous utilisent cette collection fictive :
 students = db["students"]
 ```
 
-Il n'est pas nécessaire de créer cette collection pour réaliser le TP :
-elle sert uniquement à illustrer la syntaxe. La collection réellement fournie
-et interrogée dans les exercices est `restaurants`.
+Il n'est pas nécessaire de créer cette collection pour réaliser le TP : elle sert uniquement à illustrer la syntaxe.
+La collection réellement fournie et interrogée dans les exercices est `restaurants`.
 
 ## 2.2. Requêtes et agrégations
 
@@ -350,7 +378,7 @@ pd.DataFrame(list(cursor))
 2. Créez une base `tp` et une collection `restaurants` ;
 3. Importez le fichier `restaurants.json` fourni avec le TP.
 
-Le fichier contient plus de 25 000 restaurants new-yorkais. Il est également issu du jeu de données d'exemple de [MongoDB Atlas](https://www.mongodb.com/docs/atlas/sample-data/sample-restaurants/).
+Le fichier contient plus de 25 000 restaurants new-yorkais. Il est issu du jeu de données d'exemple de [MongoDB Atlas](https://www.mongodb.com/docs/atlas/sample-data/sample-restaurants/).
 
 ## 4.2 Connexion depuis Python
 
@@ -376,7 +404,8 @@ pd.DataFrame(documents)
 
 ## 4.3 Questions
 
-<!---
+Ouvrez le notebook précédemment cloné dans Jupyter et répondez aux questions suivantes.
+
 1. Combien de documents contient la collection `restaurants` ?
 2. Quels sont les styles de cuisine présents dans la collection ?
 3. Quels sont tous les grades possibles ?
@@ -387,24 +416,12 @@ pd.DataFrame(documents)
 8. Affichez les restaurants nommés `Burger King`, avec uniquement leur nom et leur quartier.
 9. Affichez les restaurants situés sur `Union Street` ou `Union Square`.
 10. Affichez les restaurants dont la latitude est strictement supérieure à `40.90`. Affichez le nom, le quartier et les coordonnées.
-11. Affichez les restaurants ayant une même évaluation dont le score est `0` et le grade `A`. Utilisez `$elemMatch` et expliquez pourquoi il est préférable ici à deux conditions séparées.
-12. Affichez le nom et la rue des restaurants situés sur une rue dont le nom contient le terme `Union`. Indication : recherchez l'opérateur d'expression régulière MongoDB.
+11. Affichez les restaurants ayant une même évaluation dont le score est `0` et le grade `A`.
+    - Utilisez `$elemMatch` et expliquez pourquoi il est préférable ici à deux conditions séparées.
+12. Affichez le nom et la rue des restaurants situés sur une rue dont le nom contient le terme `Union`.
+    - Indication : recherchez l'opérateur d'expression régulière MongoDB.
 13. Affichez les restaurants ayant eu une visite le `1er février 2014`. Attention au type BSON des dates et à la présence éventuelle d'une heure.
 14. Affichez les restaurants situés dans la zone délimitée par les longitudes `-74.2` et `-74.1` et les latitudes `40.5` et `40.6`.
---->
-
-1. Donner les styles de cuisine présent dans la collection
-1. Donner tous les grades possibles dans la base
-1. Compter le nombre de restaurants proposant de la cuisine française ("French")
-1. Compter le nombre de restaurants situés sur la rue "Central Avenue"
-1. Compter le nombre de restaurants ayant eu une note supérieure à 50
-1. Lister tous les restaurants, en n'affichant que le nom, l'immeuble et la rue
-1. Lister tous les restaurants nommés "Burger King" (nom et quartier uniquement)
-1. Lister les restaurants situés sur les rues "Union Street" ou "Union Square"
-1. Lister les restaurants situés au-dessus de la lattitude 40.90
-1. Lister les restaurants ayant eu un score de 0 et un grade "A"
-
----
 
 # 5. Pipelines d'agrégation
 
@@ -616,8 +633,6 @@ nécessaire, utilisez `pd.json_normalize` pour aplatir des documents :
 pd.json_normalize(list(students.find().limit(5)))
 ```
 
----
-
 # 6. Mise en pratique — agrégations
 
 Pour chaque question, écrivez une pipeline lisible, exécutez-la et justifiez
@@ -666,7 +681,6 @@ les étapes utilisées. Sauf indication contraire, les champs demandés doivent
 12. Pour les dix rues dont le score moyen est le plus faible, affichez le
     quartier, la rue, le score moyen et le nombre de restaurants concernés.
 --->
----
 
 # 7. Bilan
 
