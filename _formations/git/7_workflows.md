@@ -2,7 +2,7 @@
 layout: page
 type: formation
 title: Flux de travail
-description: Organiser son travail avec les branches et les fusions
+description: (optionnel) Organiser son travail avec les branches et les merge requests
 category: Versionnage avec Git
 visible: false
 img: /assets/img/git/workflow.jpg
