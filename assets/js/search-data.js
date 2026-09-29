@@ -131,6 +131,16 @@ ninja.data = [{
           description: "Enregistrer, inspecter et documenter les changements avec Git",
           section: "Formations",handler: () => {
               window.location.href = "/formations/git/updates/";
+            },},{id: "formations-création-de-branches",
+          title: 'Création de branches',
+          description: "Travailler en parallèle et tester plusieurs scénarios avec les branches Git",
+          section: "Formations",handler: () => {
+              window.location.href = "/formations/git/branches/";
+            },},{id: "formations-pull-requests",
+          title: 'Pull Requests',
+          description: "Proposer et fusionner des changements avec une Pull Request",
+          section: "Formations",handler: () => {
+              window.location.href = "/formations/git/pull-requests/";
             },},{id: "formations-gérer-un-dépôt-distant",
           title: 'Gérer un dépôt distant',
           description: "Synchroniser un dépôt local avec GitHub ou GitLab",
@@ -143,12 +153,12 @@ ninja.data = [{
               window.location.href = "/formations/git/software-forge/";
             },},{id: "formations-flux-de-travail",
           title: 'Flux de travail',
-          description: "Organiser son travail avec les branches et les fusions",
+          description: "(optionnel) Organiser son travail avec les branches et les merge requests",
           section: "Formations",handler: () => {
               window.location.href = "/formations/git/workflows/";
             },},{id: "formations-github-ci",
           title: 'GitHub CI',
-          description: "Automatiser les tests d&#39;un projet avec GitHub Actions",
+          description: "(optionnel) Automatiser les tests d&#39;un projet avec GitHub Actions",
           section: "Formations",handler: () => {
               window.location.href = "/formations/git/github-ci/";
             },},{id: "formations-installation-de-git-bash",
