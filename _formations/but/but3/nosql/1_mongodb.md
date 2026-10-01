@@ -96,7 +96,7 @@ Cela nous permet ensuite d'ajouter l'IP `0.0.0.0` à la liste des IP autorisées
 ## 1.2 Installation de MongoDB Compass
 
 La base de données MongoDB Atlas est maintenant configurée, nous allons pouvoir l'utiliser via le client MongoDB Compass.
-Cliquez sur le lien pour télécharger [**MongoDB Compass Download (GUI)**]((https://www.mongodb.com/try/download/compass)) et suivez les instructions d'installation selon votre OS.
+Cliquez sur le lien pour télécharger [**MongoDB Compass Download (GUI)**](https://www.mongodb.com/try/download/compass) et suivez les instructions d'installation selon votre OS.
 
 Une fois l'installation faite, nous allons pouvoir utiliser le cluster créé sur MongoDB Atlas.
 Cliquer sur l'un des boutons `+ Add new connection`.
