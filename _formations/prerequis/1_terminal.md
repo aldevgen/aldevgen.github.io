@@ -65,7 +65,7 @@ La majorité des commandes shell permettent d'ajouter des options. Ces options s
 
 Dans le cas de la commande `ls`, deux options sont particulièrement utiles en termes d'affichage :
 `-a` affiche les fichiers cachés (ceux dont le nom commencent par un point) et
-`-l` affiche les fichiers cachés (ceux dont le nom commencent par un point).
+`-l` affiche les fichiers sous forme de liste.
 Il est possible de les concaténer comme une seule option `-al` (au lieu d'ajouter deux options `-a` et `-l`).
 
 ```bash
@@ -110,9 +110,9 @@ cd ~
 
 {% include figure.liquid loading="eager" path="assets/img/prerequis/terminal-cd.png" title="Terminal cd" class="img-fluid rounded z-depth-2 mx-auto d-block" max-width="600px" %}
 
-{% tabs group-name %}
+{% tabs terminal-os %}
 
-{% tab group-name Git Bash %}
+{% tab terminal-os Git Bash %}
 
 Dans Git Bash, un chemin Windows s'écrit avec des `/`.
 Voici un exemple pour changer de disque.
@@ -126,7 +126,7 @@ Les guillemets permettent de gérer les chemins contenant des espaces. Dans la p
 
 {% endtab %}
 
-{% tab group-name Linux/Mac %}
+{% tab terminal-os Linux/Mac %}
 
 Sous Linux et macOS, un chemin ressemble à ceci :
 
@@ -151,9 +151,9 @@ exercices/notes.txt
 
 Un **chemin absolu** indique l'emplacement complet du fichier.
 
-{% tabs group-name %}
+{% tabs absolute-paths %}
 
-{% tab group-name Windows %}
+{% tab absolute-paths Windows %}
 
 Il commence généralement par une lettre de lecteur sous Windows :
 
@@ -163,7 +163,7 @@ Windows : C:\Users\utilisateur\Documents\exercices\notes.txt
 
 {% endtab %}
 
-{% tab group-name Linux %}
+{% tab absolute-paths Linux %}
 
 Il commence généralement par `/` sous Linux et macOS :
 
@@ -173,7 +173,7 @@ Linux   : /home/utilisateur/Documents/exercices/notes.txt
 
 {% endtab %}
 
-{% tab group-name Mac %}
+{% tab absolute-paths Mac %}
 
 Il commence généralement par `/` sous Linux et macOS :
 
@@ -236,9 +236,9 @@ command -v vi
 
 Si la commande affiche un chemin, l'éditeur est installé. Sinon, le terminal affiche généralement une erreur ou ne renvoie aucun résultat.
 
-{% tabs group-name %}
+{% tabs text-editors %}
 
-{% tab group-name Git Bash %}
+{% tab text-editors Git Bash %}
 
 Git Bash contient généralement `vi` et `vim`.
 
@@ -246,7 +246,7 @@ L'éditeur `nano` peut également être disponible selon la version de Git for W
 
 {% endtab %}
 
-{% tab group-name Linux %}
+{% tab text-editors Linux %}
 
 Sur Ubuntu ou Debian :
 
@@ -263,7 +263,7 @@ sudo dnf install nano vim
 
 {% endtab %}
 
-{% tab group-name MacOS %}
+{% tab text-editors Mac %}
 
 Sur macOS, `vi` et `nano` sont généralement déjà installés. Via Homebrew, il est possible d'installer ou mettre à jour Vim :
 
