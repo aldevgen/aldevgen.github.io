@@ -63,7 +63,7 @@ ninja.data = [{
               window.location.href = "/formations/but/but3/nosql/mongodb/";
             },},{id: "formations-tp2",
           title: 'TP2',
-          description: "Introduction à Apache Cassandra",
+          description: "Modéliser les données et écrire des requêtes CQL avec Apache Cassandra",
           section: "Formations",handler: () => {
               window.location.href = "/formations/but/but3/nosql/cassandra/";
             },},{id: "formations-tp3",
