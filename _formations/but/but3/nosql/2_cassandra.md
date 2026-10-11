@@ -395,9 +395,9 @@ SELECT COUNT(*) FROM stations_par_id;
 
 Pour chaque besoin, écrivez et exécutez une requête CQL en ne conservant que les colonnes demandées. Pour chacune, notez quelles colonnes de la clé primaire apparaissent dans le `WHERE`.
 
-1. Afficher toutes les informations de la station `427`.
-2. Afficher le nom, la commune et la capacité de la station `610`.
-3. Afficher uniquement les identifiants et les noms des stations `501`, `502` et `720`, **en une seule requête**.
+1. Afficher toutes les informations de la station `213688169`.
+2. Afficher le nom, la commune et la capacité de la station `653208733`.
+3. Afficher uniquement les identifiants et les noms des stations `36255`, `653200142` et `78348185`, **en une seule requête**.
 
 > :bulb: Une requête qui restreint la clé de partition par `=` ou par `IN` est servie sans parcourir la table. Dans ce TP, les requêtes efficaces commencent par la clé de partition.
 {:.block-tip}
@@ -422,10 +422,10 @@ Répondez avec vos propres mots :
 
 Écrivez une requête pour chaque modification, puis relisez la ligne pour vérifier :
 
-1. Passer la capacité de la station `501` à `32`.
-2. Ajouter le moyen de location `APPLEPAY` à la station `427`, sans remplacer les moyens déjà présents.
-3. Retirer le moyen de location `KEY` de la station `427`.
-4. Modifier le nom de la station `720`.
+1. Passer la capacité de la station `36255` à `32`.
+2. Ajouter le moyen de location `APPLEPAY` à la station `213688169`, sans remplacer les moyens déjà présents.
+3. Retirer le moyen de location `KEY` de la station `213688169`.
+4. Modifier le nom de la station `78348185`.
 5. Supprimer la colonne `lon` de la station `611`, sans supprimer le reste de la station. Qu'affiche Cassandra pour cette colonne ?
 
 > Pour une collection `set`, `+` ajoute des valeurs et `-` en retire : `SET colonne = colonne + {'valeur'}`.
@@ -466,21 +466,21 @@ Chargez les données de la table `station_historique_journalier`, puis vérifiez
 
 ```sql
 SELECT COUNT(*) FROM station_historique_journalier
-WHERE station_id = 427 AND day = '2026-10-04';
+WHERE station_id = 213688169 AND day = '2026-10-04';
 ```
 
 <!--- TODO : indiquer le nombre attendu (288 si une mesure toutes les 5 minutes sur une journée complète) --->
 
 ## 4.3 Écrire des requêtes temporelles
 
-Pour la station `427`, écrivez une requête pour chaque besoin :
+Pour la station `213688169`, écrivez une requête pour chaque besoin :
 
 1. Afficher les quatre dernières mesures du `4 octobre 2026`.
 2. Afficher uniquement l'horodatage, le nombre de vélos mécaniques et le nombre de bornes libres pour cette journée, limités à 10 lignes.
 3. Afficher les mesures comprises entre `09:00` et `09:30`, inclusivement.
 4. Afficher les mesures de cette même plage dans l'ordre chronologique, de la plus ancienne à la plus récente.
-5. Afficher les mesures de la station `501` pour cette même journée. Vérifier que les données d'une station ne se mélangent pas à celles d'une autre.
-6. Insérer une mesure à `09:02` pour la station `427` avec la valeur `is_renting = false`. Que se passe-t-il, sachant qu'une mesure existe déjà à cet horodatage ? Relisez la ligne pour vérifier.
+5. Afficher les mesures de la station `36255` pour cette même journée. Vérifier que les données d'une station ne se mélangent pas à celles d'une autre.
+6. Insérer une mesure à `09:02` pour la station `213688169` avec la valeur `is_renting = false`. Que se passe-t-il, sachant qu'une mesure existe déjà à cet horodatage ? Relisez la ligne pour vérifier.
 
 Testez ensuite une requête qui ne donne que l'horodatage, sans station ni jour. Relevez l'erreur et expliquez pourquoi la clé de partition doit être fournie.
 
@@ -488,7 +488,7 @@ Testez ensuite une requête qui ne donne que l'horodatage, sans station ni jour.
 
 La clé de partition contient le jour pour éviter qu'une partition de station grandisse sans limite. Une recherche qui couvre plusieurs jours doit donc interroger plusieurs partitions.
 
-1. Écrivez les requêtes qui retournent les mesures du `3` et du `4 octobre` pour la station `427`. Pouvez-vous le faire en une seule requête ?
+1. Écrivez les requêtes qui retournent les mesures du `3` et du `4 octobre` pour la station `213688169`. Pouvez-vous le faire en une seule requête ?
 2. Expliquez comment une application déterminerait les jours concernés par une période de 24 heures et combinerait les résultats.
 3. Calculez le nombre maximal de lignes par partition si une mesure est enregistrée chaque minute. Comparez avec le `COUNT(*)` observé en 4.2. Quel est l'intérêt d'une telle borne ?
 4. Expliquez le compromis entre un bucket par jour et un bucket par heure.
@@ -523,16 +523,16 @@ Depuis le notebook, chargez les données de `stations_par_commune` : calculez ce
 2. Afficher les deux premières stations de `Nanterre`.
 3. Afficher les stations de `Saint-Mandé`.
 4. Afficher les stations de `Nanterre` qui n'ont aucun vélo. Si aucune ne convient, ajoutez d'abord une station appropriée.
-5. Retrouver la station `502` dans la partition `Nanterre`.
+5. Retrouver la station `653200142` dans la partition `Nanterre`.
 
 ## 5.4 Mettre à jour une clé de clustering
 
-La station `427` passe à 3 vélos disponibles. Modifiez son état dans `stations_par_commune`.
+La station `213688169` passe à 3 vélos disponibles. Modifiez son état dans `stations_par_commune`.
 
 1. Essayez de modifier directement `num_bikes_available` avec un `UPDATE`.
 2. Relevez et expliquez le résultat.
 3. Écrivez les opérations nécessaires pour supprimer l'ancienne ligne puis insérer la nouvelle.
-4. Relisez la partition de `Nanterre` et vérifiez que l'ancienne disponibilité de la station `427` a disparu.
+4. Relisez la partition de `Nanterre` et vérifiez que l'ancienne disponibilité de la station `213688169` a disparu.
 
 Expliquez en quoi ce cas illustre le coût de la dénormalisation, et pourquoi l'application doit tenir à jour toutes les tables de requêtes.
 
