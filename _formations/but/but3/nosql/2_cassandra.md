@@ -324,7 +324,7 @@ Testez ce principe avec une petite table d'exemple dans la console CQL :
 ```sql
 CREATE TABLE station_demo (
     station_id int,
-    ts timestamp,
+    ts         timestamp,
     name       text,
     capacity   int,
     PRIMARY KEY (station_id, ts)
@@ -367,15 +367,15 @@ Pour une clé de partition composée de plusieurs colonnes, on ajoute des parent
 
 Créez une table `stations_par_id` pour retrouver les informations d'une station à partir de son identifiant.
 
-| Colonne | Type CQL |
-| --- | --- |
-| `station_id` | `int` |
-| `station_code` | `text` |
-| `name` | `text` |
-| `commune` | `text` |
-| `lat` | `double` |
-| `lon` | `double` |
-| `capacity` | `int` |
+| Colonne | Type CQL    |
+| --- |-------------|
+| `station_id` | `bigint`     |
+| `station_code` | `text`      |
+| `name` | `text`      |
+| `commune` | `text`      |
+| `lat` | `double`    |
+| `lon` | `double`    |
+| `capacity` | `int`       |
 | `rental_methods` | `set<text>` |
 
 Choisissez la clé primaire : elle doit permettre de retrouver une station précise à partir de son identifiant.
