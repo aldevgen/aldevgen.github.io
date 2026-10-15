@@ -146,30 +146,17 @@ Sélectionnez le **cloud provider** AWS et la **région** par défaut (`us-east-
 
 {% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/cassandra/astra-create-database.png" title="Astra DB" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
 
-Pendant la création de la base de données, vous pouvez générer un **token d'application** (avec le rôle `Database Administrator`) pour vous connecter depuis Python.
-Copiez-le immédiatement sur un éditeur de texte : il n'est affiché qu'une fois. :warning: 
+:bulb: La création de la base de données prend quelques minutes. Pendant ce temps, vous pouvez lire la documentation de Cassandra et de CQL pour vous familiariser avec les concepts.
 
-{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/cassandra/astra-generate-token.png" title="Astra DB" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
-
-Une fois le token généré, il faut télécharger le **Secure Connect Bundle** (un fichier `.zip`).
-Placez-le dans le dossier `TP2/` du repo `but3-formation-nosql-tp`.
-
-{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/cassandra/astra-download-scb.png" title="Astra DB" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
-
-> :warning: Ne placez jamais le token ou le bundle dans un dépôt Git.
-> Vérifiez qu'ils figurent dans le `.gitignore` avant votre premier `git add`.
-{:.block-warning}
-
-:bulb: La création de la base de données prend quelques minutes.
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/cassandra/astra-cql-console.png" title="Astra DB" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
 
 ## 1.3 Récupération des données
 
-Les données sont fournies dans le repo `data/csv/velib` du projet.
-Vous pouvez les télécharger via l'UI de [GitHub](https://github.com/aldevgen/data/tree/main/csv/velib).
+Les données sont fournies dans le repo `data/cql` du projet.
+Vous pouvez les télécharger via l'UI de [GitHub](https://github.com/aldevgen/data/tree/main/cql).
 
-<!--
-Exécutez la cellule de connexion du notebook. Elle doit afficher la version de Cassandra.
---->
+Les fichiers CQL contiennent les commandes pour charger les données dans la base Cassandra.
+Il vous faudra créer les tables avant de charger les données.
 
 # 2. Le modèle Cassandra
 
@@ -181,121 +168,118 @@ Voici quelques exemples de commandes CQL pour interagir avec la base de données
 
 - **Création d'un keyspace** :
     Sur DataStax Astra, le keyspace est créé depuis l'interface. Si vous utilisez un cluster local, vous pouvez créer un keyspace avec la commande suivante :
-    ```cql
-    CREATE KEYSPACE library
-    WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 3};
-    ```
+```sql
+CREATE KEYSPACE library
+WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 3};
+```
   
 - **Changement de keyspace** : 
-    ```cql
-    USE library ;
-    ```
+```sql
+USE library ;
+```
     L'instruction `USE` replace le keyspace courant par celui spécifié dans la requête.
     Ainsi, toutes les requêtes suivantes seront exécutées dans le keyspace `library`.
     Il n'est pas nécessaire de spécifier le keyspace dans les requêtes suivantes.
     On peut écrire directement `CREATE TABLE users (...)` sans spécifier le keyspace.
 
 - **Liste des keyspaces** :
-    ```cql
-    DESCRIBE KEYSPACES;
-    ```
+```sql
+DESCRIBE KEYSPACES;
+```
     Cette commande permet de lister tous les keyspaces disponibles dans le cluster.
 
 - **Description d'un keyspace** :
-    ```cql
-    DESCRIBE KEYSPACE library;
-    ```
+```sql
+DESCRIBE KEYSPACE library;
+```
     Cette commande permet de voir les détails du keyspace `library`.
 
 - **Suppression d'un keyspace** :
-    ```cql
-    DROP KEYSPACE IF EXISTS library;
-    ```
+```sql
+DROP KEYSPACE IF EXISTS library;
+```
 
 - **Création d’une table** :
     - __Clé primaire simple__
-    ```cql
-    CREATE TABLE library.users (
-        id UUID PRIMARY KEY,
-        name TEXT,
-        age INT
-    );
-    ```
+```sql
+CREATE TABLE library.users (
+    id UUID PRIMARY KEY,
+    name TEXT,
+    age INT
+);
+```
     Pour plus d'informations sur les types de données supportés par Cassandra, vous pouvez consulter [la documentation](https://cassandra.apache.org/doc/latest/cql/types.html).
 
     - __Clé primaire composite__
-    ```cql
-    CREATE TABLE library.load (
-        loan_id UUID,
-        user_id UUID,
-        timestamp TIMESTAMP,
-        PRIMARY KEY (loan_id, user_id)
-    );
-    ```
+```sql
+CREATE TABLE library.load (
+    loan_id UUID,
+    user_id UUID,
+    timestamp TIMESTAMP,
+    PRIMARY KEY (loan_id, user_id)
+);
+```
     Ici nous avons une table qui possède deux colonnes comme clé primaire. Cela signifie que la combinaison de `loan_id` et `user_id` doit être unique.
 
     - __Clé de clustering__
-    ```cql
-    CREATE TABLE library.loan (
-        loan_id UUID,
-        user_id UUID,
-        timestamp TIMESTAMP,
-        PRIMARY KEY ((loan_id, user_id), timestamp)
-    ) WITH CLUSTERING ORDER BY (timestamp DESC);
-    ```
+```sql
+CREATE TABLE library.loan (
+    loan_id UUID,
+    user_id UUID,
+    timestamp TIMESTAMP,
+    PRIMARY KEY ((loan_id, user_id), timestamp)
+) WITH CLUSTERING ORDER BY (timestamp DESC);
+```
     Ici la clé primaire est composée de `driver_id` et `customer_id`, et la clé de clustering est `timestamp`.
     On ajoute `WITH CLUSTERING ORDER BY (timestamp DESC)` pour trier les données par ordre décroissant de `timestamp`.
 
 - **Liste des tables** :
-    ```cql
-    DESCRIBE TABLES;
-    ```
+```sql
+DESCRIBE TABLES;
+```
     Cette commande permet de lister toutes les tables du keyspace courant.
 
 - **Description d'une table** :
-    ```cql
-    DESCRIBE TABLE library.users;
-    ```
+```sql
+DESCRIBE TABLE library.users;
+```
     Cette commande permet de voir les détails de la table `customers`.
 
 - **Insertion de données** :
-    ```cql
-    INSERT INTO library.users (id, name, age)
-    VALUES (6a6148d1-4a56-4d6a-a610-cdf7b7e3b959, 'Alice', 30);
-
-    INSERT INTO library.users (id, name, age)
-    VALUES (uuid(), 'Bob', 23);
-    ```
+```sql
+INSERT INTO library.users (id, name, age) VALUES (6a6148d1-4a56-4d6a-a610-cdf7b7e3b959, 'Alice', 30);
+INSERT INTO library.users (id, name, age) VALUES (uuid(), 'Bob', 23);
+```
 
 - **Sélection de données** :
-    ```cql
-    SELECT * FROM library.users WHERE age > 25;
-    ```
+```sql
+SELECT * FROM library.users WHERE age > 25;
+```
 
 - **Mise à jour de données** :
-    ```cql
-    UPDATE library.users SET age = 26 WHERE id = 6a6148d1-4a56-4d6a-a610-cdf7b7e3b959;
-    ```
+```sql
+UPDATE library.users SET age = 26 WHERE id = 6a6148d1-4a56-4d6a-a610-cdf7b7e3b959;
+```
 
 - **Suppression de données** :
-    ```cql
-    DELETE FROM library.users WHERE id = 6a6148d1-4a56-4d6a-a610-cdf7b7e3b959;
-    ```
+```sql
+DELETE FROM library.users WHERE id = 6a6148d1-4a56-4d6a-a610-cdf7b7e3b959;
+```
 
 - **Suppression d'une table** :
-    ```cql
-    DROP TABLE IF EXISTS library.users;
-    ```
+```sql
+DROP TABLE IF EXISTS library.users;
+```
 
 - **Création d'un index** :
-    ```cql
-    CREATE INDEX IF NOT EXISTS name_index ON library.users (name);
-    ```
+```sql
+CREATE INDEX IF NOT EXISTS name_index ON library.users (name);
+```
 
 - **Suppression d'un index** :
-    ```cql
-    DROP INDEX IF EXISTS name_index;
-    ```
+```sql
+DROP INDEX IF EXISTS name_index;
+```
 
 Comme vu dans le cours, chaque table doit correspondre à une requête précise. Ainsi, il est important de bien choisir la clé de partition et la clé de clustering pour optimiser les performances de la base de données. Aussi, il peut être nécessaire de dupliquer les données pour répondre à différents types de requêtes.
 
@@ -383,7 +367,8 @@ Affichez ensuite la définition avec `DESCRIBE TABLE` et justifiez votre choix e
 
 ## 3.2 Charger les données
 
-Chargez les données de `stations_par_id` puis vérifiez le nombre de lignes :
+Chargez les données de `stations_par_id` en utilisant les données fournies dans [le fichier](https://github.com/aldevgen/data/blob/main/cql/insert_stations_par_id.cql) `data/cql/insert_stations_par_id.cql`.
+Puis vérifiez le nombre de lignes :
 
 ```sql
 SELECT COUNT(*) FROM stations_par_id;
@@ -443,15 +428,15 @@ L'état d'une station est publié périodiquement. L'application doit pouvoir :
 
 Concevez une table `station_historique_journalier` :
 
-| Colonne | Type CQL |
-| --- | --- |
-| `station_id` | `int` |
-| `day` | `date` |
+| Colonne | Type CQL    |
+| --- |-------------|
+| `station_id` | `bigint`    |
+| `day` | `date`      |
 | `ts` | `timestamp` |
-| `mechanical` | `int` |
-| `electrical` | `int` |
-| `num_docks_available` | `int` |
-| `is_renting` | `boolean` |
+| `mechanical` | `int`       |
+| `electrical` | `int`       |
+| `num_docks_available` | `int`       |
+| `is_renting` | `boolean`   |
 
 La clé primaire doit créer **une partition par station et par jour**, puis trier les mesures par horodatage décroissant. Ajoutez une durée de vie par défaut de 30 jours (2592000 secondes).
 
@@ -462,7 +447,8 @@ Affichez la définition de la table, puis expliquez la clé de partition et la c
 
 ## 4.2 Charger les mesures
 
-Chargez les données de la table `station_historique_journalier`, puis vérifiez :
+Chargez les données de la table `station_historique_journalier` dans [le fichier](https://github.com/aldevgen/data/blob/main/cql/insert_station_historique_journalier.cql) `data/cql/insert_station_historique_journalier.cql`.
+Puis vérifiez :
 
 ```sql
 SELECT COUNT(*) FROM station_historique_journalier
