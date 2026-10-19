@@ -1,10 +1,10 @@
 ---
 layout: page
 type: formation
-title: TP migration
-description: Migration de la base de données
+title: Séance 3
+description: Tests de non-régression
 category: BUT 3 - SAÉ migration vers NoSQL
-visible: true
+visible: false
 img:
 tabs: true
 mermaid:
