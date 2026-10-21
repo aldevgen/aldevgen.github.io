@@ -14,9 +14,6 @@ mermaid:
 
 # Migration d'une base relationnelle vers NoSQL
 
-> **En bref.** Une webradio indépendante vous confie sa base de données et vous demande de la faire passer d’un modèle relationnel (SQLite) à un modèle NoSQL, **sans rien perdre ni déformer**. Cette première séance pose les fondations de tout le projet : comprendre la base, puis écrire les requêtes qui serviront de test de réussite à la migration.
-{: .block-example }
-
 ## :headphones: Contexte
 
 ### :studio_microphone: La webradio
