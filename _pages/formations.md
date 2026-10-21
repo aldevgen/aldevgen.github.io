@@ -12,7 +12,7 @@ display_categories: [
      "Versionnage avec Git",
     # "BUT 2 - Programmation Orientée Objet en Python",
      "BUT 3 - Des bases de données distribuées au NoSQL",
-    # "BUT 3 - SAÉ migration vers NoSQL",
+     "BUT 3 - SAÉ migration vers NoSQL",
     "Cnam CS103 - Introduction au NoSQL",
   ]
 horizontal: false

@@ -1,10 +1,10 @@
 ---
 layout: page
 type: formation
-title: Consignes
-description: Livrables attendus
+title: Livrables attendus
+description: 
 category: BUT 3 - SAÉ migration vers NoSQL
-visible: true
+visible: false
 img:
 tabs: true
 mermaid:
