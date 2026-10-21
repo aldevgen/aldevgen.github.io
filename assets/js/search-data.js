@@ -86,21 +86,31 @@ ninja.data = [{
           description: "TP noté",
           section: "Formations",handler: () => {
               window.location.href = "/formations/but/but3/nosql/exam/";
-            },},{id: "formations-contexte",
-          title: 'Contexte',
-          description: "Présentation des données",
+            },},{id: "formations-livrables-attendus",
+          title: 'Livrables attendus',
+          description: "",
           section: "Formations",handler: () => {
-              window.location.href = "/formations/but/but3/sae/contexte/";
-            },},{id: "formations-consignes",
-          title: 'Consignes',
-          description: "Livrables attendus",
+              window.location.href = "/formations/but/but3/sae/livrables/";
+            },},{id: "formations-planning",
+          title: 'Planning',
+          description: "Organisation des séances",
           section: "Formations",handler: () => {
-              window.location.href = "/formations/but/but3/sae/consignes/";
-            },},{id: "formations-tp-migration",
-          title: 'TP migration',
+              window.location.href = "/formations/but/but3/sae/planning/";
+            },},{id: "formations-séance-1",
+          title: 'Séance 1',
+          description: "Découverte et requêtage des données",
+          section: "Formations",handler: () => {
+              window.location.href = "/formations/but/but3/sae/queries/";
+            },},{id: "formations-séance-2",
+          title: 'Séance 2',
           description: "Migration de la base de données",
           section: "Formations",handler: () => {
               window.location.href = "/formations/but/but3/sae/migration/";
+            },},{id: "formations-séance-3",
+          title: 'Séance 3',
+          description: "Tests de non-régression",
+          section: "Formations",handler: () => {
+              window.location.href = "/formations/but/but3/sae/test-non-regression/";
             },},{id: "formations-tp1",
           title: 'TP1',
           description: "Introduction à MongoDB",
