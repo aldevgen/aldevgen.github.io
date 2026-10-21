@@ -88,7 +88,7 @@ ninja.data = [{
               window.location.href = "/formations/but/but3/nosql/exam/";
             },},{id: "formations-livrables-attendus",
           title: 'Livrables attendus',
-          description: "",
+          description: "Consignes du rapport et du code à rendre",
           section: "Formations",handler: () => {
               window.location.href = "/formations/but/but3/sae/livrables/";
             },},{id: "formations-planning",
