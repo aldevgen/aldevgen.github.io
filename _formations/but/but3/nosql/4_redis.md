@@ -1,7 +1,7 @@
 ---
 layout: page
 type: formation
-title: TP3
+title: TP4
 description: Gestion du cache avec Redis
 category: BUT 3 - Des bases de données distribuées au NoSQL
 visible: false
@@ -11,6 +11,11 @@ mermaid:
   enabled: true
   zoomable: true
 ---
+
+> :exclamation: **Intelligence artificielle interdite.** Il est strictement interdit de transmettre
+  tout ou partie de ce support (questions, scripts, captures d'écran) à une IA générative (ChatGPT,
+  Claude, Gemini, Copilot, Mistral, etc.).
+{:.block-danger}
 
 # Prise en main de Redis
 

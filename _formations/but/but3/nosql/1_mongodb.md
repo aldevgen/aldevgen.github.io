@@ -12,17 +12,10 @@ mermaid:
   zoomable: true
 ---
 
-<!---
-# Prise en main de MongoDB Compass
-
-# Requêtes avancées
-
-# Agrégations
-
-# Indexation et optimisation
-
-# Cas pratique : modélisation d'un blog
---->
+> :exclamation: **Intelligence artificielle interdite.** Il est strictement interdit de transmettre
+  tout ou partie de ce support (questions, scripts, captures d'écran) à une IA générative (ChatGPT,
+  Claude, Gemini, Copilot, Mistral, etc.).
+{:.block-danger}
 
 # 1. Préparation de la base de données MongoDB
 
