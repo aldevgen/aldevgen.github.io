@@ -68,14 +68,14 @@ ninja.data = [{
               window.location.href = "/formations/but/but3/nosql/cassandra/";
             },},{id: "formations-tp3",
           title: 'TP3',
-          description: "Gestion du cache avec Redis",
-          section: "Formations",handler: () => {
-              window.location.href = "/formations/but/but3/nosql/redis/";
-            },},{id: "formations-tp4",
-          title: 'TP4',
           description: "Modélisation de graphs avec Neo4j",
           section: "Formations",handler: () => {
               window.location.href = "/formations/but/but3/nosql/neo4j/";
+            },},{id: "formations-tp4",
+          title: 'TP4',
+          description: "Gestion du cache avec Redis",
+          section: "Formations",handler: () => {
+              window.location.href = "/formations/but/but3/nosql/redis/";
             },},{id: "formations-tp5",
           title: 'TP5',
           description: "Mini-projet",
