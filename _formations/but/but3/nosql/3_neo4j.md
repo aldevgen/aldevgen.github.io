@@ -22,8 +22,6 @@ mermaid:
 
 L'objectif de ce TP est d'explorer, interroger puis enrichir le graphe des Coupes du monde de football avec Neo4j et le langage Cypher, avant de le relier à un petit réseau social de supporters.
 
-Chaque partie suit le même déroulé : une explication courte illustrée par des **requêtes d'exemple commentées** sur la base de films **Movies**, puis des **questions** sur la base des **Coupes du monde**.
-
 ## Le modèle de graphe de propriétés
 
 Neo4j stocke les données sous forme d'un **graphe de propriétés**, composé de :
@@ -42,15 +40,17 @@ Il n'y a pas de schéma imposé : deux nœuds `:Person` peuvent avoir des propri
 | Clé étrangère / table d'association | Relation |
 | Jointure | Parcours d'une relation |
 
-**Pourquoi un graphe ?** En SQL, retrouver les adversaires d'une joueuse demanderait de joindre les tables joueuses, participations, matchs et équipes : chaque saut coûte une jointure.
+### Pourquoi un graphe ?
+
+En SQL, retrouver les adversaires d'une joueuse demanderait de joindre les tables joueuses, participations, matchs et équipes : chaque saut coûte une jointure.
 Dans Neo4j, chaque nœud connaît directement ses relations (*index-free adjacency*) : le coût d'une requête dépend de la **portion de graphe parcourue**, et non de la taille totale de la base.
 Neo4j est ainsi adapté aux données **très connectées** : réseaux sociaux, recommandation, détection de fraude, réseaux de transport.
 
 ## Bases des données
 
 Pour ce TP, nous utiliserons deux bases de données Neo4j :
-- **Movies** : le jeu de données contient des films ; il est utilisé pour illustrer la syntaxe Cypher et les concepts de graphes de propriétés.
-- **Women's World Cup** : le jeu de données des Coupes du monde de football, publié par Neo4j à partir des données de la FIFA. Il décrit les 8 Coupes du monde féminines de 1991 à 2019. Ce jeu de données est utilisé pour les questions du TP.
+- **Movies** : le jeu de données des films ; il est utilisé pour illustrer la syntaxe Cypher et les concepts de graphes de propriétés.
+- **Women's World Cup** : le jeu de données des Coupes du monde de football, à partir des données de la FIFA. Il décrit les 8 Coupes du monde féminines de 1991 à 2019.
 
 ### Movies
 
@@ -103,18 +103,20 @@ Une fois l'instance créée, vous aurez la vue suivante :
 
 Les données sont fournies sous forme d'un **dump**, une copie complète d'une base Neo4j, que l'on restaure directement depuis la console Aura.
 
-{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/neo4j/neo4j-restore-from-file.png" title="Neo4j" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
-
 1. Téléchargez le fichier [`wwc2019-50.dump`](https://github.com/neo4j-graph-examples/wwc2019/raw/main/data/wwc2019-50.dump) depuis le dépôt [neo4j-graph-examples/wwc2019](https://github.com/neo4j-graph-examples/wwc2019/tree/main/data/).
 2. Dans la console Aura, ouvrez votre instance `but-sd`, puis l'onglet **Restore from file**.
 3. Déposez le fichier `.dump` et confirmez la restauration.
+
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/neo4j/neo4j-restore-from-file.png" title="Neo4j" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
 
 > :warning: La restauration **remplace tout le contenu** de l'instance. Ce n'est pas un problème ici, puisque l'instance est vide.
 {:.block-warning}
 
 Une fois l'instance démarrée, ouvrez l'outil **Query** depuis la console Aura.
-Vous disposez d'un éditeur dans lequel vous pouvez saisir une requête Cypher et l'exécuter avec `Ctrl + Entrée` (ou `Cmd + Entrée` sur Mac).
+Vous disposez d'un éditeur dans lequel vous pouvez saisir une requête Cypher (après le prompt `$`) et l'exécuter avec `Ctrl + Entrée` (ou `Cmd + Entrée` sur Mac).
 Le résultat s'affiche sous forme de **graphe** ou de **tableau** : vous pouvez passer d'une vue à l'autre.
+
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/neo4j/neo4j-query.png" title="Neo4j" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
 
 <!--- TODO : si la restauration n'est pas disponible sur AuraDB Free, héberger le script de chargement adapté à Aura (apoc.load.json depuis les fichiers JSON du dépôt) dans aldevgen/data et donner son lien ici --->
 
@@ -126,6 +128,8 @@ MATCH (n) RETURN labels(n)[0] AS label, count(*) AS nb ORDER BY label;
 
 Vous devez obtenir 284 `Match`, 2 022 `Person`, 136 `Squad`, 36 `Team` et 8 `Tournament`.
 
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/neo4j/neo4j-query-wwc.png" title="Neo4j" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
+
 Il est possible de visualiser le schéma du graphe avec la commande suivante :
 ```cypher
 CALL db.schema.visualization();
@@ -133,8 +137,19 @@ CALL db.schema.visualization();
 
 {% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/neo4j/neo4j-visualisation-model.png" title="Neo4j" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
 
-> :warning: Cypher est **sensible à la casse** pour les labels, les types de relations et les propriétés : `:Team` et `:team` sont deux labels différents.
-{:.block-warning}
+Pour afficher toutes les relations du graphe avec la requête suivante :
+
+```cypher
+MATCH (n)-[r]->(m)
+RETURN n,r,m
+```
+
+{% include figure.liquid loading="eager" path="assets/img/but/but3/nosql/neo4j/neo4j-display-graph.png" title="Neo4j" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
+
+Vous pouvez zoomer, déplacer les nœuds et cliquer sur un nœud ou une relation pour voir ses propriétés.
+Seuls 5 000 résultats sont affichés par défaut dans l'outil Query.
+
+
 
 
 # 2. Lire des nœuds et des relations
@@ -153,6 +168,9 @@ LIMIT 3;
 - `(m:Movie)` désigne un nœud ; les parenthèses évoquent un cercle. `:Movie` restreint la recherche aux nœuds qui portent ce label, et `m` est une **variable** qui nomme chaque nœud trouvé.
 - `RETURN m.title, m.released` affiche deux propriétés de chaque film. `RETURN m` afficherait le nœud entier, visible dans la vue graphe.
 - `ORDER BY ... DESC` trie du plus récent au plus ancien ; `LIMIT 3` garde les 3 premières lignes.
+
+> :warning: Cypher est **sensible à la casse** pour les labels, les types de relations et les propriétés : `:Movie` et `:movie` sont deux labels différents.
+{:.block-warning}
 
 Pour filtrer, on écrit les propriétés attendues directement dans le nœud (égalité uniquement), ou on utilise `WHERE` pour une condition plus riche (`=`, `<>`, `<`, `>=`, `AND`, `OR`, `NOT`, `IN [...]`, `CONTAINS`, `IS NULL`...) :
 
@@ -215,10 +233,10 @@ RETURN m.title;
 ## 2.2 Retrouver les tournois, les buts et les matchs
 
 1. Afficher le nom et l'année de chaque tournoi, du plus ancien au plus récent.
-2. Afficher les années auxquelles le `Japan` a participé à la Coupe du monde.
-3. Afficher les buts marqués par `Megan Rapinoe` : date, phase de la compétition (`stage`) et minute.
-4. Afficher les matchs de la `France` lors de la Coupe du monde 2019 : date, phase, adversaire, buts de la France et buts de l'adversaire. Pourquoi le label `:Team` est-il indispensable sur le nœud adversaire ?
-5. Afficher les joueuses de l'effectif de la `France` en 2019 qui n'ont **joué aucun match** de ce tournoi.
+2. Afficher les années auxquelles le Japon a participé à la Coupe du monde.
+3. Afficher les informations des buts marqués par *Megan Rapinoe* : date, phase de la compétition (`stage`) et minute.
+4. Afficher les matchs de la France lors de la Coupe du monde 2019 : date, phase, adversaire, buts de la France et buts de l'adversaire. Pourquoi le label `:Team` est-il indispensable sur le nœud adversaire ?
+5. Afficher les joueuses de l'effectif de la France en 2019 qui n'ont **joué aucun match** de ce tournoi.
 
 
 # 3. Agréger et parcourir des chemins
@@ -283,8 +301,8 @@ RETURN chemin, length(chemin) AS nb_relations,
 1. Afficher le nombre d'équipes de chaque tournoi, par ordre chronologique. Que constatez-vous ?
 2. Afficher les joueuses sélectionnées pour **au moins 5 Coupes du monde**, avec la liste des années.
 3. Afficher la **meilleure buteuse de chaque tournoi**, avec son nombre de buts.
-4. Combien de coéquipières différentes (même effectif) `Formiga` a-t-elle eues en Coupe du monde ?
-5. Afficher le plus court chemin entre `Birgit Prinz` et `Wendie Renard` en n'utilisant que des relations `PLAYED_IN`. Ce chemin ne passe-t-il que par des joueuses et des matchs ? Corrigez la requête pour que ce soit le cas, puis indiquez combien de matchs séparent les deux joueuses.
+4. Combien de coéquipières différentes (même effectif) Formiga a-t-elle eues en Coupe du monde ?
+5. Afficher le plus court chemin entre Birgit Prinz et Wendie Renard en n'utilisant que des relations `PLAYED_IN`. Ce chemin ne passe-t-il que par des joueuses et des matchs ? Corrigez la requête pour que ce soit le cas, puis indiquez combien de matchs séparent les deux joueuses.
 
 
 # 4. Écrire dans le graphe
@@ -336,10 +354,10 @@ Dans le plan, l'opérateur `NodeUniqueIndexSeek` indique un accès direct par l'
 
 ## 4.2 Ajouter la finale 2023 et protéger le graphe des doublons
 
-1. Ajoutez la Coupe du monde 2023 : un tournoi d'identifiant `wwc2023`, nommé `Australia & New Zealand 2023`, de l'année 2023, et sa finale, dans laquelle `Spain` a battu `England` 1 à 0 le 20 août 2023, grâce à un but d'`Olga Carmona` à la 29<sup>e</sup> minute. Créez ce qui est nécessaire (tournoi, participations, match, scores, joueuse, but) en respectant le modèle et sans créer de doublon.
-2. Exécutez **deux fois** `CREATE (:Team {name: 'France'});`, puis comptez les équipes `France`. Pourquoi les contraintes affichées par `SHOW CONSTRAINTS` n'ont-elles pas empêché ces doublons ? Supprimez-les **sans** supprimer l'équipe d'origine, créez une contrainte d'unicité sur `Team.name`, puis relancez le `CREATE`. Que se passe-t-il ? Et avec `MERGE` ?
+1. Ajoutez la Coupe du monde 2023 : un tournoi d'identifiant `wwc2023`, nommé *Australia & New Zealand 2023*, de l'année 2023, et sa finale, dans laquelle l'Espagne a battu l'Angleterre 1 à 0 le 20 août 2023, grâce à un but d'Olga Carmona à la 29<sup>e</sup> minute. Créez ce qui est nécessaire (tournoi, participations, match, scores, joueuse, but) en respectant le modèle et sans créer de doublon.
+2. Exécutez **deux fois** `CREATE (:Team {name: 'France'});`, puis comptez le nombre d'équipes de France dans la base de données. Pourquoi les contraintes affichées par `SHOW CONSTRAINTS` n'ont-elles pas empêché ces doublons ? Supprimez-les **sans** supprimer l'équipe d'origine, créez une contrainte d'unicité sur `Team.name`, puis relancez le `CREATE`. Que se passe-t-il ? Et avec `MERGE` ?
 3. Exécutez `PROFILE MATCH (p:Person) WHERE p.name = 'Marta' RETURN p;`. Quel opérateur est utilisé, et combien de nœuds sont examinés ? Créez un index avec `CREATE INDEX person_name FOR (p:Person) ON (p.name);`, relancez la requête et comparez.
-4. Supprimez le tournoi 2023, son match et la joueuse `Olga Carmona`. Pourquoi `DELETE` seul échoue-t-il ?
+4. Supprimez le tournoi 2023, son match et la joueuse Olga Carmona. Pourquoi `DELETE` seul échoue-t-il ?
 
 
 # 5. Cas pratique : un réseau social de supporters
