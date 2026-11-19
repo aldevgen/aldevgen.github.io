@@ -4,7 +4,7 @@ type: formation
 title: Installation de PyCharm
 description: Installation de l'IDE PyCharm pour le développement Python
 category: Prérequis
-visible: true
+visible: false
 img: /assets/img/prerequis/pycharm.svg
 tabs: true
 mermaid:

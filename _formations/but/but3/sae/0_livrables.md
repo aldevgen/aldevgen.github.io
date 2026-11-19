@@ -12,6 +12,11 @@ mermaid:
   zoomable: true
 ---
 
+> :exclamation: **Intelligence artificielle interdite.** Il est strictement interdit de transmettre
+  tout ou partie de ce support (questions, scripts, captures d'écran) à une IA générative (ChatGPT,
+  Claude, Gemini, Copilot, Mistral, etc.).
+{:.block-danger}
+
 # :package: Rendu final
 
 > **En bref.** Une webradio indépendante vous confie sa base de données et vous demande de la faire passer d’un modèle relationnel (SQLite) à un modèle NoSQL.

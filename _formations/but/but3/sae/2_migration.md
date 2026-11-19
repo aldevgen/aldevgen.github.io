@@ -12,4 +12,9 @@ mermaid:
   zoomable: true
 ---
 
+> :exclamation: **Intelligence artificielle interdite.** Il est strictement interdit de transmettre
+  tout ou partie de ce support (questions, scripts, captures d'écran) à une IA générative (ChatGPT,
+  Claude, Gemini, Copilot, Mistral, etc.).
+{:.block-danger}
+
 # Migration
